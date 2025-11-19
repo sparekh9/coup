@@ -1,57 +1,65 @@
 #pragma once
 
+#include "rules/game_rules.h"
 #include <array>
 #include <vector>
 #include <string>
 #include <cstdint>
 #include <variant>
+#include <cmath>
 
-
-// Enums for game elements
-enum class Influence : uint8_t {
-    DUKE = 0,
-    CAPTAIN = 1,
-    ASSASSIN = 2
-};
-
-enum class Action : uint8_t {
-    INCOME = 0,
-    TAX = 1,
-    STEAL = 2,
-    ASSASSINATE = 3,
-    COUP = 4
-};
-
+// ============================================================================
+// Challenge Response (shared across all variants)
+// ============================================================================
 enum class ChallengeResponse : uint8_t {
     PASS = 0,
     CHALLENGE = 1
 };
 
-// Type alias for action variant
-using GameAction = std::variant<Action, ChallengeResponse>;
+// ============================================================================
+// Template Forward Declarations
+// ============================================================================
+template<typename Rules>
+struct GameState;
 
-// Fixed-size action list (avoids heap allocation)
+template<typename Rules>
+struct ActionList;
+
+// ============================================================================
+// ActionList - Fixed-size action list (avoids heap allocation)
+// ============================================================================
+template<typename Rules>
 struct ActionList {
-    std::array<GameAction, 5> actions;
+    using Action = typename Rules::Action;
+    using GameAction = std::variant<Action, ChallengeResponse>;
+
+    std::array<GameAction, 8> actions;  // Max 8 actions (enough for any variant)
     uint8_t count;
 
     const GameAction* begin() const { return actions.data(); }
     const GameAction* end() const { return actions.data() + count; }
 };
 
-// Game state representation
+// ============================================================================
+// GameState - Templated game state representation
+// ============================================================================
+template<typename Rules>
 struct GameState {
-    // Using fixed-size arrays instead of vectors to avoid heap allocation
-    std::array<Influence, 2> p1_influences;
+    using Influence = typename Rules::Influence;
+    using Action = typename Rules::Action;
+    using GameAction = std::variant<Action, ChallengeResponse>;
+
+    // Fixed-size arrays based on Rules configuration
+    std::array<Influence, Rules::MAX_INFLUENCES_PER_PLAYER> p1_influences;
     uint8_t p1_influence_count;
-    std::array<Influence, 2> p2_influences;
+    std::array<Influence, Rules::MAX_INFLUENCES_PER_PLAYER> p2_influences;
     uint8_t p2_influence_count;
     uint8_t p1_coins;
     uint8_t p2_coins;
     uint8_t current_player;  // 1 or 2
-    std::array<Influence, 6> deck;
+    std::array<Influence, Rules::DECK_SIZE> deck;
     uint8_t deck_count;
-    std::array<Influence, 4> revealed_cards;
+    std::array<Influence, 2 * Rules::MAX_INFLUENCES_PER_PLAYER> revealed_cards;
     uint8_t revealed_count;
 
     // Pending action state (for challenge responses)
@@ -75,22 +83,36 @@ struct GameState {
     uint64_t get_info_set_key(int player) const;
 
     // Legal actions (returns fixed-size list to avoid heap allocation)
-    ActionList get_legal_actions() const;
+    ActionList<Rules> get_legal_actions() const;
 };
 
-// Free functions for game logic
-GameState create_initial_state();
-GameState apply_action(GameState state, const GameAction& action);  // Pass by value for move semantics
+// ============================================================================
+// Free Functions - Game Logic
+// ============================================================================
+template<typename Rules>
+GameState<Rules> create_initial_state();
 
-// Helper functions
-std::string influence_to_string(Influence inf);
-std::string action_to_string(Action act);
+template<typename Rules>
+GameState<Rules> apply_action(GameState<Rules> state,
+                               const typename GameState<Rules>::GameAction& action);
+
+// ============================================================================
+// Helper Functions
+// ============================================================================
 std::string challenge_response_to_string(ChallengeResponse resp);
-std::string game_action_to_string(const GameAction& action);
-Influence get_required_influence(Action action);
-void shuffle_deck(GameState& state);
-void lose_influence(GameState& state, int player_id);
-void execute_action(GameState& state, int player_id, Action action);
+
+template<typename Rules>
+std::string game_action_to_string(const typename GameState<Rules>::GameAction& action);
+
+template<typename Rules>
+void shuffle_deck(GameState<Rules>& state);
+
+template<typename Rules>
+void lose_influence(GameState<Rules>& state, int player_id);
+
+template<typename Rules>
+void execute_action(GameState<Rules>& state, int player_id,
+                    typename Rules::Action action);
 
 // ============================================================================
 // EFFICIENT State Abstraction (Inline + Lookup Table)
@@ -98,7 +120,7 @@ void execute_action(GameState& state, int player_id, Action action);
 
 // Configuration: Choose abstraction strategy at compile time
 
-constexpr int DEPTH_LIMIT = 20;
+constexpr int DEPTH_LIMIT = 25;
 
 enum class AbstractionMode {
     NONE,          // No abstraction - use exact coins (7hr runtime)
@@ -194,3 +216,5 @@ inline uint8_t abstract_opp_coins(uint8_t coins) {
     }
 }
 
+// Include template implementations
+#include "game_state.tpp"

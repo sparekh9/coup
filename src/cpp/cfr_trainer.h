@@ -6,8 +6,14 @@
 #include <vector>
 #include <random>
 
-// Custom hash for GameAction variant (needed for unordered_map key)
+// ============================================================================
+// Custom hash and equality for GameAction variant
+// ============================================================================
+template<typename Rules>
 struct GameActionHash {
+    using Action = typename Rules::Action;
+    using GameAction = std::variant<Action, ChallengeResponse>;
+
     size_t operator()(const GameAction& action) const {
         if (std::holds_alternative<Action>(action)) {
             return std::hash<int>()(static_cast<int>(std::get<Action>(action)));
@@ -17,8 +23,11 @@ struct GameActionHash {
     }
 };
 
-// Equality comparison for GameAction
+template<typename Rules>
 struct GameActionEqual {
+    using Action = typename Rules::Action;
+    using GameAction = std::variant<Action, ChallengeResponse>;
+
     bool operator()(const GameAction& a, const GameAction& b) const {
         if (a.index() != b.index()) return false;
         if (std::holds_alternative<Action>(a)) {
@@ -29,14 +38,22 @@ struct GameActionEqual {
     }
 };
 
+// ============================================================================
+// CFRTrainer - Templated CFR trainer
+// ============================================================================
+template<typename Rules>
 class CFRTrainer {
+public:
+    using Action = typename Rules::Action;
+    using GameAction = std::variant<Action, ChallengeResponse>;
+    using ActionMap = std::unordered_map<GameAction, double, GameActionHash<Rules>, GameActionEqual<Rules>>;
+
 private:
     // Storage: info_set_key (uint64_t hash) -> (GameAction -> regret/strategy value)
-    // Using GameAction directly as key with custom hash
-    std::unordered_map<uint64_t, std::unordered_map<GameAction, double, GameActionHash>> regret_sum;
+    std::unordered_map<uint64_t, ActionMap> regret_sum;
 
     // Running weighted average strategy (updated incrementally)
-    std::unordered_map<uint64_t, std::unordered_map<GameAction, double, GameActionHash>> avg_strategy;
+    std::unordered_map<uint64_t, ActionMap> avg_strategy;
 
     // Total weight accumulated per info set (for weighted average normalization)
     std::unordered_map<uint64_t, double> total_weight;
@@ -50,6 +67,14 @@ private:
     // Maximum depth before switching to Monte Carlo rollouts
     int max_depth;
 
+    // Debug tracking
+    bool debug_enabled;
+    int debug_iteration;
+    std::unordered_map<uint64_t, int> state_visit_count;
+    std::unordered_map<std::string, int> action_count;
+    int max_debug_states;  // Limit how many states to print in detail
+    int debug_state_counter;
+
 public:
     CFRTrainer();
 
@@ -58,35 +83,34 @@ public:
     void set_max_depth(int depth) { max_depth = depth; }
     int get_max_depth() const { return max_depth; }
 
+    // Debug configuration
+    void enable_debug(bool enabled = true) { debug_enabled = enabled; }
+    void set_debug_iteration(int iter) { debug_iteration = iter; }
+    void set_max_debug_states(int max_states) { max_debug_states = max_states; }
+    void print_debug_statistics() const;
+    void reset_debug_counters();
+
     // Get current strategy using Regret Matching+ (RM+)
-    // Returns map from action to probability
-    std::unordered_map<GameAction, double, GameActionHash> get_strategy(
-        uint64_t info_set_key,
-        const ActionList& actions);
+    ActionMap get_strategy(uint64_t info_set_key,
+                          const ActionList<Rules>& actions);
 
     // Get average strategy over all training iterations
-    std::unordered_map<GameAction, double, GameActionHash> get_average_strategy(
-        uint64_t info_set_key,
-        const ActionList& actions);
+    ActionMap get_average_strategy(uint64_t info_set_key,
+                                   const ActionList<Rules>& actions);
 
     // Train for specified number of iterations
     void train(int iterations);
 
     // Core CFR algorithm - recursive traversal
-    // Returns utility for player 1 from this state
-    double cfr(GameState& state, int traversing_player, double reach_p1, double reach_p2);
+    double cfr(GameState<Rules>& state, int traversing_player,
+              double reach_p1, double reach_p2);
 
-    // External Sampling MCCFR - used after max_depth
-    // Explores all traversing player actions, samples opponent actions
-    // sample_prob tracks the probability of the sampled path for importance sampling
-    // Returns utility for player 1
-    double cfr_external_sampling(GameState& state, int traversing_player,
+    // External Sampling MCCFR
+    double cfr_external_sampling(GameState<Rules>& state, int traversing_player,
                                  double reach_p1, double reach_p2, double sample_prob);
 
     // Monte Carlo rollout from current state to terminal
-    // Samples actions according to current strategy until game ends
-    // Returns utility for player 1
-    double rollout(GameState state);
+    double rollout(GameState<Rules> state);
 
     // Persistence
     void save_strategy(const std::string& filename) const;
@@ -95,3 +119,6 @@ public:
     // Statistics
     size_t get_info_set_count() const { return avg_strategy.size(); }
 };
+
+// Include template implementations
+#include "cfr_trainer.tpp"
