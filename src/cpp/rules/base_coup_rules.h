@@ -47,7 +47,7 @@ struct BaseCoupRules {
     static constexpr int STARTING_COINS = 2;
     static constexpr int COUP_COST = 7;
     static constexpr int ASSASSINATE_COST = 3;
-    static constexpr int MUST_COUP_THRESHOLD = 10;
+    static constexpr int MUST_COUP_THRESHOLD = 7;
     static constexpr int STEAL_AMOUNT = 2;
     static constexpr int TAX_AMOUNT = 3;
     static constexpr int INCOME_AMOUNT = 1;

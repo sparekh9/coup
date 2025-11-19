@@ -1,0 +1,7361 @@
+{
+  "0x24e213ffeb9": {
+    "CHALLENGE": 0.434293,
+    "PASS": 0.565707
+  },
+  "0x24e213ffe89": {
+    "CHALLENGE": 0.0576199,
+    "PASS": 0.94238
+  },
+  "0x24e123ffe89": {
+    "CHALLENGE": 0.0525465,
+    "PASS": 0.947453
+  },
+  "0x24e123ffe48": {
+    "CHALLENGE": 0.0345218,
+    "PASS": 0.965478
+  },
+  "0x24e023ffff9": {
+    "STEAL": 0.85239,
+    "TAX": 0.101024,
+    "INCOME": 0.0465854
+  },
+  "0x24e213ffe48": {
+    "CHALLENGE": 0.0360699,
+    "PASS": 0.96393
+  },
+  "0x24e323ffe81": {
+    "CHALLENGE": 0.112599,
+    "PASS": 0.887401
+  },
+  "0x24e133fffc1": {
+    "STEAL": 0.651374,
+    "TAX": 0.345119,
+    "INCOME": 0.00350669
+  },
+  "0x24e233ffe40": {
+    "CHALLENGE": 0.904851,
+    "PASS": 0.0951485
+  },
+  "0x24e323ffe40": {
+    "CHALLENGE": 2.91355e-09,
+    "PASS": 1
+  },
+  "0x24e123ffeb9": {
+    "CHALLENGE": 0.0524917,
+    "PASS": 0.947508
+  },
+  "0x24e21bffe89": {
+    "CHALLENGE": 0.0131961,
+    "PASS": 0.986804
+  },
+  "0x24e12bffe89": {
+    "CHALLENGE": 0.00354555,
+    "PASS": 0.996454
+  },
+  "0x24e02bffff9": {
+    "STEAL": 0.0986459,
+    "TAX": 0.128565,
+    "INCOME": 0.772789
+  },
+  "0x24e21bffe48": {
+    "CHALLENGE": 0.0777356,
+    "PASS": 0.922264
+  },
+  "0x24e32bffe81": {
+    "CHALLENGE": 0.00564186,
+    "PASS": 0.994358
+  },
+  "0x24e32bffe40": {
+    "CHALLENGE": 0.000129733,
+    "PASS": 0.99987
+  },
+  "0x24e12bffeb9": {
+    "CHALLENGE": 0.0552633,
+    "PASS": 0.944737
+  },
+  "0x24e12bffe78": {
+    "CHALLENGE": 0.241852,
+    "PASS": 0.758148
+  },
+  "0x24e143ffff8": {
+    "STEAL": 1,
+    "TAX": 1.85108e-10,
+    "INCOME": 1.85108e-10
+  },
+  "0x24e233ffeb9": {
+    "CHALLENGE": 3.47757e-07,
+    "PASS": 1
+  },
+  "0x24e24bffff8": {
+    "STEAL": 0.333333,
+    "TAX": 0.333333,
+    "INCOME": 0.333333
+  },
+  "0x24e123ffe78": {
+    "CHALLENGE": 0.143712,
+    "PASS": 0.856288
+  },
+  "0x24e13bffff8": {
+    "STEAL": 1,
+    "TAX": 2.06955e-09,
+    "INCOME": 2.06955e-09
+  },
+  "0x24e213ffe78": {
+    "CHALLENGE": 0.0197332,
+    "PASS": 0.980267
+  },
+  "0x24e22bffff8": {
+    "STEAL": 0.0029996,
+    "TAX": 0.0038762,
+    "INCOME": 0.993124
+  },
+  "0x24e21bfffff": {
+    "STEAL": 0.337185,
+    "TAX": 0.0338065,
+    "INCOME": 0.629008
+  },
+  "0x24e40bffe89": {
+    "CHALLENGE": 0.0300437,
+    "PASS": 0.969956
+  },
+  "0x24e21bfffc9": {
+    "STEAL": 0.670405,
+    "TAX": 0.321402,
+    "INCOME": 0.00819287
+  },
+  "0x24e40bffe48": {
+    "CHALLENGE": 0.00115415,
+    "PASS": 0.998846
+  },
+  "0x24e423fffc8": {
+    "ASSASSINATE": 1,
+    "STEAL": 1.46315e-09,
+    "TAX": 1.83793e-10,
+    "INCOME": 5.86546e-09
+  },
+  "0x24e413fffcf": {
+    "ASSASSINATE": 0.711416,
+    "STEAL": 2.86621e-05,
+    "TAX": 0.000192966,
+    "INCOME": 0.288363
+  },
+  "0x24e51bffe81": {
+    "CHALLENGE": 2.11559e-05,
+    "PASS": 0.999979
+  },
+  "0x24e51bffe40": {
+    "CHALLENGE": 0.00267434,
+    "PASS": 0.997326
+  },
+  "0x24e533fffc0": {
+    "ASSASSINATE": 1,
+    "STEAL": 1.06068e-10,
+    "TAX": 1.06068e-10,
+    "INCOME": 2.13012e-09
+  },
+  "0x24e523fffc7": {
+    "ASSASSINATE": 0.909971,
+    "STEAL": 9.65573e-06,
+    "TAX": 7.75175e-07,
+    "INCOME": 0.090019
+  },
+  "0x24e31bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e31bffe89": {
+    "CHALLENGE": 0.0307348,
+    "PASS": 0.969265
+  },
+  "0x24e12bffff9": {
+    "STEAL": 0.914688,
+    "TAX": 0.00815624,
+    "INCOME": 0.0771562
+  },
+  "0x24e31bffe48": {
+    "CHALLENGE": 0.0362199,
+    "PASS": 0.96378
+  },
+  "0x24e333fffc8": {
+    "ASSASSINATE": 0.999264,
+    "STEAL": 4.41582e-05,
+    "TAX": 1.72137e-06,
+    "INCOME": 0.000689914
+  },
+  "0x24e42bffe81": {
+    "CHALLENGE": 0.0272503,
+    "PASS": 0.97275
+  },
+  "0x24e42bffe40": {
+    "CHALLENGE": 0.0108858,
+    "PASS": 0.989114
+  },
+  "0x24e443fffc0": {
+    "ASSASSINATE": 0.999934,
+    "STEAL": 7.41597e-06,
+    "TAX": 8.53652e-09,
+    "INCOME": 5.80893e-05
+  },
+  "0x24e22bffeb9": {
+    "CHALLENGE": 0.152416,
+    "PASS": 0.847584
+  },
+  "0x24e22bffe78": {
+    "CHALLENGE": 0.0216218,
+    "PASS": 0.978378
+  },
+  "0x24e243ffff8": {
+    "STEAL": 1,
+    "TAX": 2.741e-09,
+    "INCOME": 2.741e-09
+  },
+  "0x24e333ffff8": {
+    "ASSASSINATE": 1,
+    "STEAL": 4.96667e-11,
+    "TAX": 4.96667e-11,
+    "INCOME": 9.52681e-11
+  },
+  "0x24e323fffff": {
+    "ASSASSINATE": 1,
+    "STEAL": 1.75577e-10,
+    "TAX": 1.75577e-10,
+    "INCOME": 8.55846e-10
+  },
+  "0x24e423ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e333ffeb9": {
+    "CHALLENGE": 0.8274,
+    "PASS": 0.1726
+  },
+  "0x24e34bffff8": {
+    "ASSASSINATE": 1,
+    "STEAL": 1.78455e-09,
+    "TAX": 1.78455e-09,
+    "INCOME": 1.78455e-09
+  },
+  "0x24e43bffff8": {
+    "ASSASSINATE": 0.746362,
+    "STEAL": 0.142069,
+    "TAX": 0.0557845,
+    "INCOME": 0.0557845
+  },
+  "0x24e52bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e543ffff8": {
+    "ASSASSINATE": 0.577951,
+    "STEAL": 0.140683,
+    "TAX": 0.140683,
+    "INCOME": 0.140683
+  },
+  "0x24e633ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e633ffeb9": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x24e633ffe78": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x24e64bffff8": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x22e213ffeb9": {
+    "CHALLENGE": 0.0152196,
+    "PASS": 0.98478
+  },
+  "0x22e213ffe89": {
+    "CHALLENGE": 0.00297197,
+    "PASS": 0.997028
+  },
+  "0x24e31bffeb9": {
+    "CHALLENGE": 0.958667,
+    "PASS": 0.041333
+  },
+  "0x22e123ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e31bffe78": {
+    "CHALLENGE": 3.51154e-10,
+    "PASS": 1
+  },
+  "0x22e123ffe89": {
+    "CHALLENGE": 0.00485058,
+    "PASS": 0.995149
+  },
+  "0x22e13bfffc8": {
+    "STEAL": 1,
+    "TAX": 1.05071e-10,
+    "INCOME": 1.05071e-10
+  },
+  "0x22e023ffff9": {
+    "STEAL": 0.954348,
+    "TAX": 0.0253994,
+    "INCOME": 0.0202528
+  },
+  "0x22e213ffe48": {
+    "CHALLENGE": 0.0897905,
+    "PASS": 0.910209
+  },
+  "0x22e22bfffc8": {
+    "STEAL": 0.995763,
+    "TAX": 0.000982739,
+    "INCOME": 0.00325467
+  },
+  "0x22e323ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e323ffe81": {
+    "CHALLENGE": 0.00531879,
+    "PASS": 0.994681
+  },
+  "0x22e133fffc1": {
+    "STEAL": 0.945257,
+    "TAX": 0.00945076,
+    "INCOME": 0.0452922
+  },
+  "0x22e233ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e24bfffc0": {
+    "STEAL": 0.333333,
+    "TAX": 0.333333,
+    "INCOME": 0.333333
+  },
+  "0x22e33bfffc0": {
+    "ASSASSINATE": 2.79417e-10,
+    "STEAL": 1,
+    "TAX": 2.79417e-10,
+    "INCOME": 2.79417e-10
+  },
+  "0x22e123ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e21bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e21bffe89": {
+    "CHALLENGE": 0.00917463,
+    "PASS": 0.990825
+  },
+  "0x22e12bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e12bffe89": {
+    "CHALLENGE": 0.00331179,
+    "PASS": 0.996688
+  },
+  "0x22e143fffc8": {
+    "STEAL": 0.999877,
+    "TAX": 3.58047e-11,
+    "INCOME": 0.000123493
+  },
+  "0x22e233fffc8": {
+    "STEAL": 0.885497,
+    "TAX": 0.00109468,
+    "INCOME": 0.113408
+  },
+  "0x22e32bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e32bffe81": {
+    "CHALLENGE": 0.0032432,
+    "PASS": 0.996757
+  },
+  "0x22e343fffc0": {
+    "ASSASSINATE": 2.03888e-09,
+    "STEAL": 1,
+    "TAX": 2.03888e-09,
+    "INCOME": 2.03888e-09
+  },
+  "0x22e12bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e213ffe78": {
+    "CHALLENGE": 0.0798424,
+    "PASS": 0.920158
+  },
+  "0x22e22bffff8": {
+    "STEAL": 0.995557,
+    "TAX": 0.00399151,
+    "INCOME": 0.000451371
+  },
+  "0x22e21bfffff": {
+    "STEAL": 0.996876,
+    "TAX": 0.000838671,
+    "INCOME": 0.00228561
+  },
+  "0x22e40bffe89": {
+    "CHALLENGE": 0.243221,
+    "PASS": 0.756779
+  },
+  "0x22e21bfffc9": {
+    "STEAL": 0.925482,
+    "TAX": 0.00829465,
+    "INCOME": 0.0662229
+  },
+  "0x22e40bffe48": {
+    "CHALLENGE": 0.136412,
+    "PASS": 0.863588
+  },
+  "0x22e423fffc8": {
+    "ASSASSINATE": 1.1571e-12,
+    "STEAL": 0.951983,
+    "TAX": 0.00113079,
+    "INCOME": 0.046886
+  },
+  "0x22e413fffcf": {
+    "ASSASSINATE": 3.85449e-11,
+    "STEAL": 0.959182,
+    "TAX": 0.0347561,
+    "INCOME": 0.00606236
+  },
+  "0x22e51bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e51bffe81": {
+    "CHALLENGE": 0.018936,
+    "PASS": 0.981064
+  },
+  "0x22e533fffc0": {
+    "ASSASSINATE": 1.67853e-10,
+    "STEAL": 0.565965,
+    "TAX": 0.427763,
+    "INCOME": 0.00627206
+  },
+  "0x22e523fffc7": {
+    "ASSASSINATE": 5.22474e-07,
+    "STEAL": 0.847017,
+    "TAX": 0.00178849,
+    "INCOME": 0.151194
+  },
+  "0x22e31bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e31bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e31bffe89": {
+    "CHALLENGE": 0.0216521,
+    "PASS": 0.978348
+  },
+  "0x22e333fffc8": {
+    "ASSASSINATE": 1.38847e-11,
+    "STEAL": 0.937715,
+    "TAX": 0.00740615,
+    "INCOME": 0.0548785
+  },
+  "0x22e42bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e42bffe81": {
+    "CHALLENGE": 0.00101834,
+    "PASS": 0.998982
+  },
+  "0x22e443fffc0": {
+    "ASSASSINATE": 9.08201e-10,
+    "STEAL": 0.999555,
+    "TAX": 9.08201e-10,
+    "INCOME": 0.000445244
+  },
+  "0x22e22bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e333ffff8": {
+    "ASSASSINATE": 4.37732e-09,
+    "STEAL": 0.999998,
+    "TAX": 3.53725e-08,
+    "INCOME": 2.2663e-06
+  },
+  "0x22e423ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e333ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e333ffeb9": {
+    "CHALLENGE": 0.620316,
+    "PASS": 0.379684
+  },
+  "0x22e333ffe78": {
+    "CHALLENGE": 0.999682,
+    "PASS": 0.000318227
+  },
+  "0x22e34bffff8": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x22e43bffff8": {
+    "ASSASSINATE": 2.03231e-09,
+    "STEAL": 1,
+    "TAX": 2.03231e-09,
+    "INCOME": 2.03231e-09
+  },
+  "0x22e52bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e543ffff8": {
+    "ASSASSINATE": 5.99178e-10,
+    "STEAL": 1,
+    "TAX": 5.99178e-10,
+    "INCOME": 5.99178e-10
+  },
+  "0x22e633ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e633ffeb9": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x22e633ffe78": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x22e64bffff8": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x20e403ffe89": {
+    "CHALLENGE": 0.0627621,
+    "PASS": 0.937238
+  },
+  "0x20e213fffc9": {
+    "STEAL": 0.125595,
+    "TAX": 0.463184,
+    "INCOME": 0.411221
+  },
+  "0x20e40bfffc9": {
+    "ASSASSINATE": 6.10221e-11,
+    "STEAL": 0.292806,
+    "TAX": 0.668848,
+    "INCOME": 0.038346
+  },
+  "0x20e713fffc1": {
+    "COUP": 1
+  },
+  "0x20e403ffe48": {
+    "CHALLENGE": 0.274523,
+    "PASS": 0.725477
+  },
+  "0x20e41bfffc8": {
+    "ASSASSINATE": 2.47159e-11,
+    "STEAL": 0.581597,
+    "TAX": 0.378658,
+    "INCOME": 0.0397454
+  },
+  "0x20e613fffc8": {
+    "ASSASSINATE": 1.06344e-11,
+    "STEAL": 2.24683e-06,
+    "TAX": 0.999996,
+    "INCOME": 1.70349e-06
+  },
+  "0x20e80bfffc8": {
+    "COUP": 1
+  },
+  "0x20e91bfffc0": {
+    "COUP": 1
+  },
+  "0x20e40bfffcf": {
+    "ASSASSINATE": 4.06341e-11,
+    "STEAL": 0.386517,
+    "TAX": 0.5063,
+    "INCOME": 0.107184
+  },
+  "0x20e313fffc9": {
+    "ASSASSINATE": 1.06495e-11,
+    "STEAL": 0.423543,
+    "TAX": 0.571214,
+    "INCOME": 0.00524339
+  },
+  "0x20e50bfffc9": {
+    "ASSASSINATE": 1.22734e-11,
+    "STEAL": 0.0116092,
+    "TAX": 0.95908,
+    "INCOME": 0.0293106
+  },
+  "0x20e813fffc1": {
+    "COUP": 1
+  },
+  "0x20e423fffc1": {
+    "ASSASSINATE": 2.47271e-12,
+    "STEAL": 0.97198,
+    "TAX": 0.0235654,
+    "INCOME": 0.00445411
+  },
+  "0x20e62bfffc0": {
+    "ASSASSINATE": 4.274e-12,
+    "STEAL": 0.00450237,
+    "TAX": 0.995495,
+    "INCOME": 2.70082e-06
+  },
+  "0x20e503ffe48": {
+    "CHALLENGE": 0.377989,
+    "PASS": 0.622011
+  },
+  "0x20e51bfffc8": {
+    "ASSASSINATE": 1.63744e-11,
+    "STEAL": 0.120593,
+    "TAX": 0.877347,
+    "INCOME": 0.00205972
+  },
+  "0x20e713fffc8": {
+    "COUP": 1
+  },
+  "0x20e61bfffc1": {
+    "ASSASSINATE": 5.24303e-12,
+    "STEAL": 0.6439,
+    "TAX": 0.356074,
+    "INCOME": 2.5625e-05
+  },
+  "0x20e823fffc0": {
+    "COUP": 1
+  },
+  "0x22e23bfffc1": {
+    "STEAL": 0.999832,
+    "TAX": 1.02653e-09,
+    "INCOME": 0.00016751
+  },
+  "0x20e70bffe81": {
+    "CHALLENGE": 0.365704,
+    "PASS": 0.634296
+  },
+  "0x20e51bfffc1": {
+    "ASSASSINATE": 1.6351e-11,
+    "STEAL": 0.944295,
+    "TAX": 0.0530895,
+    "INCOME": 0.00261598
+  },
+  "0x20e723fffc0": {
+    "COUP": 1
+  },
+  "0x20e713fffc7": {
+    "COUP": 1
+  },
+  "0x22e043fffc1": {
+    "STEAL": 1,
+    "TAX": 1.55685e-09,
+    "INCOME": 1.55685e-09
+  },
+  "0x20e513ffe81": {
+    "CHALLENGE": 0.11821,
+    "PASS": 0.88179
+  },
+  "0x20e323fffc1": {
+    "ASSASSINATE": 4.81316e-12,
+    "STEAL": 0.634052,
+    "TAX": 0.319846,
+    "INCOME": 0.0461022
+  },
+  "0x20e52bfffc0": {
+    "ASSASSINATE": 9.51215e-12,
+    "STEAL": 0.0891494,
+    "TAX": 0.892008,
+    "INCOME": 0.0188425
+  },
+  "0x20e313ffe89": {
+    "CHALLENGE": 0.112939,
+    "PASS": 0.887061
+  },
+  "0x20e123ffff9": {
+    "STEAL": 0.0343765,
+    "TAX": 0.965308,
+    "INCOME": 0.000315172
+  },
+  "0x20e313ffe48": {
+    "CHALLENGE": 0.933011,
+    "PASS": 0.0669894
+  },
+  "0x20e32bfffc8": {
+    "ASSASSINATE": 1.02381e-10,
+    "STEAL": 0.568325,
+    "TAX": 0.429879,
+    "INCOME": 0.00179655
+  },
+  "0x20e423ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e423ffe81": {
+    "CHALLENGE": 0.020533,
+    "PASS": 0.979467
+  },
+  "0x20e43bfffc0": {
+    "ASSASSINATE": 1.0757e-11,
+    "STEAL": 0.994377,
+    "TAX": 0.00562284,
+    "INCOME": 1.0757e-11
+  },
+  "0x20e223ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e313ffe78": {
+    "CHALLENGE": 0.330119,
+    "PASS": 0.669881
+  },
+  "0x20e32bffff8": {
+    "ASSASSINATE": 4.17103e-11,
+    "STEAL": 0.689607,
+    "TAX": 0.310359,
+    "INCOME": 3.41391e-05
+  },
+  "0x20e42bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e42bffe78": {
+    "CHALLENGE": 0.61293,
+    "PASS": 0.38707
+  },
+  "0x20e443ffff8": {
+    "ASSASSINATE": 3.96169e-07,
+    "STEAL": 0.999999,
+    "TAX": 3.96169e-07,
+    "INCOME": 3.96169e-07
+  },
+  "0x20e31bfffc9": {
+    "ASSASSINATE": 2.41125e-12,
+    "STEAL": 0.903784,
+    "TAX": 0.0738875,
+    "INCOME": 0.0223282
+  },
+  "0x20e50bffe48": {
+    "CHALLENGE": 0.465368,
+    "PASS": 0.534632
+  },
+  "0x20e523fffc8": {
+    "ASSASSINATE": 3.75095e-12,
+    "STEAL": 0.00942934,
+    "TAX": 0.964083,
+    "INCOME": 0.0264875
+  },
+  "0x20e61bffe81": {
+    "CHALLENGE": 0.0369419,
+    "PASS": 0.963058
+  },
+  "0x20e633fffc0": {
+    "ASSASSINATE": 7.40271e-12,
+    "STEAL": 0.00133039,
+    "TAX": 0.99845,
+    "INCOME": 0.000219479
+  },
+  "0x24e333ffe78": {
+    "CHALLENGE": 7.1382e-09,
+    "PASS": 1
+  },
+  "0x20e41bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e41bffe78": {
+    "CHALLENGE": 0.000987343,
+    "PASS": 0.999013
+  },
+  "0x20e433ffff8": {
+    "ASSASSINATE": 2.57426e-11,
+    "STEAL": 0.131806,
+    "TAX": 0.867854,
+    "INCOME": 0.000340209
+  },
+  "0x20e533ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e533ffeb9": {
+    "CHALLENGE": 0.0210027,
+    "PASS": 0.978997
+  },
+  "0x20e533ffe78": {
+    "CHALLENGE": 0.361345,
+    "PASS": 0.638655
+  },
+  "0x20e523ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e523ffe78": {
+    "CHALLENGE": 0.00175425,
+    "PASS": 0.998246
+  },
+  "0x24e123ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e53bffff8": {
+    "ASSASSINATE": 5.01801e-11,
+    "STEAL": 1,
+    "TAX": 9.94102e-10,
+    "INCOME": 5.01801e-11
+  },
+  "0x20e833fffc7": {
+    "COUP": 1
+  },
+  "0x20e62bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e62bffeb9": {
+    "CHALLENGE": 0.0500142,
+    "PASS": 0.949986
+  },
+  "0x20e62bffe78": {
+    "CHALLENGE": 0.255846,
+    "PASS": 0.744154
+  },
+  "0x24e22bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e643ffff8": {
+    "ASSASSINATE": 6.06689e-11,
+    "STEAL": 1,
+    "TAX": 6.06689e-11,
+    "INCOME": 6.06689e-11
+  },
+  "0x20e93bfffc7": {
+    "COUP": 1
+  },
+  "0x20e733ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e733ffeb9": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x20e733ffe78": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x24e333ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e74bffff8": {
+    "COUP": 1
+  },
+  "0x24e403ffe89": {
+    "CHALLENGE": 0.0209165,
+    "PASS": 0.979084
+  },
+  "0x24e213fffc9": {
+    "STEAL": 0.0286274,
+    "TAX": 0.906966,
+    "INCOME": 0.0644065
+  },
+  "0x24e40bfffc9": {
+    "ASSASSINATE": 0.999923,
+    "STEAL": 1.3713e-07,
+    "TAX": 1.3713e-07,
+    "INCOME": 7.71976e-05
+  },
+  "0x22e02bffff9": {
+    "STEAL": 0.83727,
+    "TAX": 0.0237232,
+    "INCOME": 0.139007
+  },
+  "0x22e21bffe48": {
+    "CHALLENGE": 0.161315,
+    "PASS": 0.838685
+  },
+  "0x24e713fffc1": {
+    "COUP": 1
+  },
+  "0x24e403ffe48": {
+    "CHALLENGE": 0.0051402,
+    "PASS": 0.99486
+  },
+  "0x24e41bfffc8": {
+    "ASSASSINATE": 0.998834,
+    "STEAL": 1.63454e-06,
+    "TAX": 8.51203e-11,
+    "INCOME": 0.00116452
+  },
+  "0x24e613fffc8": {
+    "ASSASSINATE": 0.999722,
+    "STEAL": 6.49604e-06,
+    "TAX": 6.49604e-06,
+    "INCOME": 0.000264807
+  },
+  "0x24e80bfffc8": {
+    "COUP": 1
+  },
+  "0x24e91bfffc0": {
+    "COUP": 1
+  },
+  "0x24e40bfffcf": {
+    "ASSASSINATE": 1,
+    "STEAL": 1.34131e-09,
+    "TAX": 1.34131e-09,
+    "INCOME": 1.34131e-09
+  },
+  "0x24e503ffe89": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x24e313fffc9": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e50bfffc9": {
+    "ASSASSINATE": 0.277296,
+    "STEAL": 0.222704,
+    "TAX": 0.222704,
+    "INCOME": 0.277296
+  },
+  "0x22e12bffff9": {
+    "STEAL": 0.94333,
+    "TAX": 0.0122804,
+    "INCOME": 0.0443892
+  },
+  "0x22e31bffe48": {
+    "CHALLENGE": 0.12009,
+    "PASS": 0.87991
+  },
+  "0x24e813fffc1": {
+    "COUP": 1
+  },
+  "0x24e613ffe81": {
+    "CHALLENGE": 0.541764,
+    "PASS": 0.458236
+  },
+  "0x24e423fffc1": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e613ffe40": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x24e62bfffc0": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e413ffe89": {
+    "CHALLENGE": 0.0900889,
+    "PASS": 0.909911
+  },
+  "0x24e523ffe81": {
+    "CHALLENGE": 2.51588e-05,
+    "PASS": 0.999975
+  },
+  "0x24e523ffe40": {
+    "CHALLENGE": 0.0154214,
+    "PASS": 0.984579
+  },
+  "0x24e53bfffc0": {
+    "ASSASSINATE": 0.999958,
+    "STEAL": 6.27561e-07,
+    "TAX": 8.65914e-10,
+    "INCOME": 4.14925e-05
+  },
+  "0x24e323ffe89": {
+    "CHALLENGE": 0.0236172,
+    "PASS": 0.976383
+  },
+  "0x24e433ffe81": {
+    "CHALLENGE": 0.0355786,
+    "PASS": 0.964421
+  },
+  "0x24e44bfffc0": {
+    "ASSASSINATE": 1,
+    "STEAL": 2.4567e-09,
+    "TAX": 2.4567e-09,
+    "INCOME": 2.4567e-09
+  },
+  "0x24e233ffe89": {
+    "CHALLENGE": 3.22822e-05,
+    "PASS": 0.999968
+  },
+  "0x24e133ffff9": {
+    "STEAL": 0.314964,
+    "TAX": 0.673346,
+    "INCOME": 0.0116905
+  },
+  "0x24e323ffe48": {
+    "CHALLENGE": 0.000902389,
+    "PASS": 0.999098
+  },
+  "0x24e33bfffc8": {
+    "ASSASSINATE": 1,
+    "STEAL": 7.09287e-11,
+    "TAX": 7.09287e-11,
+    "INCOME": 7.09287e-11
+  },
+  "0x24e413ffe48": {
+    "CHALLENGE": 0.000177974,
+    "PASS": 0.999822
+  },
+  "0x24e42bfffc8": {
+    "ASSASSINATE": 0.999041,
+    "STEAL": 3.05085e-09,
+    "TAX": 1.97426e-09,
+    "INCOME": 0.000958705
+  },
+  "0x24e503ffe48": {
+    "CHALLENGE": 0.878757,
+    "PASS": 0.121243
+  },
+  "0x24e51bfffc8": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e713fffc8": {
+    "COUP": 1
+  },
+  "0x24e023fffc9": {
+    "STEAL": 0.941182,
+    "TAX": 0.0462346,
+    "INCOME": 0.0125829
+  },
+  "0x24e50bfffcf": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e603ffe89": {
+    "CHALLENGE": 0.00427131,
+    "PASS": 0.995729
+  },
+  "0x24e413fffc9": {
+    "ASSASSINATE": 0.998748,
+    "STEAL": 8.16315e-10,
+    "TAX": 1.85464e-07,
+    "INCOME": 0.00125167
+  },
+  "0x24e60bfffc9": {
+    "ASSASSINATE": 0.968392,
+    "STEAL": 0.00589432,
+    "TAX": 0.0128555,
+    "INCOME": 0.0128578
+  },
+  "0x24e713ffe81": {
+    "CHALLENGE": 0.000432167,
+    "PASS": 0.999568
+  },
+  "0x22e323fffff": {
+    "ASSASSINATE": 1.68114e-08,
+    "STEAL": 0.0303077,
+    "TAX": 0.0152245,
+    "INCOME": 0.954468
+  },
+  "0x24e523fffc1": {
+    "ASSASSINATE": 0.9997,
+    "STEAL": 2.14049e-06,
+    "TAX": 4.51079e-11,
+    "INCOME": 0.000298001
+  },
+  "0x24e713ffe40": {
+    "CHALLENGE": 1.13958e-06,
+    "PASS": 0.999999
+  },
+  "0x24e72bfffc0": {
+    "COUP": 1
+  },
+  "0x20e51bfffc7": {
+    "ASSASSINATE": 9.46037e-12,
+    "STEAL": 0.313666,
+    "TAX": 0.686299,
+    "INCOME": 3.51956e-05
+  },
+  "0x24e603ffe48": {
+    "CHALLENGE": 0.00146836,
+    "PASS": 0.998532
+  },
+  "0x24e61bfffc8": {
+    "ASSASSINATE": 0.999974,
+    "STEAL": 3.50851e-06,
+    "TAX": 3.50729e-06,
+    "INCOME": 1.89764e-05
+  },
+  "0x24e813fffc8": {
+    "COUP": 1
+  },
+  "0x22e123ffeb9": {
+    "CHALLENGE": 0.0101635,
+    "PASS": 0.989836
+  },
+  "0x24e80bffe81": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x22e123ffe48": {
+    "CHALLENGE": 0.00697618,
+    "PASS": 0.993024
+  },
+  "0x24e61bfffc1": {
+    "ASSASSINATE": 0.512682,
+    "STEAL": 0.162439,
+    "TAX": 0.162439,
+    "INCOME": 0.162439
+  },
+  "0x22e123ffe78": {
+    "CHALLENGE": 0.00137016,
+    "PASS": 0.99863
+  },
+  "0x24e80bffe40": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x22e13bffff8": {
+    "STEAL": 1,
+    "TAX": 6.43069e-10,
+    "INCOME": 6.43069e-10
+  },
+  "0x24e823fffc0": {
+    "COUP": 1
+  },
+  "0x24e32bfffc1": {
+    "ASSASSINATE": 1,
+    "STEAL": 4.78009e-11,
+    "TAX": 5.21674e-09,
+    "INCOME": 2.06503e-10
+  },
+  "0x24e813fffc7": {
+    "COUP": 1
+  },
+  "0x24e41bfffc9": {
+    "ASSASSINATE": 0.998486,
+    "STEAL": 7.93977e-10,
+    "TAX": 2.19087e-10,
+    "INCOME": 0.00151362
+  },
+  "0x24e71bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e71bffe81": {
+    "CHALLENGE": 0.774123,
+    "PASS": 0.225877
+  },
+  "0x20e313ffeb9": {
+    "CHALLENGE": 0.317341,
+    "PASS": 0.682659
+  },
+  "0x24e52bfffc1": {
+    "ASSASSINATE": 0.989662,
+    "STEAL": 1.39802e-10,
+    "TAX": 7.75834e-11,
+    "INCOME": 0.0103385
+  },
+  "0x24e71bffe40": {
+    "CHALLENGE": 0.0896455,
+    "PASS": 0.910355
+  },
+  "0x24e733fffc0": {
+    "COUP": 1
+  },
+  "0x24e623fffc8": {
+    "ASSASSINATE": 0.999632,
+    "STEAL": 7.82152e-06,
+    "TAX": 7.8105e-06,
+    "INCOME": 0.000352722
+  },
+  "0x24e12bfffc9": {
+    "STEAL": 0.825145,
+    "TAX": 0.0190967,
+    "INCOME": 0.155758
+  },
+  "0x24e613fffcf": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e613fffc9": {
+    "ASSASSINATE": 0.509117,
+    "STEAL": 0.00430375,
+    "TAX": 0.00430375,
+    "INCOME": 0.482275
+  },
+  "0x24e80bfffc9": {
+    "COUP": 1
+  },
+  "0x24e81bfffc8": {
+    "COUP": 1
+  },
+  "0x22e22bffeb9": {
+    "CHALLENGE": 0.0245341,
+    "PASS": 0.975466
+  },
+  "0x24e913ffe81": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x22e22bffe78": {
+    "CHALLENGE": 0.0227264,
+    "PASS": 0.977274
+  },
+  "0x24e913ffe40": {
+    "CHALLENGE": 0.0995729,
+    "PASS": 0.900427
+  },
+  "0x22e243ffff8": {
+    "STEAL": 1,
+    "TAX": 9.67804e-09,
+    "INCOME": 9.67804e-09
+  },
+  "0x24e92bfffc0": {
+    "COUP": 1
+  },
+  "0x24e70bffe81": {
+    "CHALLENGE": 0.863153,
+    "PASS": 0.136847
+  },
+  "0x24e70bffe40": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x24e723fffc0": {
+    "COUP": 1
+  },
+  "0x24e713fffc7": {
+    "COUP": 1
+  },
+  "0x24e513ffe81": {
+    "CHALLENGE": 0.00736696,
+    "PASS": 0.992633
+  },
+  "0x24e323fffc1": {
+    "ASSASSINATE": 0.997892,
+    "STEAL": 4.24721e-06,
+    "TAX": 5.01161e-06,
+    "INCOME": 0.00209924
+  },
+  "0x22e32bffe40": {
+    "CHALLENGE": 0.356616,
+    "PASS": 0.643384
+  },
+  "0x24e513ffe89": {
+    "CHALLENGE": 0.00851877,
+    "PASS": 0.991481
+  },
+  "0x24e80bfffcf": {
+    "COUP": 1
+  },
+  "0x24e323fffc9": {
+    "ASSASSINATE": 0.998209,
+    "STEAL": 3.7514e-06,
+    "TAX": 2.70483e-07,
+    "INCOME": 0.00178651
+  },
+  "0x24e513ffe48": {
+    "CHALLENGE": 0.0139646,
+    "PASS": 0.986035
+  },
+  "0x24e52bfffc8": {
+    "ASSASSINATE": 0.995053,
+    "STEAL": 1.5757e-08,
+    "TAX": 6.53398e-08,
+    "INCOME": 0.00494647
+  },
+  "0x24e623ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e623ffe81": {
+    "CHALLENGE": 0.00135834,
+    "PASS": 0.998642
+  },
+  "0x24e91bfffc7": {
+    "COUP": 1
+  },
+  "0x24e433fffc1": {
+    "ASSASSINATE": 0.647478,
+    "STEAL": 6.48222e-06,
+    "TAX": 2.65367e-07,
+    "INCOME": 0.352515
+  },
+  "0x24e623ffe40": {
+    "CHALLENGE": 0.0160907,
+    "PASS": 0.983909
+  },
+  "0x24e63bfffc0": {
+    "ASSASSINATE": 0.999534,
+    "STEAL": 1.96638e-05,
+    "TAX": 5.83628e-11,
+    "INCOME": 0.000446643
+  },
+  "0x24e513ffe40": {
+    "CHALLENGE": 0.000787462,
+    "PASS": 0.999213
+  },
+  "0x24e52bfffc0": {
+    "ASSASSINATE": 0.999077,
+    "STEAL": 3.91608e-11,
+    "TAX": 4.30013e-12,
+    "INCOME": 0.000922545
+  },
+  "0x24e51bfffc7": {
+    "ASSASSINATE": 1,
+    "STEAL": 9.39676e-12,
+    "TAX": 9.39676e-12,
+    "INCOME": 9.39676e-12
+  },
+  "0x24e51bfffc9": {
+    "ASSASSINATE": 0.999999,
+    "STEAL": 1.98639e-10,
+    "TAX": 1.9587e-10,
+    "INCOME": 5.94754e-07
+  },
+  "0x24e713fffc9": {
+    "COUP": 1
+  },
+  "0x24e723fffc8": {
+    "COUP": 1
+  },
+  "0x24e313ffeb9": {
+    "CHALLENGE": 0.812056,
+    "PASS": 0.187944
+  },
+  "0x24e313ffe89": {
+    "CHALLENGE": 0.104552,
+    "PASS": 0.895448
+  },
+  "0x24e60bfffcf": {
+    "ASSASSINATE": 0.364099,
+    "STEAL": 0.275002,
+    "TAX": 2.87655e-06,
+    "INCOME": 0.360896
+  },
+  "0x24e123fffc9": {
+    "STEAL": 0.382941,
+    "TAX": 0.587139,
+    "INCOME": 0.0299196
+  },
+  "0x24e123ffff9": {
+    "STEAL": 0.943901,
+    "TAX": 0.0505687,
+    "INCOME": 0.00553026
+  },
+  "0x24e313ffe48": {
+    "CHALLENGE": 3.18125e-08,
+    "PASS": 1
+  },
+  "0x24e32bfffc8": {
+    "ASSASSINATE": 1,
+    "STEAL": 1.64233e-08,
+    "TAX": 2.11552e-09,
+    "INCOME": 1.6441e-08
+  },
+  "0x24e423ffe81": {
+    "CHALLENGE": 0.0200615,
+    "PASS": 0.979938
+  },
+  "0x24e71bfffc7": {
+    "COUP": 1
+  },
+  "0x24e233fffc1": {
+    "STEAL": 0.0312937,
+    "TAX": 0.954909,
+    "INCOME": 0.0137974
+  },
+  "0x24e423ffe40": {
+    "CHALLENGE": 1.05678e-11,
+    "PASS": 1
+  },
+  "0x24e43bfffc0": {
+    "ASSASSINATE": 1,
+    "STEAL": 4.2753e-12,
+    "TAX": 2.64195e-12,
+    "INCOME": 2.64195e-12
+  },
+  "0x24e223ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e223ffeb9": {
+    "CHALLENGE": 0.397401,
+    "PASS": 0.602599
+  },
+  "0x24e223ffe89": {
+    "CHALLENGE": 0.096428,
+    "PASS": 0.903572
+  },
+  "0x24e133ffe89": {
+    "CHALLENGE": 0.000619862,
+    "PASS": 0.99938
+  },
+  "0x24e033ffff9": {
+    "STEAL": 0.710779,
+    "TAX": 0.233839,
+    "INCOME": 0.0553824
+  },
+  "0x24e223ffe48": {
+    "CHALLENGE": 0.0642587,
+    "PASS": 0.935741
+  },
+  "0x24e333ffe81": {
+    "CHALLENGE": 0.0472598,
+    "PASS": 0.95274
+  },
+  "0x24e333ffe40": {
+    "CHALLENGE": 1.57341e-05,
+    "PASS": 0.999984
+  },
+  "0x20e54bffff8": {
+    "ASSASSINATE": 2.2543e-08,
+    "STEAL": 2.2543e-08,
+    "TAX": 1,
+    "INCOME": 2.2543e-08
+  },
+  "0x24e133ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e133ffeb9": {
+    "CHALLENGE": 6.70441e-05,
+    "PASS": 0.999933
+  },
+  "0x24e22bffe89": {
+    "CHALLENGE": 0.0024014,
+    "PASS": 0.997599
+  },
+  "0x24e03bffff9": {
+    "STEAL": 1,
+    "TAX": 1.26616e-11,
+    "INCOME": 1.26616e-11
+  },
+  "0x24e22bffe48": {
+    "CHALLENGE": 0.0940892,
+    "PASS": 0.905911
+  },
+  "0x24e423ffe89": {
+    "CHALLENGE": 0.039812,
+    "PASS": 0.960188
+  },
+  "0x24e233ffff9": {
+    "STEAL": 0.362787,
+    "TAX": 0.120643,
+    "INCOME": 0.516571
+  },
+  "0x24e423ffe48": {
+    "CHALLENGE": 0.00185578,
+    "PASS": 0.998144
+  },
+  "0x24e43bfffc8": {
+    "ASSASSINATE": 0.999979,
+    "STEAL": 3.05576e-06,
+    "TAX": 5.1177e-14,
+    "INCOME": 1.76369e-05
+  },
+  "0x24e533ffe81": {
+    "CHALLENGE": 5.29792e-06,
+    "PASS": 0.999995
+  },
+  "0x20e61bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e533ffe40": {
+    "CHALLENGE": 0.00081372,
+    "PASS": 0.999186
+  },
+  "0x24e54bfffc0": {
+    "ASSASSINATE": 0.999988,
+    "STEAL": 1.68929e-14,
+    "TAX": 1.68929e-14,
+    "INCOME": 1.16096e-05
+  },
+  "0x24e333ffe89": {
+    "CHALLENGE": 0.0146594,
+    "PASS": 0.985341
+  },
+  "0x24e34bfffc8": {
+    "ASSASSINATE": 0.999952,
+    "STEAL": 2.22829e-14,
+    "TAX": 2.22829e-14,
+    "INCOME": 4.79346e-05
+  },
+  "0x24e133ffe78": {
+    "CHALLENGE": 0.99998,
+    "PASS": 1.98697e-05
+  },
+  "0x24e14bffff8": {
+    "STEAL": 0.128382,
+    "TAX": 0.493622,
+    "INCOME": 0.377996
+  },
+  "0x24e223ffe78": {
+    "CHALLENGE": 0.00438581,
+    "PASS": 0.995614
+  },
+  "0x24e23bffff8": {
+    "STEAL": 1,
+    "TAX": 5.00705e-10,
+    "INCOME": 5.00705e-10
+  },
+  "0x24e313ffe78": {
+    "CHALLENGE": 9.32652e-12,
+    "PASS": 1
+  },
+  "0x24e32bffff8": {
+    "ASSASSINATE": 1,
+    "STEAL": 2.33163e-12,
+    "TAX": 2.33163e-12,
+    "INCOME": 4.29717e-10
+  },
+  "0x24e51bffe48": {
+    "CHALLENGE": 0.00647459,
+    "PASS": 0.993525
+  },
+  "0x24e533fffc8": {
+    "ASSASSINATE": 0.999746,
+    "STEAL": 4.09716e-09,
+    "TAX": 4.09711e-09,
+    "INCOME": 0.000254104
+  },
+  "0x24e62bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e62bffe81": {
+    "CHALLENGE": 0.000188467,
+    "PASS": 0.999812
+  },
+  "0x24e62bffe40": {
+    "CHALLENGE": 0.00625986,
+    "PASS": 0.99374
+  },
+  "0x24e643fffc0": {
+    "ASSASSINATE": 0.999999,
+    "STEAL": 2.57608e-09,
+    "TAX": 5.3221e-10,
+    "INCOME": 6.44679e-07
+  },
+  "0x24e42bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e42bffe89": {
+    "CHALLENGE": 0.0498316,
+    "PASS": 0.950168
+  },
+  "0x24e23bffff9": {
+    "STEAL": 1,
+    "TAX": 1.12542e-09,
+    "INCOME": 1.12542e-09
+  },
+  "0x24e42bffe48": {
+    "CHALLENGE": 0.00951498,
+    "PASS": 0.990485
+  },
+  "0x24e443fffc8": {
+    "ASSASSINATE": 0.999975,
+    "STEAL": 1.42449e-05,
+    "TAX": 4.84983e-13,
+    "INCOME": 1.10399e-05
+  },
+  "0x24e443ffff8": {
+    "ASSASSINATE": 0.831746,
+    "STEAL": 0.166893,
+    "TAX": 0.000680091,
+    "INCOME": 0.000680091
+  },
+  "0x24e31bfffff": {
+    "ASSASSINATE": 1,
+    "STEAL": 4.66326e-12,
+    "TAX": 4.66326e-12,
+    "INCOME": 6.73237e-10
+  },
+  "0x22e323ffe40": {
+    "CHALLENGE": 0.00869589,
+    "PASS": 0.991304
+  },
+  "0x24e50bffe89": {
+    "CHALLENGE": 0.00085556,
+    "PASS": 0.999144
+  },
+  "0x24e31bfffc9": {
+    "ASSASSINATE": 1,
+    "STEAL": 2.51665e-12,
+    "TAX": 2.51665e-12,
+    "INCOME": 1.18123e-10
+  },
+  "0x24e50bffe48": {
+    "CHALLENGE": 0.00145032,
+    "PASS": 0.99855
+  },
+  "0x24e523fffc8": {
+    "ASSASSINATE": 0.999999,
+    "STEAL": 9.10362e-09,
+    "TAX": 9.10362e-09,
+    "INCOME": 6.37939e-07
+  },
+  "0x20e80bffe40": {
+    "CHALLENGE": 1.83278e-07,
+    "PASS": 1
+  },
+  "0x24e523fffc9": {
+    "ASSASSINATE": 0.999419,
+    "STEAL": 2.30995e-08,
+    "TAX": 1.13752e-08,
+    "INCOME": 0.00058097
+  },
+  "0x24e71bfffc9": {
+    "COUP": 1
+  },
+  "0x24e72bfffc8": {
+    "COUP": 1
+  },
+  "0x24e823ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e823ffe81": {
+    "CHALLENGE": 0.0253862,
+    "PASS": 0.974614
+  },
+  "0x20e41bffeb9": {
+    "CHALLENGE": 0.431806,
+    "PASS": 0.568194
+  },
+  "0x24e633fffc1": {
+    "ASSASSINATE": 0.999199,
+    "STEAL": 1.67307e-09,
+    "TAX": 6.72007e-09,
+    "INCOME": 0.000800816
+  },
+  "0x24e823ffe40": {
+    "CHALLENGE": 7.25106e-06,
+    "PASS": 0.999993
+  },
+  "0x24e83bfffc0": {
+    "COUP": 1
+  },
+  "0x24e02bfffc9": {
+    "STEAL": 0.171667,
+    "TAX": 0.0423716,
+    "INCOME": 0.785961
+  },
+  "0x24e513fffcf": {
+    "ASSASSINATE": 0.484828,
+    "STEAL": 0.0151725,
+    "TAX": 0.0151725,
+    "INCOME": 0.484827
+  },
+  "0x22e51bffe40": {
+    "CHALLENGE": 0.0583466,
+    "PASS": 0.941653
+  },
+  "0x24e703ffe89": {
+    "CHALLENGE": 0.032665,
+    "PASS": 0.967335
+  },
+  "0x24e513fffc9": {
+    "ASSASSINATE": 0.99997,
+    "STEAL": 4.12319e-08,
+    "TAX": 4.76267e-06,
+    "INCOME": 2.47106e-05
+  },
+  "0x24e70bfffc9": {
+    "COUP": 1
+  },
+  "0x24e71bfffc8": {
+    "COUP": 1
+  },
+  "0x24e223fffc9": {
+    "STEAL": 0.370539,
+    "TAX": 0.621033,
+    "INCOME": 0.00842814
+  },
+  "0x24e70bfffcf": {
+    "COUP": 1
+  },
+  "0x22e12bffeb9": {
+    "CHALLENGE": 0.0187849,
+    "PASS": 0.981215
+  },
+  "0x24e813ffe81": {
+    "CHALLENGE": 0.971424,
+    "PASS": 0.0285759
+  },
+  "0x22e12bffe78": {
+    "CHALLENGE": 0.00207801,
+    "PASS": 0.997922
+  },
+  "0x24e813ffe40": {
+    "CHALLENGE": 0.0285763,
+    "PASS": 0.971424
+  },
+  "0x22e143ffff8": {
+    "STEAL": 1,
+    "TAX": 7.79496e-10,
+    "INCOME": 7.79496e-10
+  },
+  "0x24e82bfffc0": {
+    "COUP": 1
+  },
+  "0x24e333fffc1": {
+    "ASSASSINATE": 0.999979,
+    "STEAL": 1.0115e-08,
+    "TAX": 9.07054e-07,
+    "INCOME": 1.97407e-05
+  },
+  "0x24e81bfffc7": {
+    "COUP": 1
+  },
+  "0x24e61bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e61bffe81": {
+    "CHALLENGE": 0.0238519,
+    "PASS": 0.976148
+  },
+  "0x24e61bffe48": {
+    "CHALLENGE": 0.000220827,
+    "PASS": 0.999779
+  },
+  "0x24e633fffc8": {
+    "ASSASSINATE": 0.999988,
+    "STEAL": 2.00614e-10,
+    "TAX": 2.70122e-09,
+    "INCOME": 1.23389e-05
+  },
+  "0x24e72bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e72bffe81": {
+    "CHALLENGE": 0.00663882,
+    "PASS": 0.993361
+  },
+  "0x24e53bfffc1": {
+    "ASSASSINATE": 0.999986,
+    "STEAL": 2.69532e-08,
+    "TAX": 3.68607e-13,
+    "INCOME": 1.3761e-05
+  },
+  "0x24e72bffe40": {
+    "CHALLENGE": 1.26736e-10,
+    "PASS": 1
+  },
+  "0x24e743fffc0": {
+    "COUP": 1
+  },
+  "0x24e61bffe40": {
+    "CHALLENGE": 0.00213183,
+    "PASS": 0.997868
+  },
+  "0x24e633fffc0": {
+    "ASSASSINATE": 0.999998,
+    "STEAL": 1.15961e-09,
+    "TAX": 1.15961e-09,
+    "INCOME": 2.44896e-06
+  },
+  "0x24e13bfffc1": {
+    "STEAL": 1,
+    "TAX": 5.34093e-08,
+    "INCOME": 5.34093e-08
+  },
+  "0x24e623fffc7": {
+    "ASSASSINATE": 0.375,
+    "STEAL": 0.125,
+    "TAX": 0.125,
+    "INCOME": 0.375
+  },
+  "0x24e81bfffc9": {
+    "COUP": 1
+  },
+  "0x24e82bfffc8": {
+    "COUP": 1
+  },
+  "0x24e923ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e923ffe81": {
+    "CHALLENGE": 0.976182,
+    "PASS": 0.0238177
+  },
+  "0x22e533fffff": {
+    "ASSASSINATE": 1.19836e-09,
+    "STEAL": 0.980536,
+    "TAX": 0.0194639,
+    "INCOME": 1.19836e-09
+  },
+  "0x24e733fffc1": {
+    "COUP": 1
+  },
+  "0x24e923ffe40": {
+    "CHALLENGE": 0.0208422,
+    "PASS": 0.979158
+  },
+  "0x24e93bfffc0": {
+    "COUP": 1
+  },
+  "0x24e41bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e233ffe40": {
+    "CHALLENGE": 0.993995,
+    "PASS": 0.00600467
+  },
+  "0x24e41bffe89": {
+    "CHALLENGE": 0.0750978,
+    "PASS": 0.924902
+  },
+  "0x20e513ffe40": {
+    "CHALLENGE": 0.553787,
+    "PASS": 0.446213
+  },
+  "0x24e713fffcf": {
+    "COUP": 1
+  },
+  "0x24e22bfffc9": {
+    "STEAL": 0.797261,
+    "TAX": 0.0884242,
+    "INCOME": 0.114314
+  },
+  "0x24e22bffff9": {
+    "STEAL": 0.357102,
+    "TAX": 0.132037,
+    "INCOME": 0.510861
+  },
+  "0x24e41bffe48": {
+    "CHALLENGE": 0.00242329,
+    "PASS": 0.997577
+  },
+  "0x24e433fffc8": {
+    "ASSASSINATE": 1,
+    "STEAL": 2.66777e-13,
+    "TAX": 3.15111e-14,
+    "INCOME": 2.29715e-08
+  },
+  "0x24e52bffe81": {
+    "CHALLENGE": 0.00209115,
+    "PASS": 0.997909
+  },
+  "0x24e533ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e94bfffc0": {
+    "COUP": 1
+  },
+  "0x22e62bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e61bfffc9": {
+    "ASSASSINATE": 1.48568e-16,
+    "STEAL": 0.989557,
+    "TAX": 0.00373008,
+    "INCOME": 0.00671323
+  },
+  "0x20e623fffc9": {
+    "ASSASSINATE": 1.17937e-11,
+    "STEAL": 0.0575255,
+    "TAX": 0.942446,
+    "INCOME": 2.80467e-05
+  },
+  "0x24e733ffe81": {
+    "CHALLENGE": 0.00156082,
+    "PASS": 0.998439
+  },
+  "0x24e233fffc8": {
+    "STEAL": 0.16501,
+    "TAX": 0.192438,
+    "INCOME": 0.642552
+  },
+  "0x20e81bfffc9": {
+    "COUP": 1
+  },
+  "0x24e92bffe81": {
+    "CHALLENGE": 0.0400784,
+    "PASS": 0.959922
+  },
+  "0x24e343fffc0": {
+    "ASSASSINATE": 1,
+    "STEAL": 5.02343e-10,
+    "TAX": 5.02343e-10,
+    "INCOME": 5.02343e-10
+  },
+  "0x20e92bfffc1": {
+    "COUP": 1
+  },
+  "0x20e82bfffc8": {
+    "COUP": 1
+  },
+  "0x20e733fffc1": {
+    "COUP": 1
+  },
+  "0x24e523ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e93bfffc0": {
+    "COUP": 1
+  },
+  "0x20e72bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e323fffc1": {
+    "ASSASSINATE": 2.25131e-11,
+    "STEAL": 0.89007,
+    "TAX": 0.0119664,
+    "INCOME": 0.0979631
+  },
+  "0x20e52bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e623fffc8": {
+    "ASSASSINATE": 5.07076e-15,
+    "STEAL": 0.99392,
+    "TAX": 0.000337749,
+    "INCOME": 0.0057425
+  },
+  "0x24e12bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e543fffc8": {
+    "ASSASSINATE": 1.60802e-08,
+    "STEAL": 0.98727,
+    "TAX": 0.0126261,
+    "INCOME": 0.000104386
+  },
+  "0x24e12bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e543ffff8": {
+    "ASSASSINATE": 1.743e-06,
+    "STEAL": 0.999995,
+    "TAX": 1.743e-06,
+    "INCOME": 1.743e-06
+  },
+  "0x22e61bffe81": {
+    "CHALLENGE": 0.00543317,
+    "PASS": 0.994567
+  },
+  "0x20e73bfffc9": {
+    "COUP": 1
+  },
+  "0x20e31bffe89": {
+    "CHALLENGE": 0.0145465,
+    "PASS": 0.985453
+  },
+  "0x24e143fffc8": {
+    "STEAL": 0.999898,
+    "TAX": 2.56121e-09,
+    "INCOME": 0.000101768
+  },
+  "0x20e72bfffc9": {
+    "COUP": 1
+  },
+  "0x20e83bfffc1": {
+    "COUP": 1
+  },
+  "0x24e323ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e73bfffc8": {
+    "COUP": 1
+  },
+  "0x20e643fffc1": {
+    "ASSASSINATE": 1.19495e-12,
+    "STEAL": 0.788766,
+    "TAX": 0.210211,
+    "INCOME": 0.00102283
+  },
+  "0x20e643fffc9": {
+    "ASSASSINATE": 1.31949e-12,
+    "STEAL": 0.919303,
+    "TAX": 0.0805909,
+    "INCOME": 0.000106575
+  },
+  "0x20e53bfffc1": {
+    "ASSASSINATE": 8.04186e-12,
+    "STEAL": 0.999959,
+    "TAX": 4.0893e-05,
+    "INCOME": 5.37689e-07
+  },
+  "0x24e433ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e84bfffc0": {
+    "COUP": 1
+  },
+  "0x22e52bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e52bffe40": {
+    "CHALLENGE": 0.00182589,
+    "PASS": 0.998174
+  },
+  "0x20e633ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e72bfffc8": {
+    "COUP": 1
+  },
+  "0x20e443fffc9": {
+    "ASSASSINATE": 1.38441e-11,
+    "STEAL": 0.505005,
+    "TAX": 0.494955,
+    "INCOME": 3.93195e-05
+  },
+  "0x24e233ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e64bfffc8": {
+    "ASSASSINATE": 1.0636e-10,
+    "STEAL": 0.963877,
+    "TAX": 0.0299648,
+    "INCOME": 0.00615769
+  },
+  "0x24e423ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e83bfffc8": {
+    "COUP": 1
+  },
+  "0x24e233ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e64bffff8": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x22e723ffe81": {
+    "CHALLENGE": 0.170159,
+    "PASS": 0.829841
+  },
+  "0x20e63bfffc9": {
+    "ASSASSINATE": 3.66509e-12,
+    "STEAL": 0.998286,
+    "TAX": 0.00160802,
+    "INCOME": 0.000106443
+  },
+  "0x20e21bffe89": {
+    "CHALLENGE": 0.026788,
+    "PASS": 0.973212
+  },
+  "0x20e533fffc9": {
+    "ASSASSINATE": 2.67366e-12,
+    "STEAL": 0.320825,
+    "TAX": 0.613263,
+    "INCOME": 0.0659128
+  },
+  "0x24e42bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e843fffc8": {
+    "COUP": 1
+  },
+  "0x20e543ffff9": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x20e733ffe48": {
+    "CHALLENGE": 4.95207e-12,
+    "PASS": 1
+  },
+  "0x22e403ffe89": {
+    "CHALLENGE": 0.755628,
+    "PASS": 0.244372
+  },
+  "0x22e823fffc9": {
+    "COUP": 1
+  },
+  "0x20e233fffc1": {
+    "STEAL": 0.328717,
+    "TAX": 0.66709,
+    "INCOME": 0.00419347
+  },
+  "0x24e803ffe48": {
+    "CHALLENGE": 0.0996153,
+    "PASS": 0.900385
+  },
+  "0x20e71bfffc7": {
+    "COUP": 1
+  },
+  "0x22e403ffe48": {
+    "CHALLENGE": 0.0148795,
+    "PASS": 0.98512
+  },
+  "0x22e91bfffc0": {
+    "COUP": 1
+  },
+  "0x22e40bfffcf": {
+    "ASSASSINATE": 7.76966e-13,
+    "STEAL": 0.912444,
+    "TAX": 0.00471156,
+    "INCOME": 0.0828445
+  },
+  "0x24e62bfffc7": {
+    "ASSASSINATE": 0.506293,
+    "STEAL": 1.0908e-05,
+    "TAX": 5.03123e-07,
+    "INCOME": 0.493696
+  },
+  "0x24e143fffc1": {
+    "STEAL": 0.999708,
+    "TAX": 2.66952e-12,
+    "INCOME": 0.000292289
+  },
+  "0x22e613ffe81": {
+    "CHALLENGE": 0.0387292,
+    "PASS": 0.961271
+  },
+  "0x22e413ffe89": {
+    "CHALLENGE": 0.230066,
+    "PASS": 0.769934
+  },
+  "0x22e833fffc9": {
+    "COUP": 1
+  },
+  "0x24e623ffe48": {
+    "CHALLENGE": 0.03831,
+    "PASS": 0.96169
+  },
+  "0x22e523ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e423ffe78": {
+    "CHALLENGE": 2.27415e-05,
+    "PASS": 0.999977
+  },
+  "0x22e323ffe89": {
+    "CHALLENGE": 0.013517,
+    "PASS": 0.986483
+  },
+  "0x22e323ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e643fffc0": {
+    "ASSASSINATE": 5.57549e-12,
+    "STEAL": 0.938947,
+    "TAX": 0.0610516,
+    "INCOME": 9.30442e-07
+  },
+  "0x22e433ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e333ffe78": {
+    "CHALLENGE": 0.331153,
+    "PASS": 0.668847
+  },
+  "0x24e61bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e433ffe81": {
+    "CHALLENGE": 0.0217861,
+    "PASS": 0.978214
+  },
+  "0x24e61bffe89": {
+    "CHALLENGE": 0.372268,
+    "PASS": 0.627732
+  },
+  "0x22e433ffe40": {
+    "CHALLENGE": 0.876441,
+    "PASS": 0.123559
+  },
+  "0x24e42bffeb9": {
+    "CHALLENGE": 0.997287,
+    "PASS": 0.00271299
+  },
+  "0x22e233ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e42bffe78": {
+    "CHALLENGE": 0.00271298,
+    "PASS": 0.997287
+  },
+  "0x22e233ffe89": {
+    "CHALLENGE": 0.000125353,
+    "PASS": 0.999875
+  },
+  "0x22e24bfffc8": {
+    "STEAL": 0.000346377,
+    "TAX": 9.88827e-14,
+    "INCOME": 0.999654
+  },
+  "0x22e413ffe48": {
+    "CHALLENGE": 0.089324,
+    "PASS": 0.910676
+  },
+  "0x22e503ffe48": {
+    "CHALLENGE": 0.0157379,
+    "PASS": 0.984262
+  },
+  "0x22e713fffc8": {
+    "COUP": 1
+  },
+  "0x20e21bfffff": {
+    "STEAL": 0.860001,
+    "TAX": 0.101074,
+    "INCOME": 0.0389249
+  },
+  "0x22e60bfffc9": {
+    "ASSASSINATE": 5.22832e-16,
+    "STEAL": 0.45696,
+    "TAX": 0.0251429,
+    "INCOME": 0.517897
+  },
+  "0x24e643ffff8": {
+    "ASSASSINATE": 0.897391,
+    "STEAL": 0.0780711,
+    "TAX": 0.0122689,
+    "INCOME": 0.0122689
+  },
+  "0x22e72bfffc0": {
+    "COUP": 1
+  },
+  "0x20e923ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e31bfffff": {
+    "ASSASSINATE": 5.58819e-11,
+    "STEAL": 0.185362,
+    "TAX": 0.543044,
+    "INCOME": 0.271595
+  },
+  "0x22e51bfffc1": {
+    "ASSASSINATE": 4.12713e-11,
+    "STEAL": 0.963558,
+    "TAX": 0.0108182,
+    "INCOME": 0.025624
+  },
+  "0x24e60bffe48": {
+    "CHALLENGE": 0.00332629,
+    "PASS": 0.996674
+  },
+  "0x20e523fffc7": {
+    "ASSASSINATE": 1.03804e-10,
+    "STEAL": 1.08152e-10,
+    "TAX": 0.999999,
+    "INCOME": 6.12455e-07
+  },
+  "0x22e603ffe48": {
+    "CHALLENGE": 0.0118069,
+    "PASS": 0.988193
+  },
+  "0x22e813fffc8": {
+    "COUP": 1
+  },
+  "0x22e133ffff9": {
+    "STEAL": 0.476215,
+    "TAX": 0.0433935,
+    "INCOME": 0.480392
+  },
+  "0x24e81bfffc1": {
+    "COUP": 1
+  },
+  "0x22e323ffe48": {
+    "CHALLENGE": 0.233406,
+    "PASS": 0.766594
+  },
+  "0x20e223ffe78": {
+    "CHALLENGE": 0.712135,
+    "PASS": 0.287865
+  },
+  "0x22e90bffe40": {
+    "CHALLENGE": 3.46463e-05,
+    "PASS": 0.999965
+  },
+  "0x24e53bffff8": {
+    "ASSASSINATE": 0.998079,
+    "STEAL": 0.000748621,
+    "TAX": 0.000586333,
+    "INCOME": 0.000586333
+  },
+  "0x22e71bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e733fffc7": {
+    "COUP": 1
+  },
+  "0x22e71bffe81": {
+    "CHALLENGE": 0.0335034,
+    "PASS": 0.966497
+  },
+  "0x22e423fffc1": {
+    "ASSASSINATE": 3.91071e-13,
+    "STEAL": 0.0865599,
+    "TAX": 0.0351011,
+    "INCOME": 0.878339
+  },
+  "0x22e433ffeb9": {
+    "CHALLENGE": 0.256494,
+    "PASS": 0.743506
+  },
+  "0x20e82bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e733fffc0": {
+    "COUP": 1
+  },
+  "0x22e60bffe48": {
+    "CHALLENGE": 0.0126088,
+    "PASS": 0.987391
+  },
+  "0x22e313fffc9": {
+    "ASSASSINATE": 1.00341e-13,
+    "STEAL": 0.96095,
+    "TAX": 0.0308989,
+    "INCOME": 0.0081507
+  },
+  "0x22e71bffe40": {
+    "CHALLENGE": 4.26659e-13,
+    "PASS": 1
+  },
+  "0x22e613fffc9": {
+    "ASSASSINATE": 1.85699e-15,
+    "STEAL": 0.510907,
+    "TAX": 0.0110502,
+    "INCOME": 0.478043
+  },
+  "0x22e80bfffc9": {
+    "COUP": 1
+  },
+  "0x22e803ffe48": {
+    "CHALLENGE": 1.02936e-14,
+    "PASS": 1
+  },
+  "0x22e50bfffc9": {
+    "ASSASSINATE": 2.24117e-14,
+    "STEAL": 0.118373,
+    "TAX": 0.00339293,
+    "INCOME": 0.878234
+  },
+  "0x22e81bfffc8": {
+    "COUP": 1
+  },
+  "0x22e51bfffc8": {
+    "ASSASSINATE": 5.07157e-14,
+    "STEAL": 0.995844,
+    "TAX": 0.00248915,
+    "INCOME": 0.00166717
+  },
+  "0x20e423ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e733ffeb9": {
+    "CHALLENGE": 0.996106,
+    "PASS": 0.00389412
+  },
+  "0x20e22bffff8": {
+    "STEAL": 0.912293,
+    "TAX": 0.087521,
+    "INCOME": 0.000186308
+  },
+  "0x20e433ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e62bffeb9": {
+    "CHALLENGE": 0.475933,
+    "PASS": 0.524067
+  },
+  "0x22e83bfffc0": {
+    "COUP": 1
+  },
+  "0x22e723fffc9": {
+    "COUP": 1
+  },
+  "0x22e70bffe40": {
+    "CHALLENGE": 6.87298e-11,
+    "PASS": 1
+  },
+  "0x22e723fffc0": {
+    "COUP": 1
+  },
+  "0x20e833ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e513ffe48": {
+    "CHALLENGE": 0.239113,
+    "PASS": 0.760887
+  },
+  "0x22e623ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e72bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e80bfffcf": {
+    "COUP": 1
+  },
+  "0x22e323fffc9": {
+    "ASSASSINATE": 1.44921e-14,
+    "STEAL": 0.95649,
+    "TAX": 0.0117854,
+    "INCOME": 0.031725
+  },
+  "0x22e72bffe40": {
+    "CHALLENGE": 2.62116e-12,
+    "PASS": 1
+  },
+  "0x22e623ffe81": {
+    "CHALLENGE": 0.0094014,
+    "PASS": 0.990599
+  },
+  "0x22e51bfffc7": {
+    "ASSASSINATE": 4.65325e-11,
+    "STEAL": 1,
+    "TAX": 1.69428e-09,
+    "INCOME": 1.73053e-08
+  },
+  "0x22e713fffc9": {
+    "COUP": 1
+  },
+  "0x24e74bffff8": {
+    "COUP": 1
+  },
+  "0x22e52bfffc0": {
+    "ASSASSINATE": 2.28439e-11,
+    "STEAL": 0.564251,
+    "TAX": 0.0127183,
+    "INCOME": 0.423031
+  },
+  "0x22e70bffe48": {
+    "CHALLENGE": 4.94848e-14,
+    "PASS": 1
+  },
+  "0x22e413fffc9": {
+    "ASSASSINATE": 1.32981e-15,
+    "STEAL": 0.963272,
+    "TAX": 0.00706941,
+    "INCOME": 0.0296588
+  },
+  "0x24e44bffff8": {
+    "ASSASSINATE": 0.999767,
+    "STEAL": 7.77409e-05,
+    "TAX": 7.77409e-05,
+    "INCOME": 7.77409e-05
+  },
+  "0x22e723fffc8": {
+    "COUP": 1
+  },
+  "0x20e23bffff8": {
+    "STEAL": 0.99858,
+    "TAX": 0.0014199,
+    "INCOME": 1.00251e-07
+  },
+  "0x22e923fffc0": {
+    "COUP": 1
+  },
+  "0x22e313ffeb9": {
+    "CHALLENGE": 0.906714,
+    "PASS": 0.0932862
+  },
+  "0x22e313ffe89": {
+    "CHALLENGE": 0.125219,
+    "PASS": 0.874781
+  },
+  "0x22e733fffc9": {
+    "COUP": 1
+  },
+  "0x22e123ffff9": {
+    "STEAL": 0.966324,
+    "TAX": 0.0023316,
+    "INCOME": 0.0313446
+  },
+  "0x22e313ffe48": {
+    "CHALLENGE": 0.318101,
+    "PASS": 0.681899
+  },
+  "0x22e423ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e223ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e323fffff": {
+    "ASSASSINATE": 2.69543e-10,
+    "STEAL": 0.000255955,
+    "TAX": 0.13339,
+    "INCOME": 0.866354
+  },
+  "0x22e523fffc1": {
+    "ASSASSINATE": 1.70149e-14,
+    "STEAL": 0.977878,
+    "TAX": 0.0109531,
+    "INCOME": 0.0111687
+  },
+  "0x22e533ffeb9": {
+    "CHALLENGE": 0.00234063,
+    "PASS": 0.997659
+  },
+  "0x20e92bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e90bffe81": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x22e223ffeb9": {
+    "CHALLENGE": 0.0142816,
+    "PASS": 0.985718
+  },
+  "0x22e643fffc9": {
+    "ASSASSINATE": 8.61075e-16,
+    "STEAL": 0.999939,
+    "TAX": 3.94388e-11,
+    "INCOME": 6.13168e-05
+  },
+  "0x24e41bffeb9": {
+    "CHALLENGE": 0.996537,
+    "PASS": 0.00346331
+  },
+  "0x22e223ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e543fffc0": {
+    "ASSASSINATE": 9.43058e-10,
+    "STEAL": 0.998953,
+    "TAX": 0.00104662,
+    "INCOME": 9.43058e-10
+  },
+  "0x24e32bffe78": {
+    "CHALLENGE": 2.60695e-13,
+    "PASS": 1
+  },
+  "0x22e133ffe89": {
+    "CHALLENGE": 8.235e-05,
+    "PASS": 0.999918
+  },
+  "0x24e51bfffcf": {
+    "ASSASSINATE": 1,
+    "STEAL": 1.1606e-08,
+    "TAX": 4.09293e-10,
+    "INCOME": 5.43702e-09
+  },
+  "0x24e033fffc9": {
+    "STEAL": 0.606307,
+    "TAX": 0.360736,
+    "INCOME": 0.0329574
+  },
+  "0x22e503ffe89": {
+    "CHALLENGE": 0.440036,
+    "PASS": 0.559964
+  },
+  "0x22e42bfffff": {
+    "ASSASSINATE": 4.40335e-09,
+    "STEAL": 0.0758237,
+    "TAX": 0.00555293,
+    "INCOME": 0.918623
+  },
+  "0x24e62bfffc1": {
+    "ASSASSINATE": 0.999998,
+    "STEAL": 1.46055e-09,
+    "TAX": 1.46055e-09,
+    "INCOME": 1.6442e-06
+  },
+  "0x22e133ffe48": {
+    "CHALLENGE": 0.466782,
+    "PASS": 0.533218
+  },
+  "0x22e14bfffc8": {
+    "STEAL": 1,
+    "TAX": 3.15515e-12,
+    "INCOME": 3.15501e-12
+  },
+  "0x22e023fffc9": {
+    "STEAL": 0.989333,
+    "TAX": 0.00402404,
+    "INCOME": 0.00664292
+  },
+  "0x22e50bfffcf": {
+    "ASSASSINATE": 2.1288e-13,
+    "STEAL": 0.226369,
+    "TAX": 0.00446601,
+    "INCOME": 0.769165
+  },
+  "0x22e333ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e51bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e333ffe81": {
+    "CHALLENGE": 0.0148466,
+    "PASS": 0.985153
+  },
+  "0x24e51bffe89": {
+    "CHALLENGE": 0.000344566,
+    "PASS": 0.999655
+  },
+  "0x22e333ffe40": {
+    "CHALLENGE": 0.929442,
+    "PASS": 0.070558
+  },
+  "0x22e52bffeb9": {
+    "CHALLENGE": 0.997554,
+    "PASS": 0.00244586
+  },
+  "0x20e333ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e81bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e133ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e53bfffc8": {
+    "ASSASSINATE": 4.59617e-16,
+    "STEAL": 0.999941,
+    "TAX": 4.59617e-16,
+    "INCOME": 5.88876e-05
+  },
+  "0x24e423ffeb9": {
+    "CHALLENGE": 0.897425,
+    "PASS": 0.102575
+  },
+  "0x22e22bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e54bfffc0": {
+    "ASSASSINATE": 1.06009e-08,
+    "STEAL": 0.520769,
+    "TAX": 0.479224,
+    "INCOME": 6.3694e-06
+  },
+  "0x24e423ffe78": {
+    "CHALLENGE": 0.16131,
+    "PASS": 0.83869
+  },
+  "0x22e22bffe89": {
+    "CHALLENGE": 0.000886948,
+    "PASS": 0.999113
+  },
+  "0x22e243fffc8": {
+    "STEAL": 1,
+    "TAX": 1.03928e-14,
+    "INCOME": 1.03922e-14
+  },
+  "0x22e423ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e32bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e743fffc0": {
+    "COUP": 1
+  },
+  "0x22e423ffe89": {
+    "CHALLENGE": 0.0635537,
+    "PASS": 0.936446
+  },
+  "0x22e533ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e433ffe78": {
+    "CHALLENGE": 0.868822,
+    "PASS": 0.131178
+  },
+  "0x24e52bffe78": {
+    "CHALLENGE": 0.360095,
+    "PASS": 0.639905
+  },
+  "0x22e333ffe89": {
+    "CHALLENGE": 0.0113009,
+    "PASS": 0.988699
+  },
+  "0x24e52bffeb9": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x22e333ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e50bffe89": {
+    "CHALLENGE": 0.0763408,
+    "PASS": 0.923659
+  },
+  "0x22e03bfffc9": {
+    "STEAL": 1,
+    "TAX": 1.12818e-14,
+    "INCOME": 1.12818e-14
+  },
+  "0x24e813fffc9": {
+    "COUP": 1
+  },
+  "0x22e34bfffc8": {
+    "ASSASSINATE": 3.90595e-15,
+    "STEAL": 0.280781,
+    "TAX": 0.197879,
+    "INCOME": 0.52134
+  },
+  "0x20e53bfffc9": {
+    "ASSASSINATE": 1.09256e-12,
+    "STEAL": 0.99987,
+    "TAX": 0.00012432,
+    "INCOME": 5.86111e-06
+  },
+  "0x24e33bffff9": {
+    "ASSASSINATE": 1,
+    "STEAL": 4.29914e-09,
+    "TAX": 4.29914e-09,
+    "INCOME": 4.29914e-09
+  },
+  "0x24e52bffe48": {
+    "CHALLENGE": 0.00907096,
+    "PASS": 0.990929
+  },
+  "0x24e81bffe40": {
+    "CHALLENGE": 0.0272595,
+    "PASS": 0.972741
+  },
+  "0x22e133ffe78": {
+    "CHALLENGE": 0.920497,
+    "PASS": 0.0795034
+  },
+  "0x20e52bffe81": {
+    "CHALLENGE": 0.0281144,
+    "PASS": 0.971886
+  },
+  "0x24e833fffc0": {
+    "COUP": 1
+  },
+  "0x22e14bffff8": {
+    "STEAL": 1,
+    "TAX": 4.20789e-10,
+    "INCOME": 4.20789e-10
+  },
+  "0x20e42bffeb9": {
+    "CHALLENGE": 0.886759,
+    "PASS": 0.113241
+  },
+  "0x24e643fffc1": {
+    "ASSASSINATE": 0.999916,
+    "STEAL": 2.79736e-05,
+    "TAX": 2.79736e-05,
+    "INCOME": 2.79737e-05
+  },
+  "0x24e90bffe40": {
+    "CHALLENGE": 0.361786,
+    "PASS": 0.638214
+  },
+  "0x22e223ffe78": {
+    "CHALLENGE": 0.00104966,
+    "PASS": 0.99895
+  },
+  "0x24e923fffc0": {
+    "COUP": 1
+  },
+  "0x22e23bffff8": {
+    "STEAL": 1,
+    "TAX": 1.33154e-09,
+    "INCOME": 1.33154e-09
+  },
+  "0x22e313ffe78": {
+    "CHALLENGE": 0.0572309,
+    "PASS": 0.942769
+  },
+  "0x22e32bffff8": {
+    "ASSASSINATE": 1.85645e-11,
+    "STEAL": 0.993388,
+    "TAX": 0.00641974,
+    "INCOME": 0.00019239
+  },
+  "0x22e513ffe40": {
+    "CHALLENGE": 0.0816437,
+    "PASS": 0.918356
+  },
+  "0x24e423ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e83bfffc0": {
+    "COUP": 1
+  },
+  "0x24e543fffc0": {
+    "ASSASSINATE": 1,
+    "STEAL": 9.19904e-13,
+    "TAX": 5.07732e-13,
+    "INCOME": 5.07732e-13
+  },
+  "0x22e51bffe48": {
+    "CHALLENGE": 0.0171,
+    "PASS": 0.9829
+  },
+  "0x20e72bffe81": {
+    "CHALLENGE": 0.0336624,
+    "PASS": 0.966338
+  },
+  "0x22e62bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e52bffe78": {
+    "CHALLENGE": 6.97194e-06,
+    "PASS": 0.999993
+  },
+  "0x20e80bfffcf": {
+    "COUP": 1
+  },
+  "0x20e323fffc9": {
+    "ASSASSINATE": 6.68737e-12,
+    "STEAL": 0.716202,
+    "TAX": 0.209536,
+    "INCOME": 0.0742628
+  },
+  "0x20e213fffff": {
+    "STEAL": 0.166049,
+    "TAX": 0.71321,
+    "INCOME": 0.120741
+  },
+  "0x20e733ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e733ffe40": {
+    "CHALLENGE": 1.48467e-13,
+    "PASS": 1
+  },
+  "0x22e62bffe81": {
+    "CHALLENGE": 0.0343248,
+    "PASS": 0.965675
+  },
+  "0x22e42bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e33bffff9": {
+    "ASSASSINATE": 4.28976e-08,
+    "STEAL": 1,
+    "TAX": 4.28976e-08,
+    "INCOME": 4.28976e-08
+  },
+  "0x20e52bffe48": {
+    "CHALLENGE": 0.15135,
+    "PASS": 0.84865
+  },
+  "0x22e42bffe89": {
+    "CHALLENGE": 0.0407403,
+    "PASS": 0.95926
+  },
+  "0x20e52bffe89": {
+    "CHALLENGE": 0.0387819,
+    "PASS": 0.961218
+  },
+  "0x24e60bffe89": {
+    "CHALLENGE": 0.00117829,
+    "PASS": 0.998822
+  },
+  "0x22e423ffe40": {
+    "CHALLENGE": 0.0354728,
+    "PASS": 0.964527
+  },
+  "0x22e42bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e333ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e74bfffc0": {
+    "COUP": 1
+  },
+  "0x22e443fffc8": {
+    "ASSASSINATE": 5.15395e-14,
+    "STEAL": 0.999622,
+    "TAX": 5.15395e-14,
+    "INCOME": 0.000378465
+  },
+  "0x24e24bfffc8": {
+    "STEAL": 8.76267e-06,
+    "TAX": 8.76267e-06,
+    "INCOME": 0.999982
+  },
+  "0x20e833fffc9": {
+    "COUP": 1
+  },
+  "0x22e43bfffc0": {
+    "ASSASSINATE": 2.64835e-11,
+    "STEAL": 1,
+    "TAX": 2.64835e-11,
+    "INCOME": 2.64835e-11
+  },
+  "0x20e413ffe89": {
+    "CHALLENGE": 0.0702107,
+    "PASS": 0.929789
+  },
+  "0x22e83bfffc7": {
+    "COUP": 1
+  },
+  "0x20e823ffe81": {
+    "CHALLENGE": 0.0113008,
+    "PASS": 0.988699
+  },
+  "0x22e443ffff8": {
+    "ASSASSINATE": 1.20786e-08,
+    "STEAL": 1,
+    "TAX": 1.20786e-08,
+    "INCOME": 1.20786e-08
+  },
+  "0x20e233ffe78": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x22e91bffe40": {
+    "CHALLENGE": 0.00251362,
+    "PASS": 0.997486
+  },
+  "0x22e513fffc9": {
+    "ASSASSINATE": 2.86975e-15,
+    "STEAL": 0.962655,
+    "TAX": 0.00221339,
+    "INCOME": 0.0351316
+  },
+  "0x20e033fffc9": {
+    "STEAL": 0.261441,
+    "TAX": 0.714934,
+    "INCOME": 0.0236254
+  },
+  "0x20e51bfffcf": {
+    "ASSASSINATE": 2.1215e-07,
+    "STEAL": 0.252514,
+    "TAX": 0.50163,
+    "INCOME": 0.245856
+  },
+  "0x24e54bffff8": {
+    "ASSASSINATE": 0.998748,
+    "STEAL": 0.000417189,
+    "TAX": 0.000417189,
+    "INCOME": 0.000417189
+  },
+  "0x22e933ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e723ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e133ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e32bffeb9": {
+    "CHALLENGE": 0.997703,
+    "PASS": 0.00229736
+  },
+  "0x22e523ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e733ffe89": {
+    "CHALLENGE": 0.138704,
+    "PASS": 0.861296
+  },
+  "0x22e42bfffc1": {
+    "ASSASSINATE": 3.85164e-12,
+    "STEAL": 0.0822412,
+    "TAX": 0.00467878,
+    "INCOME": 0.91308
+  },
+  "0x22e913fffc7": {
+    "COUP": 1
+  },
+  "0x24e813ffe89": {
+    "CHALLENGE": 0.976159,
+    "PASS": 0.0238414
+  },
+  "0x22e62bffe40": {
+    "CHALLENGE": 0.0175363,
+    "PASS": 0.982464
+  },
+  "0x22e70bfffcf": {
+    "COUP": 1
+  },
+  "0x22e223fffc9": {
+    "STEAL": 0.251425,
+    "TAX": 0.00154711,
+    "INCOME": 0.747028
+  },
+  "0x20e62bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e633ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e61bffe48": {
+    "CHALLENGE": 0.101183,
+    "PASS": 0.898817
+  },
+  "0x22e23bfffc8": {
+    "STEAL": 0.999935,
+    "TAX": 2.73888e-13,
+    "INCOME": 6.52628e-05
+  },
+  "0x22e633ffe89": {
+    "CHALLENGE": 0.00163329,
+    "PASS": 0.998367
+  },
+  "0x22e933fffc7": {
+    "COUP": 1
+  },
+  "0x20e91bffe81": {
+    "CHALLENGE": 4.44981e-08,
+    "PASS": 1
+  },
+  "0x22e523ffe89": {
+    "CHALLENGE": 0.160506,
+    "PASS": 0.839494
+  },
+  "0x22e60bfffcf": {
+    "ASSASSINATE": 4.0068e-14,
+    "STEAL": 0.516418,
+    "TAX": 0.00135952,
+    "INCOME": 0.482223
+  },
+  "0x22e123fffc9": {
+    "STEAL": 0.977138,
+    "TAX": 0.00208142,
+    "INCOME": 0.0207806
+  },
+  "0x24e713ffe89": {
+    "CHALLENGE": 0.111032,
+    "PASS": 0.888968
+  },
+  "0x22e52bffe40": {
+    "CHALLENGE": 0.00627499,
+    "PASS": 0.993725
+  },
+  "0x22e423ffe81": {
+    "CHALLENGE": 0.0127286,
+    "PASS": 0.987271
+  },
+  "0x20e34bffff8": {
+    "ASSASSINATE": 8.00083e-07,
+    "STEAL": 8.00083e-07,
+    "TAX": 0.999998,
+    "INCOME": 8.00083e-07
+  },
+  "0x22e743fffc8": {
+    "COUP": 1
+  },
+  "0x20e83bfffc9": {
+    "COUP": 1
+  },
+  "0x20e41bffe89": {
+    "CHALLENGE": 0.0324322,
+    "PASS": 0.967568
+  },
+  "0x22e433ffe78": {
+    "CHALLENGE": 1.984e-05,
+    "PASS": 0.99998
+  },
+  "0x20e82bffe81": {
+    "CHALLENGE": 0.582832,
+    "PASS": 0.417168
+  },
+  "0x20e82bffe48": {
+    "CHALLENGE": 7.87148e-08,
+    "PASS": 1
+  },
+  "0x24e533ffe89": {
+    "CHALLENGE": 0.000341782,
+    "PASS": 0.999658
+  },
+  "0x22e72bffe89": {
+    "CHALLENGE": 0.126886,
+    "PASS": 0.873114
+  },
+  "0x20e623fffc7": {
+    "ASSASSINATE": 2.57164e-11,
+    "STEAL": 1.64665e-05,
+    "TAX": 0.955171,
+    "INCOME": 0.0448122
+  },
+  "0x24e70bffe48": {
+    "CHALLENGE": 4.36592e-07,
+    "PASS": 1
+  },
+  "0x20e13bfffc1": {
+    "STEAL": 1,
+    "TAX": 8.36301e-12,
+    "INCOME": 8.36301e-12
+  },
+  "0x22e713fffcf": {
+    "COUP": 1
+  },
+  "0x22e22bfffc9": {
+    "STEAL": 0.9293,
+    "TAX": 0.0095641,
+    "INCOME": 0.0611361
+  },
+  "0x20e633ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e233ffff9": {
+    "STEAL": 0.873632,
+    "TAX": 0.000846317,
+    "INCOME": 0.125522
+  },
+  "0x24e91bfffc1": {
+    "COUP": 1
+  },
+  "0x22e423ffe48": {
+    "CHALLENGE": 0.0633846,
+    "PASS": 0.936615
+  },
+  "0x22e713ffe40": {
+    "CHALLENGE": 9.98953e-14,
+    "PASS": 1
+  },
+  "0x24e343ffff8": {
+    "ASSASSINATE": 1,
+    "STEAL": 4.12782e-13,
+    "TAX": 6.51737e-14,
+    "INCOME": 6.51737e-14
+  },
+  "0x22e703ffe48": {
+    "CHALLENGE": 0.00685987,
+    "PASS": 0.99314
+  },
+  "0x22e53bfffc9": {
+    "ASSASSINATE": 1.5337e-16,
+    "STEAL": 0.999908,
+    "TAX": 5.14156e-16,
+    "INCOME": 9.1675e-05
+  },
+  "0x22e84bfffc8": {
+    "COUP": 1
+  },
+  "0x20e323ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e71bfffc1": {
+    "COUP": 1
+  },
+  "0x22e223ffe48": {
+    "CHALLENGE": 0.00690746,
+    "PASS": 0.993093
+  },
+  "0x22e033ffff9": {
+    "STEAL": 0.819638,
+    "TAX": 0.031814,
+    "INCOME": 0.148548
+  },
+  "0x22e533fffc8": {
+    "ASSASSINATE": 4.05156e-14,
+    "STEAL": 0.895481,
+    "TAX": 0.103456,
+    "INCOME": 0.00106258
+  },
+  "0x22e343ffff8": {
+    "ASSASSINATE": 3.70575e-11,
+    "STEAL": 1,
+    "TAX": 3.70575e-11,
+    "INCOME": 3.70575e-11
+  },
+  "0x24e42bfffc9": {
+    "ASSASSINATE": 0.999927,
+    "STEAL": 1.39036e-10,
+    "TAX": 1.65045e-06,
+    "INCOME": 7.16141e-05
+  },
+  "0x20e713ffe40": {
+    "CHALLENGE": 6.62364e-08,
+    "PASS": 1
+  },
+  "0x22e63bfffff": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e83bfffc1": {
+    "COUP": 1
+  },
+  "0x22e723ffe89": {
+    "CHALLENGE": 0.305399,
+    "PASS": 0.694601
+  },
+  "0x24e74bfffc0": {
+    "COUP": 1
+  },
+  "0x22e62bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e523ffeb9": {
+    "CHALLENGE": 0.992142,
+    "PASS": 0.00785827
+  },
+  "0x22e32bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e233ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e64bfffc0": {
+    "ASSASSINATE": 6.40006e-11,
+    "STEAL": 0.985985,
+    "TAX": 0.00736386,
+    "INCOME": 0.006651
+  },
+  "0x22e613fffc8": {
+    "ASSASSINATE": 9.11637e-14,
+    "STEAL": 0.54712,
+    "TAX": 4.56751e-05,
+    "INCOME": 0.452834
+  },
+  "0x22e62bfffc7": {
+    "ASSASSINATE": 1.18888e-07,
+    "STEAL": 0.998856,
+    "TAX": 0.000439439,
+    "INCOME": 0.0007045
+  },
+  "0x20e613ffe81": {
+    "CHALLENGE": 0.0376036,
+    "PASS": 0.962396
+  },
+  "0x22e143fffc1": {
+    "STEAL": 0.999889,
+    "TAX": 4.67133e-12,
+    "INCOME": 0.000111355
+  },
+  "0x22e833ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e54bfffc0": {
+    "ASSASSINATE": 2.84175e-14,
+    "STEAL": 0.999846,
+    "TAX": 2.37616e-05,
+    "INCOME": 0.000130216
+  },
+  "0x20e523ffe89": {
+    "CHALLENGE": 0.0483673,
+    "PASS": 0.951633
+  },
+  "0x22e72bffe48": {
+    "CHALLENGE": 8.59544e-16,
+    "PASS": 1
+  },
+  "0x22e823ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e62bfffc0": {
+    "ASSASSINATE": 5.86753e-13,
+    "STEAL": 0.996527,
+    "TAX": 0.00145447,
+    "INCOME": 0.00201815
+  },
+  "0x22e80bffe48": {
+    "CHALLENGE": 3.31257e-07,
+    "PASS": 1
+  },
+  "0x20e833ffe48": {
+    "CHALLENGE": 2.03809e-12,
+    "PASS": 1
+  },
+  "0x22e733ffe89": {
+    "CHALLENGE": 0.203901,
+    "PASS": 0.796099
+  },
+  "0x20e22bfffc8": {
+    "STEAL": 0.880021,
+    "TAX": 0.119109,
+    "INCOME": 0.000869917
+  },
+  "0x22e80bfffc8": {
+    "COUP": 1
+  },
+  "0x22e833ffe40": {
+    "CHALLENGE": 6.93632e-14,
+    "PASS": 1
+  },
+  "0x22e42bfffc9": {
+    "ASSASSINATE": 2.28692e-14,
+    "STEAL": 0.579498,
+    "TAX": 0.00529957,
+    "INCOME": 0.415202
+  },
+  "0x20e833ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e333ffff8": {
+    "ASSASSINATE": 1.67921e-08,
+    "STEAL": 0.968959,
+    "TAX": 0.0308979,
+    "INCOME": 0.000143158
+  },
+  "0x22e523ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e42bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e843fffc0": {
+    "COUP": 1
+  },
+  "0x22e50bffe48": {
+    "CHALLENGE": 0.0867446,
+    "PASS": 0.913255
+  },
+  "0x22e643fffc0": {
+    "ASSASSINATE": 2.40675e-13,
+    "STEAL": 0.99999,
+    "TAX": 3.21215e-13,
+    "INCOME": 9.65147e-06
+  },
+  "0x20e61bffe89": {
+    "CHALLENGE": 0.0222452,
+    "PASS": 0.977755
+  },
+  "0x22e823ffe48": {
+    "CHALLENGE": 4.57569e-15,
+    "PASS": 1
+  },
+  "0x22e81bfffc9": {
+    "COUP": 1
+  },
+  "0x20e33bfffc9": {
+    "ASSASSINATE": 1.67712e-09,
+    "STEAL": 0.99734,
+    "TAX": 0.00259125,
+    "INCOME": 6.86021e-05
+  },
+  "0x20e823fffcf": {
+    "COUP": 1
+  },
+  "0x20e043fffc9": {
+    "STEAL": 0.999798,
+    "TAX": 2.85498e-10,
+    "INCOME": 0.000202168
+  },
+  "0x22e72bfffc9": {
+    "COUP": 1
+  },
+  "0x22e40bfffc9": {
+    "ASSASSINATE": 1.39491e-12,
+    "STEAL": 0.908241,
+    "TAX": 0.0101568,
+    "INCOME": 0.0816019
+  },
+  "0x20e413fffcf": {
+    "ASSASSINATE": 1.79179e-09,
+    "STEAL": 0.275028,
+    "TAX": 0.716792,
+    "INCOME": 0.00817998
+  },
+  "0x22e71bfffc8": {
+    "COUP": 1
+  },
+  "0x22e713fffc7": {
+    "COUP": 1
+  },
+  "0x22e733ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e82bffe89": {
+    "CHALLENGE": 0.63152,
+    "PASS": 0.36848
+  },
+  "0x24e913fffc1": {
+    "COUP": 1
+  },
+  "0x22e22bffff9": {
+    "STEAL": 0.991269,
+    "TAX": 0.0073303,
+    "INCOME": 0.00140101
+  },
+  "0x22e41bffe48": {
+    "CHALLENGE": 0.0121527,
+    "PASS": 0.987847
+  },
+  "0x22e83bfffc9": {
+    "COUP": 1
+  },
+  "0x20e63bfffff": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x22e83bfffc1": {
+    "COUP": 1
+  },
+  "0x20e343ffff8": {
+    "ASSASSINATE": 3.58516e-07,
+    "STEAL": 0.727992,
+    "TAX": 0.272007,
+    "INCOME": 3.58516e-07
+  },
+  "0x22e82bfffc9": {
+    "COUP": 1
+  },
+  "0x20e833fffcf": {
+    "COUP": 1
+  },
+  "0x22e833ffe48": {
+    "CHALLENGE": 3.00162e-15,
+    "PASS": 1
+  },
+  "0x24e14bfffc8": {
+    "STEAL": 0.991752,
+    "TAX": 0.00824797,
+    "INCOME": 2.88249e-07
+  },
+  "0x20e733fffc9": {
+    "COUP": 1
+  },
+  "0x20e723ffe81": {
+    "CHALLENGE": 0.205068,
+    "PASS": 0.794932
+  },
+  "0x22e633ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e933ffe40": {
+    "CHALLENGE": 0.000188731,
+    "PASS": 0.999811
+  },
+  "0x22e52bfffc9": {
+    "ASSASSINATE": 1.51783e-15,
+    "STEAL": 0.413615,
+    "TAX": 0.00749896,
+    "INCOME": 0.578886
+  },
+  "0x22e44bfffc8": {
+    "ASSASSINATE": 2.10333e-15,
+    "STEAL": 0.999914,
+    "TAX": 3.02804e-05,
+    "INCOME": 5.59946e-05
+  },
+  "0x22e34bfffc0": {
+    "ASSASSINATE": 5.34027e-11,
+    "STEAL": 0.564555,
+    "TAX": 5.34028e-11,
+    "INCOME": 0.435445
+  },
+  "0x20e323ffe89": {
+    "CHALLENGE": 0.0203675,
+    "PASS": 0.979633
+  },
+  "0x22e33bffff9": {
+    "ASSASSINATE": 1.06092e-07,
+    "STEAL": 1,
+    "TAX": 1.06092e-07,
+    "INCOME": 1.06092e-07
+  },
+  "0x22e52bffe48": {
+    "CHALLENGE": 0.0101662,
+    "PASS": 0.989834
+  },
+  "0x22e32bfffc9": {
+    "ASSASSINATE": 5.1948e-14,
+    "STEAL": 0.856149,
+    "TAX": 0.11047,
+    "INCOME": 0.0333815
+  },
+  "0x22e813fffcf": {
+    "COUP": 1
+  },
+  "0x22e51bfffcf": {
+    "ASSASSINATE": 2.05504e-09,
+    "STEAL": 0.999995,
+    "TAX": 2.05504e-09,
+    "INCOME": 4.5144e-06
+  },
+  "0x20e503ffe89": {
+    "CHALLENGE": 0.0514065,
+    "PASS": 0.948594
+  },
+  "0x22e033fffc9": {
+    "STEAL": 0.959291,
+    "TAX": 0.0163343,
+    "INCOME": 0.024375
+  },
+  "0x20e533fffff": {
+    "ASSASSINATE": 4.55371e-09,
+    "STEAL": 0.0761099,
+    "TAX": 0.92389,
+    "INCOME": 4.55371e-09
+  },
+  "0x22e733fffc1": {
+    "COUP": 1
+  },
+  "0x22e723ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e723ffe40": {
+    "CHALLENGE": 0.000523342,
+    "PASS": 0.999477
+  },
+  "0x22e44bfffc0": {
+    "ASSASSINATE": 1.13032e-13,
+    "STEAL": 1,
+    "TAX": 1.13032e-13,
+    "INCOME": 1.13032e-13
+  },
+  "0x20e423ffe89": {
+    "CHALLENGE": 0.0159951,
+    "PASS": 0.984005
+  },
+  "0x22e623fffc9": {
+    "ASSASSINATE": 9.78376e-15,
+    "STEAL": 0.8747,
+    "TAX": 0.017869,
+    "INCOME": 0.107431
+  },
+  "0x22e51bfffc9": {
+    "ASSASSINATE": 1.5915e-14,
+    "STEAL": 0.927409,
+    "TAX": 0.0151597,
+    "INCOME": 0.057431
+  },
+  "0x22e923ffe40": {
+    "CHALLENGE": 3.11946e-12,
+    "PASS": 1
+  },
+  "0x22e82bfffc8": {
+    "COUP": 1
+  },
+  "0x20e533ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e333fffc1": {
+    "ASSASSINATE": 9.68543e-14,
+    "STEAL": 0.0937562,
+    "TAX": 0.000654221,
+    "INCOME": 0.90559
+  },
+  "0x22e81bfffc7": {
+    "COUP": 1
+  },
+  "0x22e433ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e223ffe89": {
+    "CHALLENGE": 0.0564059,
+    "PASS": 0.943594
+  },
+  "0x22e41bffe78": {
+    "CHALLENGE": 0.00192125,
+    "PASS": 0.998079
+  },
+  "0x22e82bfffc7": {
+    "COUP": 1
+  },
+  "0x22e343fffc1": {
+    "ASSASSINATE": 1.48121e-14,
+    "STEAL": 1,
+    "TAX": 1.48121e-14,
+    "INCOME": 1.68461e-07
+  },
+  "0x20e813ffe81": {
+    "CHALLENGE": 0.131298,
+    "PASS": 0.868702
+  },
+  "0x22e52bffe89": {
+    "CHALLENGE": 0.0558015,
+    "PASS": 0.944198
+  },
+  "0x22e733ffe78": {
+    "CHALLENGE": 0.00389412,
+    "PASS": 0.996106
+  },
+  "0x24e833ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e92bfffc1": {
+    "COUP": 1
+  },
+  "0x22e243ffff9": {
+    "STEAL": 0.999999,
+    "TAX": 4.8173e-07,
+    "INCOME": 4.8173e-07
+  },
+  "0x22e433ffe48": {
+    "CHALLENGE": 0.696264,
+    "PASS": 0.303736
+  },
+  "0x22e73bfffc8": {
+    "COUP": 1
+  },
+  "0x22e443fffc9": {
+    "ASSASSINATE": 2.73814e-15,
+    "STEAL": 0.999705,
+    "TAX": 4.47614e-10,
+    "INCOME": 0.000294768
+  },
+  "0x20e72bffe48": {
+    "CHALLENGE": 4.24501e-12,
+    "PASS": 1
+  },
+  "0x24e433ffe89": {
+    "CHALLENGE": 0.00887539,
+    "PASS": 0.991125
+  },
+  "0x22e62bffe89": {
+    "CHALLENGE": 0.168066,
+    "PASS": 0.831934
+  },
+  "0x20e633ffeb9": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x20e623fffc1": {
+    "ASSASSINATE": 2.17051e-12,
+    "STEAL": 0.0787642,
+    "TAX": 0.92123,
+    "INCOME": 5.99577e-06
+  },
+  "0x22e533ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e62bfffc8": {
+    "ASSASSINATE": 0.999442,
+    "STEAL": 8.0191e-07,
+    "TAX": 8.01887e-07,
+    "INCOME": 0.000556659
+  },
+  "0x22e74bfffc8": {
+    "COUP": 1
+  },
+  "0x22e43bfffc9": {
+    "ASSASSINATE": 2.66414e-16,
+    "STEAL": 0.999994,
+    "TAX": 3.85983e-13,
+    "INCOME": 6.36771e-06
+  },
+  "0x20e73bfffff": {
+    "COUP": 1
+  },
+  "0x22e93bfffc1": {
+    "COUP": 1
+  },
+  "0x22e643fffc1": {
+    "ASSASSINATE": 1.56035e-14,
+    "STEAL": 0.999874,
+    "TAX": 5.50563e-10,
+    "INCOME": 0.000126356
+  },
+  "0x22e833fffc0": {
+    "COUP": 1
+  },
+  "0x20e14bffff8": {
+    "STEAL": 5.6726e-09,
+    "TAX": 1,
+    "INCOME": 5.6726e-09
+  },
+  "0x22e813ffe48": {
+    "CHALLENGE": 0.00390127,
+    "PASS": 0.996099
+  },
+  "0x22e633fffc0": {
+    "ASSASSINATE": 3.32871e-12,
+    "STEAL": 0.696484,
+    "TAX": 0.0136166,
+    "INCOME": 0.289899
+  },
+  "0x22e623fffcf": {
+    "ASSASSINATE": 2.34489e-08,
+    "STEAL": 0.577264,
+    "TAX": 0.00227646,
+    "INCOME": 0.420459
+  },
+  "0x22e13bfffc9": {
+    "STEAL": 0.998367,
+    "TAX": 4.40218e-15,
+    "INCOME": 0.00163276
+  },
+  "0x20e60bffe89": {
+    "CHALLENGE": 0.118896,
+    "PASS": 0.881104
+  },
+  "0x22e813fffc9": {
+    "COUP": 1
+  },
+  "0x20e03bfffc9": {
+    "STEAL": 0.984928,
+    "TAX": 0.0150722,
+    "INCOME": 7.54836e-09
+  },
+  "0x20e72bffe89": {
+    "CHALLENGE": 0.0485179,
+    "PASS": 0.951482
+  },
+  "0x20e84bfffc8": {
+    "COUP": 1
+  },
+  "0x24e433ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e623ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e613ffe48": {
+    "CHALLENGE": 0.099436,
+    "PASS": 0.900564
+  },
+  "0x24e93bfffc1": {
+    "COUP": 1
+  },
+  "0x22e73bfffff": {
+    "COUP": 1
+  },
+  "0x22e73bfffc9": {
+    "COUP": 1
+  },
+  "0x22e41bfffc9": {
+    "ASSASSINATE": 1.04194e-14,
+    "STEAL": 0.946774,
+    "TAX": 0.0104004,
+    "INCOME": 0.0428259
+  },
+  "0x22e823ffe40": {
+    "CHALLENGE": 9.98091e-13,
+    "PASS": 1
+  },
+  "0x20e823ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e83bfffc8": {
+    "COUP": 1
+  },
+  "0x22e523ffe81": {
+    "CHALLENGE": 0.204544,
+    "PASS": 0.795456
+  },
+  "0x20e44bffff8": {
+    "ASSASSINATE": 6.70068e-07,
+    "STEAL": 6.70068e-07,
+    "TAX": 0.999998,
+    "INCOME": 6.70068e-07
+  },
+  "0x22e843fffc8": {
+    "COUP": 1
+  },
+  "0x22e44bffff8": {
+    "ASSASSINATE": 2.68632e-07,
+    "STEAL": 0.999999,
+    "TAX": 2.68632e-07,
+    "INCOME": 2.68632e-07
+  },
+  "0x20e413fffc9": {
+    "ASSASSINATE": 7.81345e-13,
+    "STEAL": 0.756951,
+    "TAX": 0.231932,
+    "INCOME": 0.0111169
+  },
+  "0x22e63bfffc8": {
+    "ASSASSINATE": 1.66887e-15,
+    "STEAL": 0.999183,
+    "TAX": 2.39271e-07,
+    "INCOME": 0.00081714
+  },
+  "0x24e23bfffc1": {
+    "STEAL": 0.997453,
+    "TAX": 2.2218e-08,
+    "INCOME": 0.00254717
+  },
+  "0x22e70bffe81": {
+    "CHALLENGE": 0.905836,
+    "PASS": 0.0941643
+  },
+  "0x22e13bfffc1": {
+    "STEAL": 1,
+    "TAX": 1.75902e-09,
+    "INCOME": 1.75902e-09
+  },
+  "0x22e623fffc7": {
+    "ASSASSINATE": 7.40331e-08,
+    "STEAL": 0.982025,
+    "TAX": 0.0178053,
+    "INCOME": 0.000169773
+  },
+  "0x22e433ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e62bffeb9": {
+    "CHALLENGE": 0.95322,
+    "PASS": 0.0467799
+  },
+  "0x22e633fffc8": {
+    "ASSASSINATE": 1.18257e-14,
+    "STEAL": 0.443496,
+    "TAX": 0.0187002,
+    "INCOME": 0.537804
+  },
+  "0x20e933fffc7": {
+    "COUP": 1
+  },
+  "0x22e71bfffc9": {
+    "COUP": 1
+  },
+  "0x22e833ffe89": {
+    "CHALLENGE": 0.418252,
+    "PASS": 0.581748
+  },
+  "0x22e533fffc9": {
+    "ASSASSINATE": 1.9475e-15,
+    "STEAL": 0.888922,
+    "TAX": 0.0430424,
+    "INCOME": 0.0680358
+  },
+  "0x22e213fffc9": {
+    "STEAL": 0.348383,
+    "TAX": 0.00682139,
+    "INCOME": 0.644796
+  },
+  "0x24e803ffe89": {
+    "CHALLENGE": 0.892782,
+    "PASS": 0.107218
+  },
+  "0x22e61bffe40": {
+    "CHALLENGE": 0.126791,
+    "PASS": 0.873209
+  },
+  "0x22e32bffe89": {
+    "CHALLENGE": 0.0207608,
+    "PASS": 0.979239
+  },
+  "0x24e523ffe78": {
+    "CHALLENGE": 0.00785827,
+    "PASS": 0.992142
+  },
+  "0x22e523fffc8": {
+    "ASSASSINATE": 7.15439e-14,
+    "STEAL": 0.93453,
+    "TAX": 0.0172653,
+    "INCOME": 0.0482049
+  },
+  "0x24e823fffc9": {
+    "COUP": 1
+  },
+  "0x22e443ffff9": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x22e633ffe48": {
+    "CHALLENGE": 0.193108,
+    "PASS": 0.806892
+  },
+  "0x22e62bfffc9": {
+    "ASSASSINATE": 2.2468e-16,
+    "STEAL": 0.160135,
+    "TAX": 0.013467,
+    "INCOME": 0.826398
+  },
+  "0x20e82bffe89": {
+    "CHALLENGE": 0.19691,
+    "PASS": 0.80309
+  },
+  "0x24e533ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e723ffe40": {
+    "CHALLENGE": 1.69607e-12,
+    "PASS": 1
+  },
+  "0x22e31bfffc9": {
+    "ASSASSINATE": 6.34351e-14,
+    "STEAL": 0.976158,
+    "TAX": 0.0173221,
+    "INCOME": 0.00651987
+  },
+  "0x20e723ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e72bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e70bfffc9": {
+    "COUP": 1
+  },
+  "0x22e713ffe48": {
+    "CHALLENGE": 1.16112e-14,
+    "PASS": 1
+  },
+  "0x22e94bfffc0": {
+    "COUP": 1
+  },
+  "0x24e62bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e63bfffc1": {
+    "ASSASSINATE": 2.22307e-13,
+    "STEAL": 0.99956,
+    "TAX": 2.22307e-13,
+    "INCOME": 0.00043984
+  },
+  "0x22e82bfffc0": {
+    "COUP": 1
+  },
+  "0x20e143ffff8": {
+    "STEAL": 0.999799,
+    "TAX": 0.000201395,
+    "INCOME": 2.03088e-10
+  },
+  "0x20e933ffe40": {
+    "CHALLENGE": 2.80717e-06,
+    "PASS": 0.999997
+  },
+  "0x20e52bfffc9": {
+    "ASSASSINATE": 4.66123e-12,
+    "STEAL": 0.211179,
+    "TAX": 0.762203,
+    "INCOME": 0.0266181
+  },
+  "0x22e43bfffc8": {
+    "ASSASSINATE": 1.9533e-15,
+    "STEAL": 0.999974,
+    "TAX": 1.9533e-15,
+    "INCOME": 2.58528e-05
+  },
+  "0x22e833ffe81": {
+    "CHALLENGE": 0.0669051,
+    "PASS": 0.933095
+  },
+  "0x20e82bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e82bffe40": {
+    "CHALLENGE": 1.06567e-12,
+    "PASS": 1
+  },
+  "0x22e423fffc9": {
+    "ASSASSINATE": 1.12538e-15,
+    "STEAL": 0.894123,
+    "TAX": 0.00271984,
+    "INCOME": 0.103157
+  },
+  "0x22e32bfffc8": {
+    "ASSASSINATE": 1.67393e-13,
+    "STEAL": 0.973738,
+    "TAX": 0.0205731,
+    "INCOME": 0.00568894
+  },
+  "0x22e91bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e233ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e833ffe89": {
+    "CHALLENGE": 0.481752,
+    "PASS": 0.518248
+  },
+  "0x22e733ffe48": {
+    "CHALLENGE": 3.97629e-16,
+    "PASS": 1
+  },
+  "0x22e543ffff9": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e433ffe40": {
+    "CHALLENGE": 6.09552e-05,
+    "PASS": 0.999939
+  },
+  "0x20e51bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e823ffe89": {
+    "CHALLENGE": 0.327046,
+    "PASS": 0.672954
+  },
+  "0x24e84bfffc0": {
+    "COUP": 1
+  },
+  "0x24e043fffc1": {
+    "STEAL": 1,
+    "TAX": 8.84414e-09,
+    "INCOME": 8.84414e-09
+  },
+  "0x22e513ffe81": {
+    "CHALLENGE": 0.0681693,
+    "PASS": 0.931831
+  },
+  "0x22e933fffc1": {
+    "COUP": 1
+  },
+  "0x20e43bffff8": {
+    "ASSASSINATE": 1.17996e-08,
+    "STEAL": 1,
+    "TAX": 1.17996e-08,
+    "INCOME": 1.17996e-08
+  },
+  "0x22e523ffe48": {
+    "CHALLENGE": 0.000956667,
+    "PASS": 0.999043
+  },
+  "0x22e333ffff9": {
+    "ASSASSINATE": 2.61689e-07,
+    "STEAL": 0.855464,
+    "TAX": 0.0921331,
+    "INCOME": 0.0524027
+  },
+  "0x24e233ffe81": {
+    "CHALLENGE": 1.95139e-05,
+    "PASS": 0.99998
+  },
+  "0x22e833fffc8": {
+    "COUP": 1
+  },
+  "0x22e643ffff8": {
+    "ASSASSINATE": 0.00152767,
+    "STEAL": 0.995417,
+    "TAX": 0.00152767,
+    "INCOME": 0.00152767
+  },
+  "0x20e60bfffc9": {
+    "ASSASSINATE": 4.45719e-13,
+    "STEAL": 6.61276e-05,
+    "TAX": 0.999697,
+    "INCOME": 0.000236496
+  },
+  "0x22e343fffc8": {
+    "ASSASSINATE": 3.15999e-15,
+    "STEAL": 0.99863,
+    "TAX": 3.15999e-15,
+    "INCOME": 0.00137009
+  },
+  "0x22e12bfffc9": {
+    "STEAL": 0.834176,
+    "TAX": 0.0175237,
+    "INCOME": 0.148301
+  },
+  "0x22e613fffcf": {
+    "ASSASSINATE": 6.9192e-14,
+    "STEAL": 0.556284,
+    "TAX": 3.73707e-08,
+    "INCOME": 0.443715
+  },
+  "0x24e823fffc1": {
+    "COUP": 1
+  },
+  "0x22e13bffff9": {
+    "STEAL": 1,
+    "TAX": 5.00621e-11,
+    "INCOME": 5.00621e-11
+  },
+  "0x22e32bffe48": {
+    "CHALLENGE": 0.143358,
+    "PASS": 0.856642
+  },
+  "0x22e543fffc9": {
+    "ASSASSINATE": 9.19214e-17,
+    "STEAL": 0.999428,
+    "TAX": 1.72957e-08,
+    "INCOME": 0.000572298
+  },
+  "0x22e81bfffcf": {
+    "COUP": 1
+  },
+  "0x20e803ffe89": {
+    "CHALLENGE": 0.0256014,
+    "PASS": 0.974399
+  },
+  "0x22e333fffc9": {
+    "ASSASSINATE": 6.07045e-16,
+    "STEAL": 0.903444,
+    "TAX": 0.0031825,
+    "INCOME": 0.0933735
+  },
+  "0x22e643fffc8": {
+    "ASSASSINATE": 2.54408e-16,
+    "STEAL": 0.999996,
+    "TAX": 1.51162e-11,
+    "INCOME": 3.75734e-06
+  },
+  "0x22e53bfffc0": {
+    "ASSASSINATE": 1.05161e-13,
+    "STEAL": 0.999995,
+    "TAX": 1.05161e-13,
+    "INCOME": 4.91995e-06
+  },
+  "0x22e043fffc9": {
+    "STEAL": 0.999779,
+    "TAX": 3.74537e-14,
+    "INCOME": 0.00022076
+  },
+  "0x20e513ffe89": {
+    "CHALLENGE": 0.0436032,
+    "PASS": 0.956397
+  },
+  "0x22e71bffe48": {
+    "CHALLENGE": 1.15453e-14,
+    "PASS": 1
+  },
+  "0x22e433fffc8": {
+    "ASSASSINATE": 2.10831e-15,
+    "STEAL": 0.97914,
+    "TAX": 0.020443,
+    "INCOME": 0.000417305
+  },
+  "0x22e82bffe81": {
+    "CHALLENGE": 0.685074,
+    "PASS": 0.314926
+  },
+  "0x24e433ffe78": {
+    "CHALLENGE": 0.000310867,
+    "PASS": 0.999689
+  },
+  "0x22e53bffff8": {
+    "ASSASSINATE": 9.37036e-08,
+    "STEAL": 1,
+    "TAX": 9.37036e-08,
+    "INCOME": 9.37036e-08
+  },
+  "0x24e623fffc9": {
+    "ASSASSINATE": 0.967061,
+    "STEAL": 8.22246e-05,
+    "TAX": 8.22246e-05,
+    "INCOME": 0.0327749
+  },
+  "0x20e90bffe40": {
+    "CHALLENGE": 0.000332246,
+    "PASS": 0.999668
+  },
+  "0x22e743fffc1": {
+    "COUP": 1
+  },
+  "0x24e333ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e74bfffc8": {
+    "COUP": 1
+  },
+  "0x24e51bfffc1": {
+    "ASSASSINATE": 1,
+    "STEAL": 1.91125e-09,
+    "TAX": 2.05332e-10,
+    "INCOME": 2.21054e-08
+  },
+  "0x22e31bfffff": {
+    "ASSASSINATE": 3.50041e-11,
+    "STEAL": 0.999779,
+    "TAX": 0.000118191,
+    "INCOME": 0.000103024
+  },
+  "0x22e63bfffc0": {
+    "ASSASSINATE": 1.66338e-12,
+    "STEAL": 0.99967,
+    "TAX": 3.73893e-12,
+    "INCOME": 0.000329583
+  },
+  "0x22e143fffc9": {
+    "STEAL": 0.999929,
+    "TAX": 3.43273e-15,
+    "INCOME": 7.14919e-05
+  },
+  "0x20e613ffe89": {
+    "CHALLENGE": 0.0369171,
+    "PASS": 0.963083
+  },
+  "0x22e81bffe48": {
+    "CHALLENGE": 7.09908e-16,
+    "PASS": 1
+  },
+  "0x22e32bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e533fffc1": {
+    "ASSASSINATE": 2.15533e-13,
+    "STEAL": 0.182311,
+    "TAX": 0.747214,
+    "INCOME": 0.0704748
+  },
+  "0x22e843fffc0": {
+    "COUP": 1
+  },
+  "0x22e833fffcf": {
+    "COUP": 1
+  },
+  "0x20e81bffe89": {
+    "CHALLENGE": 0.00930168,
+    "PASS": 0.990698
+  },
+  "0x24e523ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e833ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e91bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e833ffe40": {
+    "CHALLENGE": 0.00012914,
+    "PASS": 0.999871
+  },
+  "0x22e63bfffc9": {
+    "ASSASSINATE": 3.77179e-16,
+    "STEAL": 0.999779,
+    "TAX": 1.01052e-15,
+    "INCOME": 0.000220809
+  },
+  "0x24e933fffc1": {
+    "COUP": 1
+  },
+  "0x22e62bfffc8": {
+    "ASSASSINATE": 9.06738e-16,
+    "STEAL": 0.936706,
+    "TAX": 0.00295528,
+    "INCOME": 0.0603385
+  },
+  "0x20e233ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e42bffeb9": {
+    "CHALLENGE": 0.0401978,
+    "PASS": 0.959802
+  },
+  "0x20e823ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e82bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e433ffeb9": {
+    "CHALLENGE": 0.999689,
+    "PASS": 0.000310872
+  },
+  "0x22e633fffc9": {
+    "ASSASSINATE": 6.56574e-16,
+    "STEAL": 0.530578,
+    "TAX": 0.0207362,
+    "INCOME": 0.448686
+  },
+  "0x20e633ffe78": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x22e733ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e633fffff": {
+    "ASSASSINATE": 9.0294e-11,
+    "STEAL": 9.0294e-11,
+    "TAX": 1,
+    "INCOME": 9.0294e-11
+  },
+  "0x22e833fffc1": {
+    "COUP": 1
+  },
+  "0x20e83bfffc7": {
+    "COUP": 1
+  },
+  "0x22e92bffe40": {
+    "CHALLENGE": 1.18355e-06,
+    "PASS": 0.999999
+  },
+  "0x22e523fffc9": {
+    "ASSASSINATE": 4.64891e-15,
+    "STEAL": 0.923092,
+    "TAX": 0.0258845,
+    "INCOME": 0.0510231
+  },
+  "0x22e623ffe48": {
+    "CHALLENGE": 0.157372,
+    "PASS": 0.842628
+  },
+  "0x22e84bfffc0": {
+    "COUP": 1
+  },
+  "0x20e823ffe89": {
+    "CHALLENGE": 0.0112107,
+    "PASS": 0.988789
+  },
+  "0x24e52bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e53bfffc1": {
+    "ASSASSINATE": 2.21176e-13,
+    "STEAL": 0.999885,
+    "TAX": 2.21176e-13,
+    "INCOME": 0.000115234
+  },
+  "0x22e73bfffc1": {
+    "COUP": 1
+  },
+  "0x22e92bfffc0": {
+    "COUP": 1
+  },
+  "0x20e243ffff8": {
+    "STEAL": 0.927009,
+    "TAX": 0.0729889,
+    "INCOME": 1.90515e-06
+  },
+  "0x22e343ffff9": {
+    "ASSASSINATE": 4.89768e-08,
+    "STEAL": 1,
+    "TAX": 4.89768e-08,
+    "INCOME": 4.89768e-08
+  },
+  "0x22e533ffe48": {
+    "CHALLENGE": 0.268077,
+    "PASS": 0.731923
+  },
+  "0x22e92bffe81": {
+    "CHALLENGE": 0.00904637,
+    "PASS": 0.990954
+  },
+  "0x24e533ffe78": {
+    "CHALLENGE": 0.00166598,
+    "PASS": 0.998334
+  },
+  "0x22e92bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e533ffeb9": {
+    "CHALLENGE": 0.998334,
+    "PASS": 0.00166598
+  },
+  "0x24e843fffc0": {
+    "COUP": 1
+  },
+  "0x22e733fffc8": {
+    "COUP": 1
+  },
+  "0x20e543fffc9": {
+    "ASSASSINATE": 9.66659e-13,
+    "STEAL": 0.99504,
+    "TAX": 0.00407815,
+    "INCOME": 0.000882224
+  },
+  "0x22e31bffe78": {
+    "CHALLENGE": 2.70782e-07,
+    "PASS": 1
+  },
+  "0x20e123ffe89": {
+    "CHALLENGE": 0.0819411,
+    "PASS": 0.918059
+  },
+  "0x22e12bffe48": {
+    "CHALLENGE": 0.00342764,
+    "PASS": 0.996572
+  },
+  "0x24e623fffc1": {
+    "ASSASSINATE": 0.99854,
+    "STEAL": 0.000134301,
+    "TAX": 0.000134301,
+    "INCOME": 0.00119146
+  },
+  "0x22e423fffff": {
+    "ASSASSINATE": 8.49415e-08,
+    "STEAL": 0.984474,
+    "TAX": 0.0108262,
+    "INCOME": 0.00469931
+  },
+  "0x22e52bfffc1": {
+    "ASSASSINATE": 6.01168e-14,
+    "STEAL": 0.00728799,
+    "TAX": 0.00312319,
+    "INCOME": 0.989589
+  },
+  "0x20e933ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e54bffff8": {
+    "ASSASSINATE": 4.89163e-08,
+    "STEAL": 1,
+    "TAX": 4.89163e-08,
+    "INCOME": 4.89163e-08
+  },
+  "0x20e513fffc9": {
+    "ASSASSINATE": 1.42737e-12,
+    "STEAL": 0.00963495,
+    "TAX": 0.317715,
+    "INCOME": 0.67265
+  },
+  "0x22e533ffe78": {
+    "CHALLENGE": 0.00110771,
+    "PASS": 0.998892
+  },
+  "0x20e92bffe81": {
+    "CHALLENGE": 0.00963999,
+    "PASS": 0.99036
+  },
+  "0x24e633ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e933ffe81": {
+    "CHALLENGE": 0.00311409,
+    "PASS": 0.996886
+  },
+  "0x20e70bffe89": {
+    "CHALLENGE": 0.38401,
+    "PASS": 0.61599
+  },
+  "0x22e723fffcf": {
+    "COUP": 1
+  },
+  "0x22e23bfffc9": {
+    "STEAL": 0.999894,
+    "TAX": 8.2525e-14,
+    "INCOME": 0.00010559
+  },
+  "0x22e54bfffc8": {
+    "ASSASSINATE": 1.60468e-15,
+    "STEAL": 0.996274,
+    "TAX": 0.000287462,
+    "INCOME": 0.00343863
+  },
+  "0x20e813ffe89": {
+    "CHALLENGE": 0.184745,
+    "PASS": 0.815255
+  },
+  "0x22e82bfffcf": {
+    "COUP": 1
+  },
+  "0x22e343fffc9": {
+    "ASSASSINATE": 1.36897e-15,
+    "STEAL": 0.999858,
+    "TAX": 1.36897e-15,
+    "INCOME": 0.000141809
+  },
+  "0x20e443ffff9": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x20e633ffe48": {
+    "CHALLENGE": 0.635069,
+    "PASS": 0.364931
+  },
+  "0x22e533ffe89": {
+    "CHALLENGE": 0.00556654,
+    "PASS": 0.994433
+  },
+  "0x22e823fffc8": {
+    "COUP": 1
+  },
+  "0x22e74bfffc0": {
+    "COUP": 1
+  },
+  "0x20e723ffe89": {
+    "CHALLENGE": 0.1113,
+    "PASS": 0.8887
+  },
+  "0x22e543fffc1": {
+    "ASSASSINATE": 2.90369e-14,
+    "STEAL": 0.999271,
+    "TAX": 8.93836e-14,
+    "INCOME": 0.000729171
+  },
+  "0x20e833ffe40": {
+    "CHALLENGE": 2.31549e-12,
+    "PASS": 1
+  },
+  "0x20e42bfffc9": {
+    "ASSASSINATE": 2.55403e-11,
+    "STEAL": 0.229574,
+    "TAX": 0.765461,
+    "INCOME": 0.00496487
+  },
+  "0x22e33bfffc8": {
+    "ASSASSINATE": 1.1491e-14,
+    "STEAL": 1,
+    "TAX": 1.1491e-14,
+    "INCOME": 1.1491e-14
+  },
+  "0x22e733ffe81": {
+    "CHALLENGE": 0.0121302,
+    "PASS": 0.98787
+  },
+  "0x20e833ffe81": {
+    "CHALLENGE": 0.499336,
+    "PASS": 0.500664
+  },
+  "0x22e433fffc9": {
+    "ASSASSINATE": 1.31972e-15,
+    "STEAL": 0.945858,
+    "TAX": 0.0159986,
+    "INCOME": 0.0381429
+  },
+  "0x20e723ffe48": {
+    "CHALLENGE": 8.26319e-12,
+    "PASS": 1
+  },
+  "0x22e623ffe89": {
+    "CHALLENGE": 0.0460961,
+    "PASS": 0.953904
+  },
+  "0x24e64bfffc0": {
+    "ASSASSINATE": 0.999965,
+    "STEAL": 3.64025e-12,
+    "TAX": 3.64025e-12,
+    "INCOME": 3.472e-05
+  },
+  "0x22e623ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e52bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e943fffc0": {
+    "COUP": 1
+  },
+  "0x22e433ffff8": {
+    "ASSASSINATE": 1.53956e-08,
+    "STEAL": 0.81963,
+    "TAX": 0.140984,
+    "INCOME": 0.0393853
+  },
+  "0x22e61bfffc8": {
+    "ASSASSINATE": 9.75834e-16,
+    "STEAL": 0.968951,
+    "TAX": 1.87477e-05,
+    "INCOME": 0.0310307
+  },
+  "0x22e42bffe48": {
+    "CHALLENGE": 0.0745466,
+    "PASS": 0.925453
+  },
+  "0x22e23bffff9": {
+    "STEAL": 1,
+    "TAX": 4.65794e-11,
+    "INCOME": 4.65794e-11
+  },
+  "0x24e923fffc1": {
+    "COUP": 1
+  },
+  "0x22e71bfffc7": {
+    "COUP": 1
+  },
+  "0x22e233fffc1": {
+    "STEAL": 0.105724,
+    "TAX": 0.00691871,
+    "INCOME": 0.887358
+  },
+  "0x22e723ffe48": {
+    "CHALLENGE": 9.78316e-15,
+    "PASS": 1
+  },
+  "0x22e543fffc0": {
+    "ASSASSINATE": 2.28068e-13,
+    "STEAL": 1,
+    "TAX": 2.28068e-13,
+    "INCOME": 2.28068e-13
+  },
+  "0x20e51bffe89": {
+    "CHALLENGE": 0.290649,
+    "PASS": 0.709351
+  },
+  "0x20e633ffe89": {
+    "CHALLENGE": 0.00124825,
+    "PASS": 0.998752
+  },
+  "0x22e32bfffc1": {
+    "ASSASSINATE": 4.06917e-10,
+    "STEAL": 0.0525385,
+    "TAX": 0.716991,
+    "INCOME": 0.23047
+  },
+  "0x22e813fffc7": {
+    "COUP": 1
+  },
+  "0x22e533ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e703ffe89": {
+    "CHALLENGE": 0.0947284,
+    "PASS": 0.905272
+  },
+  "0x22e71bfffcf": {
+    "COUP": 1
+  },
+  "0x22e233fffc9": {
+    "STEAL": 0.576775,
+    "TAX": 0.0213351,
+    "INCOME": 0.40189
+  },
+  "0x22e543fffc8": {
+    "ASSASSINATE": 2.67407e-15,
+    "STEAL": 0.999957,
+    "TAX": 1.2771e-09,
+    "INCOME": 4.25565e-05
+  },
+  "0x22e64bfffc8": {
+    "ASSASSINATE": 2.14487e-15,
+    "STEAL": 0.990824,
+    "TAX": 6.75061e-05,
+    "INCOME": 0.00910815
+  },
+  "0x22e823fffcf": {
+    "COUP": 1
+  },
+  "0x20e80bffe89": {
+    "CHALLENGE": 0.140101,
+    "PASS": 0.859899
+  },
+  "0x22e33bfffc9": {
+    "ASSASSINATE": 2.51171e-15,
+    "STEAL": 0.999976,
+    "TAX": 7.30868e-14,
+    "INCOME": 2.37354e-05
+  },
+  "0x24e70bffe89": {
+    "CHALLENGE": 0.00076026,
+    "PASS": 0.99924
+  },
+  "0x22e523ffe40": {
+    "CHALLENGE": 0.14754,
+    "PASS": 0.85246
+  },
+  "0x20e523ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e64bfffc0": {
+    "ASSASSINATE": 1.58557e-13,
+    "STEAL": 0.996946,
+    "TAX": 7.71956e-05,
+    "INCOME": 0.00297714
+  },
+  "0x20e623ffe89": {
+    "CHALLENGE": 0.0153916,
+    "PASS": 0.984608
+  },
+  "0x20e743fffc8": {
+    "COUP": 1
+  },
+  "0x24e32bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e82bffe48": {
+    "CHALLENGE": 9.18166e-16,
+    "PASS": 1
+  },
+  "0x20e80bffe81": {
+    "CHALLENGE": 0.485754,
+    "PASS": 0.514246
+  },
+  "0x22e823fffc7": {
+    "COUP": 1
+  },
+  "0x22e33bfffc1": {
+    "ASSASSINATE": 2.1714e-13,
+    "STEAL": 1,
+    "TAX": 2.1714e-13,
+    "INCOME": 2.1714e-13
+  },
+  "0x22e52bffe81": {
+    "CHALLENGE": 0.00969325,
+    "PASS": 0.990307
+  },
+  "0x22e52bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e52bfffc8": {
+    "ASSASSINATE": 1.52647e-14,
+    "STEAL": 0.64458,
+    "TAX": 0.007487,
+    "INCOME": 0.347933
+  },
+  "0x20e433ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e93bfffc7": {
+    "COUP": 1
+  },
+  "0x22e923ffe81": {
+    "CHALLENGE": 0.00050126,
+    "PASS": 0.999499
+  },
+  "0x24e323ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e73bfffc0": {
+    "COUP": 1
+  },
+  "0x22e41bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e133ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e32bffeb9": {
+    "CHALLENGE": 0.997657,
+    "PASS": 0.00234307
+  },
+  "0x20e723ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e93bfffc0": {
+    "COUP": 1
+  },
+  "0x22e923ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e91bfffc7": {
+    "COUP": 1
+  },
+  "0x22e433fffc1": {
+    "ASSASSINATE": 7.84897e-13,
+    "STEAL": 0.0131897,
+    "TAX": 0.044509,
+    "INCOME": 0.942301
+  },
+  "0x24e81bffe81": {
+    "CHALLENGE": 0.972741,
+    "PASS": 0.0272595
+  },
+  "0x22e133ffeb9": {
+    "CHALLENGE": 2.4185e-05,
+    "PASS": 0.999976
+  },
+  "0x20e52bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e743fffc0": {
+    "COUP": 1
+  },
+  "0x20e71bffe89": {
+    "CHALLENGE": 0.201306,
+    "PASS": 0.798694
+  },
+  "0x20e833ffe89": {
+    "CHALLENGE": 0.597246,
+    "PASS": 0.402754
+  },
+  "0x22e213fffff": {
+    "STEAL": 0.962562,
+    "TAX": 0.0160722,
+    "INCOME": 0.0213654
+  },
+  "0x22e733ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e72bffe81": {
+    "CHALLENGE": 0.0380746,
+    "PASS": 0.961925
+  },
+  "0x22e72bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e613ffe40": {
+    "CHALLENGE": 0.344596,
+    "PASS": 0.655404
+  },
+  "0x22e73bfffc0": {
+    "COUP": 1
+  },
+  "0x22e72bfffcf": {
+    "COUP": 1
+  },
+  "0x22e243fffc9": {
+    "STEAL": 1,
+    "TAX": 1.27372e-15,
+    "INCOME": 4.41192e-07
+  },
+  "0x20e713ffe89": {
+    "CHALLENGE": 0.103274,
+    "PASS": 0.896726
+  },
+  "0x22e62bffe48": {
+    "CHALLENGE": 0.0310449,
+    "PASS": 0.968955
+  },
+  "0x22e43bffff9": {
+    "ASSASSINATE": 1.24791e-06,
+    "STEAL": 0.999996,
+    "TAX": 1.24791e-06,
+    "INCOME": 1.24791e-06
+  },
+  "0x22e74bffff8": {
+    "COUP": 1
+  },
+  "0x20e713fffc9": {
+    "COUP": 1
+  },
+  "0x22e61bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e24bffff8": {
+    "STEAL": 0.333333,
+    "TAX": 0.333333,
+    "INCOME": 0.333333
+  },
+  "0x22e933fffc0": {
+    "COUP": 1
+  },
+  "0x24e713ffe48": {
+    "CHALLENGE": 7.02691e-08,
+    "PASS": 1
+  },
+  "0x20e143fffc1": {
+    "STEAL": 0.998909,
+    "TAX": 0.000440188,
+    "INCOME": 0.000650407
+  },
+  "0x20e62bfffc7": {
+    "ASSASSINATE": 1.01034e-09,
+    "STEAL": 0.00274416,
+    "TAX": 0.993093,
+    "INCOME": 0.00416305
+  },
+  "0x22e41bfffc8": {
+    "ASSASSINATE": 3.60888e-13,
+    "STEAL": 0.990018,
+    "TAX": 0.00359826,
+    "INCOME": 0.00638415
+  },
+  "0x24e733ffeb9": {
+    "CHALLENGE": 0.957704,
+    "PASS": 0.0422961
+  },
+  "0x22e223ffe89": {
+    "CHALLENGE": 0.0672167,
+    "PASS": 0.932783
+  },
+  "0x24e41bffe78": {
+    "CHALLENGE": 0.00346331,
+    "PASS": 0.996537
+  },
+  "0x22e82bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e82bffe40": {
+    "CHALLENGE": 1.5122e-05,
+    "PASS": 0.999985
+  },
+  "0x20e70bffe40": {
+    "CHALLENGE": 7.93927e-09,
+    "PASS": 1
+  },
+  "0x24e423fffc9": {
+    "ASSASSINATE": 0.998061,
+    "STEAL": 1.36052e-07,
+    "TAX": 7.72714e-13,
+    "INCOME": 0.00193848
+  },
+  "0x22e143ffff9": {
+    "STEAL": 1,
+    "TAX": 1.76131e-07,
+    "INCOME": 1.76131e-07
+  },
+  "0x24e82bfffc1": {
+    "COUP": 1
+  },
+  "0x22e333ffe48": {
+    "CHALLENGE": 0.46442,
+    "PASS": 0.53558
+  },
+  "0x22e133fffc9": {
+    "STEAL": 0.929844,
+    "TAX": 0.0434412,
+    "INCOME": 0.0267153
+  },
+  "0x20e603ffe89": {
+    "CHALLENGE": 0.0872971,
+    "PASS": 0.912703
+  },
+  "0x22e61bfffcf": {
+    "ASSASSINATE": 6.93684e-11,
+    "STEAL": 0.973437,
+    "TAX": 1.69132e-05,
+    "INCOME": 0.0265463
+  },
+  "0x24e71bfffcf": {
+    "COUP": 1
+  },
+  "0x24e233fffc9": {
+    "STEAL": 0.0485432,
+    "TAX": 0.907658,
+    "INCOME": 0.0437986
+  },
+  "0x20e51bffe40": {
+    "CHALLENGE": 0.227147,
+    "PASS": 0.772853
+  },
+  "0x22e703ffe89": {
+    "CHALLENGE": 0.230602,
+    "PASS": 0.769398
+  },
+  "0x24e723fffc1": {
+    "COUP": 1
+  },
+  "0x22e03bffff9": {
+    "STEAL": 1,
+    "TAX": 1.06104e-11,
+    "INCOME": 1.06104e-11
+  },
+  "0x22e22bffe48": {
+    "CHALLENGE": 0.0732771,
+    "PASS": 0.926723
+  },
+  "0x22e02bfffc9": {
+    "STEAL": 0.565132,
+    "TAX": 0.0229715,
+    "INCOME": 0.411896
+  },
+  "0x22e513fffcf": {
+    "ASSASSINATE": 1.84928e-12,
+    "STEAL": 0.983318,
+    "TAX": 0.0100384,
+    "INCOME": 0.00664329
+  },
+  "0x22e943fffc0": {
+    "COUP": 1
+  },
+  "0x24e623ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e633fffc1": {
+    "ASSASSINATE": 4.93401e-14,
+    "STEAL": 0.0536825,
+    "TAX": 0.0449929,
+    "INCOME": 0.901325
+  },
+  "0x22e823fffc0": {
+    "COUP": 1
+  },
+  "0x20e13bffff8": {
+    "STEAL": 1,
+    "TAX": 3.08807e-10,
+    "INCOME": 3.08807e-10
+  },
+  "0x20e51bfffc9": {
+    "ASSASSINATE": 4.49892e-12,
+    "STEAL": 0.236998,
+    "TAX": 0.762728,
+    "INCOME": 0.000274501
+  },
+  "0x22e42bfffc8": {
+    "ASSASSINATE": 2.28906e-13,
+    "STEAL": 0.292018,
+    "TAX": 0.0266475,
+    "INCOME": 0.681335
+  },
+  "0x20e333ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e83bfffc7": {
+    "COUP": 1
+  },
+  "0x22e823ffe81": {
+    "CHALLENGE": 0.026316,
+    "PASS": 0.973684
+  },
+  "0x22e93bfffc7": {
+    "COUP": 1
+  },
+  "0x20e923ffe81": {
+    "CHALLENGE": 0.00221841,
+    "PASS": 0.997782
+  },
+  "0x22e823ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e813ffe48": {
+    "CHALLENGE": 0.00815316,
+    "PASS": 0.991847
+  },
+  "0x24e73bfffc0": {
+    "COUP": 1
+  },
+  "0x20e743fffc1": {
+    "COUP": 1
+  },
+  "0x20e323ffe81": {
+    "CHALLENGE": 0.211592,
+    "PASS": 0.788408
+  },
+  "0x20e933ffe81": {
+    "CHALLENGE": 0.00689223,
+    "PASS": 0.993108
+  },
+  "0x20e823ffe48": {
+    "CHALLENGE": 6.39301e-09,
+    "PASS": 1
+  },
+  "0x24e52bffe89": {
+    "CHALLENGE": 0.0132058,
+    "PASS": 0.986794
+  },
+  "0x20e93bfffc1": {
+    "COUP": 1
+  },
+  "0x20e51bffe81": {
+    "CHALLENGE": 0.0879683,
+    "PASS": 0.912032
+  },
+  "0x24e243fffc8": {
+    "STEAL": 0.998066,
+    "TAX": 0.00193412,
+    "INCOME": 1.3595e-13
+  },
+  "0x20e82bfffc9": {
+    "COUP": 1
+  },
+  "0x20e40bffe89": {
+    "CHALLENGE": 0.046223,
+    "PASS": 0.953777
+  },
+  "0x20e633fffc9": {
+    "ASSASSINATE": 1.83824e-12,
+    "STEAL": 4.101e-05,
+    "TAX": 0.999847,
+    "INCOME": 0.000111603
+  },
+  "0x20e213ffe89": {
+    "CHALLENGE": 0.0385319,
+    "PASS": 0.961468
+  },
+  "0x24e21bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e633fffc8": {
+    "ASSASSINATE": 3.48177e-11,
+    "STEAL": 0.000179901,
+    "TAX": 0.99952,
+    "INCOME": 0.000299645
+  },
+  "0x20e61bffe48": {
+    "CHALLENGE": 0.0275079,
+    "PASS": 0.972492
+  },
+  "0x20e14bfffc8": {
+    "STEAL": 0.915701,
+    "TAX": 0.0842985,
+    "INCOME": 9.35298e-11
+  },
+  "0x24e22bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e643fffc8": {
+    "ASSASSINATE": 1.24616e-12,
+    "STEAL": 0.853675,
+    "TAX": 0.146324,
+    "INCOME": 9.11813e-07
+  },
+  "0x20e43bffff9": {
+    "ASSASSINATE": 4.75216e-11,
+    "STEAL": 0.999999,
+    "TAX": 1.09067e-06,
+    "INCOME": 4.75216e-11
+  },
+  "0x20e62bffe48": {
+    "CHALLENGE": 0.204026,
+    "PASS": 0.795974
+  },
+  "0x20e43bfffc9": {
+    "ASSASSINATE": 1.78777e-12,
+    "STEAL": 0.987996,
+    "TAX": 0.0119888,
+    "INCOME": 1.56089e-05
+  },
+  "0x20e62bffe89": {
+    "CHALLENGE": 0.18318,
+    "PASS": 0.81682
+  },
+  "0x20e34bfffc8": {
+    "ASSASSINATE": 3.39935e-10,
+    "STEAL": 0.0209711,
+    "TAX": 0.812487,
+    "INCOME": 0.166542
+  },
+  "0x22e82bfffc1": {
+    "COUP": 1
+  },
+  "0x20e143ffff9": {
+    "STEAL": 0.999947,
+    "TAX": 4.70861e-05,
+    "INCOME": 5.46039e-06
+  },
+  "0x20e333ffe48": {
+    "CHALLENGE": 0.653648,
+    "PASS": 0.346352
+  },
+  "0x20e143fffc9": {
+    "STEAL": 0.992893,
+    "TAX": 0.00709016,
+    "INCOME": 1.71909e-05
+  },
+  "0x22e52bffe78": {
+    "CHALLENGE": 2.39671e-09,
+    "PASS": 1
+  },
+  "0x20e333ffe89": {
+    "CHALLENGE": 0.0156128,
+    "PASS": 0.984387
+  },
+  "0x20e333ffeb9": {
+    "CHALLENGE": 0.86933,
+    "PASS": 0.13067
+  },
+  "0x22e71bffe89": {
+    "CHALLENGE": 0.843502,
+    "PASS": 0.156498
+  },
+  "0x20e533ffe40": {
+    "CHALLENGE": 0.667979,
+    "PASS": 0.332021
+  },
+  "0x20e613fffcf": {
+    "ASSASSINATE": 6.73675e-11,
+    "STEAL": 3.69891e-08,
+    "TAX": 0.999998,
+    "INCOME": 2.07792e-06
+  },
+  "0x20e12bfffc9": {
+    "STEAL": 0.754807,
+    "TAX": 0.103464,
+    "INCOME": 0.141729
+  },
+  "0x24e133ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e54bfffc8": {
+    "ASSASSINATE": 9.54241e-12,
+    "STEAL": 0.758867,
+    "TAX": 0.234593,
+    "INCOME": 0.00653995
+  },
+  "0x20e343ffff9": {
+    "ASSASSINATE": 9.66794e-09,
+    "STEAL": 1,
+    "TAX": 9.66794e-09,
+    "INCOME": 9.66794e-09
+  },
+  "0x20e533ffe48": {
+    "CHALLENGE": 0.746907,
+    "PASS": 0.253093
+  },
+  "0x20e82bfffcf": {
+    "COUP": 1
+  },
+  "0x20e343fffc9": {
+    "ASSASSINATE": 2.90831e-12,
+    "STEAL": 0.902251,
+    "TAX": 0.0977471,
+    "INCOME": 1.79378e-06
+  },
+  "0x20e533ffe89": {
+    "CHALLENGE": 0.00417287,
+    "PASS": 0.995827
+  },
+  "0x20e82bfffc7": {
+    "COUP": 1
+  },
+  "0x20e343fffc1": {
+    "ASSASSINATE": 3.34039e-12,
+    "STEAL": 0.944778,
+    "TAX": 0.0552202,
+    "INCOME": 1.78879e-06
+  },
+  "0x22e71bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e533ffe81": {
+    "CHALLENGE": 0.000823787,
+    "PASS": 0.999176
+  },
+  "0x20e533ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e43bfffc8": {
+    "ASSASSINATE": 4.87861e-10,
+    "STEAL": 0.995458,
+    "TAX": 0.0045411,
+    "INCOME": 9.12897e-07
+  },
+  "0x20e71bfffcf": {
+    "COUP": 1
+  },
+  "0x20e233fffc9": {
+    "STEAL": 0.167341,
+    "TAX": 0.827638,
+    "INCOME": 0.00502112
+  },
+  "0x22e91bfffc1": {
+    "COUP": 1
+  },
+  "0x20e423ffe48": {
+    "CHALLENGE": 0.303319,
+    "PASS": 0.696681
+  },
+  "0x20e233ffff9": {
+    "STEAL": 0.000463071,
+    "TAX": 0.999375,
+    "INCOME": 0.000161643
+  },
+  "0x24e31bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e733fffc8": {
+    "COUP": 1
+  },
+  "0x20e523fffc9": {
+    "ASSASSINATE": 1.70485e-12,
+    "STEAL": 0.022097,
+    "TAX": 0.977699,
+    "INCOME": 0.00020392
+  },
+  "0x24e633ffe81": {
+    "CHALLENGE": 1.41261e-05,
+    "PASS": 0.999986
+  },
+  "0x20e73bfffc1": {
+    "COUP": 1
+  },
+  "0x22e233ffe81": {
+    "CHALLENGE": 2.22383e-06,
+    "PASS": 0.999998
+  },
+  "0x24e41bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e833fffc8": {
+    "COUP": 1
+  },
+  "0x20e81bffe48": {
+    "CHALLENGE": 1.60518e-09,
+    "PASS": 1
+  },
+  "0x24e523ffe89": {
+    "CHALLENGE": 0.0019569,
+    "PASS": 0.998043
+  },
+  "0x24e34bfffc0": {
+    "ASSASSINATE": 0.999915,
+    "STEAL": 2.06937e-12,
+    "TAX": 2.06937e-12,
+    "INCOME": 8.53429e-05
+  },
+  "0x20e933fffc1": {
+    "COUP": 1
+  },
+  "0x24e23bfffc8": {
+    "STEAL": 0.999831,
+    "TAX": 1.53597e-12,
+    "INCOME": 0.000168736
+  },
+  "0x20e823fffc9": {
+    "COUP": 1
+  },
+  "0x24e933ffe81": {
+    "CHALLENGE": 0.137098,
+    "PASS": 0.862902
+  },
+  "0x20e62bfffc9": {
+    "ASSASSINATE": 3.3001e-12,
+    "STEAL": 0.000274763,
+    "TAX": 0.999689,
+    "INCOME": 3.57687e-05
+  },
+  "0x20e63bfffc0": {
+    "ASSASSINATE": 1.42978e-09,
+    "STEAL": 0.998948,
+    "TAX": 1.27461e-05,
+    "INCOME": 0.00103965
+  },
+  "0x20e21bfffc9": {
+    "STEAL": 0.576371,
+    "TAX": 0.417529,
+    "INCOME": 0.00610087
+  },
+  "0x20e733ffe40": {
+    "CHALLENGE": 8.43992e-12,
+    "PASS": 1
+  },
+  "0x20e813fffcf": {
+    "COUP": 1
+  },
+  "0x20e32bfffc9": {
+    "ASSASSINATE": 5.81359e-12,
+    "STEAL": 0.230563,
+    "TAX": 0.763641,
+    "INCOME": 0.00579596
+  },
+  "0x20e543fffc1": {
+    "ASSASSINATE": 1.9685e-12,
+    "STEAL": 0.983327,
+    "TAX": 0.00566207,
+    "INCOME": 0.0110112
+  },
+  "0x20e733ffe81": {
+    "CHALLENGE": 0.0270724,
+    "PASS": 0.972928
+  },
+  "0x20e733ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e223ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e63bfffc8": {
+    "ASSASSINATE": 8.91933e-11,
+    "STEAL": 0.998795,
+    "TAX": 0.000931966,
+    "INCOME": 0.000273502
+  },
+  "0x20e623ffe48": {
+    "CHALLENGE": 0.834679,
+    "PASS": 0.165321
+  },
+  "0x24e32bffe89": {
+    "CHALLENGE": 0.0953267,
+    "PASS": 0.904673
+  },
+  "0x20e433fffc9": {
+    "ASSASSINATE": 2.82509e-12,
+    "STEAL": 0.726552,
+    "TAX": 0.261322,
+    "INCOME": 0.0121258
+  },
+  "0x20e91bfffc7": {
+    "COUP": 1
+  },
+  "0x20e433fffc1": {
+    "ASSASSINATE": 1.49617e-11,
+    "STEAL": 0.958195,
+    "TAX": 0.0296415,
+    "INCOME": 0.012164
+  },
+  "0x20e623ffe81": {
+    "CHALLENGE": 0.00499889,
+    "PASS": 0.995001
+  },
+  "0x20e623ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e833fffc0": {
+    "COUP": 1
+  },
+  "0x20e62bfffc1": {
+    "ASSASSINATE": 1.62563e-12,
+    "STEAL": 0.000989307,
+    "TAX": 0.99901,
+    "INCOME": 6.46311e-07
+  },
+  "0x22e833fffc7": {
+    "COUP": 1
+  },
+  "0x20e81bffe81": {
+    "CHALLENGE": 0.00154604,
+    "PASS": 0.998454
+  },
+  "0x24e733ffe40": {
+    "CHALLENGE": 7.53938e-06,
+    "PASS": 0.999992
+  },
+  "0x20e81bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e723fffc8": {
+    "COUP": 1
+  },
+  "0x20e70bffe48": {
+    "CHALLENGE": 1.95132e-11,
+    "PASS": 1
+  },
+  "0x24e833fffc9": {
+    "COUP": 1
+  },
+  "0x20e823fffc1": {
+    "COUP": 1
+  },
+  "0x20e423fffc9": {
+    "ASSASSINATE": 6.6255e-13,
+    "STEAL": 0.842538,
+    "TAX": 0.131599,
+    "INCOME": 0.0258629
+  },
+  "0x20e63bfffc1": {
+    "ASSASSINATE": 6.28471e-12,
+    "STEAL": 0.998212,
+    "TAX": 0.00163401,
+    "INCOME": 0.000153994
+  },
+  "0x20e71bffe48": {
+    "CHALLENGE": 2.29975e-11,
+    "PASS": 1
+  },
+  "0x24e24bfffc0": {
+    "STEAL": 0.333333,
+    "TAX": 0.333333,
+    "INCOME": 0.333333
+  },
+  "0x20e833fffc1": {
+    "COUP": 1
+  },
+  "0x24e13bfffc8": {
+    "STEAL": 1,
+    "TAX": 8.48421e-08,
+    "INCOME": 8.48421e-08
+  },
+  "0x20e723fffc9": {
+    "COUP": 1
+  },
+  "0x24e833ffe81": {
+    "CHALLENGE": 0.252456,
+    "PASS": 0.747544
+  },
+  "0x20e52bfffc8": {
+    "ASSASSINATE": 9.24188e-11,
+    "STEAL": 0.181056,
+    "TAX": 0.768813,
+    "INCOME": 0.0501309
+  },
+  "0x20e513ffe48": {
+    "CHALLENGE": 0.845725,
+    "PASS": 0.154275
+  },
+  "0x20e923ffe40": {
+    "CHALLENGE": 0.00101245,
+    "PASS": 0.998988
+  },
+  "0x24e63bfffc9": {
+    "ASSASSINATE": 0.999986,
+    "STEAL": 4.79573e-08,
+    "TAX": 4.79573e-08,
+    "INCOME": 1.35742e-05
+  },
+  "0x20e44bfffc8": {
+    "ASSASSINATE": 3.65794e-11,
+    "STEAL": 0.883496,
+    "TAX": 0.116496,
+    "INCOME": 8.03017e-06
+  },
+  "0x20e243ffff9": {
+    "STEAL": 0.999213,
+    "TAX": 0.000786433,
+    "INCOME": 1.39382e-07
+  },
+  "0x22e92bfffc1": {
+    "COUP": 1
+  },
+  "0x20e433ffe48": {
+    "CHALLENGE": 0.862638,
+    "PASS": 0.137362
+  },
+  "0x20e72bfffcf": {
+    "COUP": 1
+  },
+  "0x20e243fffc9": {
+    "STEAL": 0.953319,
+    "TAX": 0.0466811,
+    "INCOME": 5.97775e-08
+  },
+  "0x22e62bffe78": {
+    "CHALLENGE": 0.00607357,
+    "PASS": 0.993926
+  },
+  "0x20e433ffe89": {
+    "CHALLENGE": 0.0116044,
+    "PASS": 0.988396
+  },
+  "0x20e433ffeb9": {
+    "CHALLENGE": 0.15916,
+    "PASS": 0.84084
+  },
+  "0x24e833fffcf": {
+    "COUP": 1
+  },
+  "0x22e81bffe89": {
+    "CHALLENGE": 0.291348,
+    "PASS": 0.708652
+  },
+  "0x20e633ffe40": {
+    "CHALLENGE": 0.618637,
+    "PASS": 0.381363
+  },
+  "0x20e713fffcf": {
+    "COUP": 1
+  },
+  "0x20e22bfffc9": {
+    "STEAL": 0.211546,
+    "TAX": 0.78686,
+    "INCOME": 0.00159416
+  },
+  "0x20e92bfffc7": {
+    "COUP": 1
+  },
+  "0x20e443fffc1": {
+    "ASSASSINATE": 2.14115e-11,
+    "STEAL": 0.774695,
+    "TAX": 0.225295,
+    "INCOME": 9.7067e-06
+  },
+  "0x22e81bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e633ffe81": {
+    "CHALLENGE": 0.00777986,
+    "PASS": 0.99222
+  },
+  "0x20e633ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e123ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e53bfffc8": {
+    "ASSASSINATE": 6.5785e-12,
+    "STEAL": 0.999127,
+    "TAX": 0.000825349,
+    "INCOME": 4.74852e-05
+  },
+  "0x20e333ffff9": {
+    "ASSASSINATE": 7.00028e-11,
+    "STEAL": 0.998473,
+    "TAX": 0.00150854,
+    "INCOME": 1.79903e-05
+  },
+  "0x20e523ffe48": {
+    "CHALLENGE": 0.0104506,
+    "PASS": 0.989549
+  },
+  "0x20e81bfffcf": {
+    "COUP": 1
+  },
+  "0x20e333fffc9": {
+    "ASSASSINATE": 6.87e-12,
+    "STEAL": 0.917555,
+    "TAX": 0.0815444,
+    "INCOME": 0.000900965
+  },
+  "0x20e31bffe78": {
+    "CHALLENGE": 0.000248325,
+    "PASS": 0.999752
+  },
+  "0x22e913ffe40": {
+    "CHALLENGE": 8.32214e-13,
+    "PASS": 1
+  },
+  "0x20e22bffe78": {
+    "CHALLENGE": 0.999672,
+    "PASS": 0.000327854
+  },
+  "0x20e243fffc8": {
+    "STEAL": 0.849795,
+    "TAX": 0.150205,
+    "INCOME": 1.10633e-08
+  },
+  "0x22e723fffc1": {
+    "COUP": 1
+  },
+  "0x20e03bffff9": {
+    "STEAL": 0.999001,
+    "TAX": 0.000999443,
+    "INCOME": 1.99468e-08
+  },
+  "0x20e22bffe48": {
+    "CHALLENGE": 0.91248,
+    "PASS": 0.0875203
+  },
+  "0x22e423ffe78": {
+    "CHALLENGE": 8.85943e-09,
+    "PASS": 1
+  },
+  "0x20e22bffe89": {
+    "CHALLENGE": 0.0014719,
+    "PASS": 0.998528
+  },
+  "0x22e423ffeb9": {
+    "CHALLENGE": 0.983814,
+    "PASS": 0.0161856
+  },
+  "0x20e22bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e82bffe48": {
+    "CHALLENGE": 1.85657e-07,
+    "PASS": 1
+  },
+  "0x20e22bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e82bffe89": {
+    "CHALLENGE": 0.0174196,
+    "PASS": 0.98258
+  },
+  "0x20e443fffc0": {
+    "ASSASSINATE": 5.71432e-06,
+    "STEAL": 0.99871,
+    "TAX": 5.71432e-06,
+    "INCOME": 0.00127869
+  },
+  "0x24e143fffc9": {
+    "STEAL": 0.999727,
+    "TAX": 0.000257617,
+    "INCOME": 1.50199e-05
+  },
+  "0x22e613ffe89": {
+    "CHALLENGE": 0.106377,
+    "PASS": 0.893623
+  },
+  "0x20e42bffe40": {
+    "CHALLENGE": 0.604723,
+    "PASS": 0.395277
+  },
+  "0x20e50bfffcf": {
+    "ASSASSINATE": 2.62822e-11,
+    "STEAL": 0.124835,
+    "TAX": 0.777632,
+    "INCOME": 0.097533
+  },
+  "0x20e023fffc9": {
+    "STEAL": 0.76913,
+    "TAX": 0.202739,
+    "INCOME": 0.0281304
+  },
+  "0x20e443fffc8": {
+    "ASSASSINATE": 2.61836e-11,
+    "STEAL": 0.99914,
+    "TAX": 0.000734224,
+    "INCOME": 0.00012603
+  },
+  "0x20e23bffff9": {
+    "STEAL": 1,
+    "TAX": 3.39954e-09,
+    "INCOME": 3.39954e-09
+  },
+  "0x22e923fffc1": {
+    "COUP": 1
+  },
+  "0x20e42bffe48": {
+    "CHALLENGE": 0.160553,
+    "PASS": 0.839447
+  },
+  "0x20e723fffcf": {
+    "COUP": 1
+  },
+  "0x20e23bfffc9": {
+    "STEAL": 0.989772,
+    "TAX": 0.00979695,
+    "INCOME": 0.000430973
+  },
+  "0x20e42bffe89": {
+    "CHALLENGE": 0.0863494,
+    "PASS": 0.913651
+  },
+  "0x24e63bfffff": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x20e42bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e42bffe81": {
+    "CHALLENGE": 0.0124839,
+    "PASS": 0.987516
+  },
+  "0x20e42bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e333fffc8": {
+    "ASSASSINATE": 5.90121e-09,
+    "STEAL": 0.883898,
+    "TAX": 0.113274,
+    "INCOME": 0.00282828
+  },
+  "0x20e72bffe40": {
+    "CHALLENGE": 1.00985e-11,
+    "PASS": 1
+  },
+  "0x24e443fffc9": {
+    "ASSASSINATE": 0.990089,
+    "STEAL": 1.75181e-06,
+    "TAX": 5.06422e-09,
+    "INCOME": 0.00990971
+  },
+  "0x22e813fffc1": {
+    "COUP": 1
+  },
+  "0x20e31bffe48": {
+    "CHALLENGE": 0.896602,
+    "PASS": 0.103398
+  },
+  "0x20e12bffff9": {
+    "STEAL": 0.855315,
+    "TAX": 0.0577167,
+    "INCOME": 0.0869682
+  },
+  "0x20e62bfffc8": {
+    "ASSASSINATE": 1.481e-12,
+    "STEAL": 3.25063e-05,
+    "TAX": 0.998734,
+    "INCOME": 0.00123332
+  },
+  "0x24e233ffe78": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x20e31bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e41bfffc9": {
+    "ASSASSINATE": 4.67263e-12,
+    "STEAL": 0.920902,
+    "TAX": 0.0779337,
+    "INCOME": 0.00116455
+  },
+  "0x20e633fffc1": {
+    "ASSASSINATE": 8.86942e-14,
+    "STEAL": 7.96694e-05,
+    "TAX": 0.99982,
+    "INCOME": 9.99767e-05
+  },
+  "0x20e72bfffc8": {
+    "COUP": 1
+  },
+  "0x20e713ffe48": {
+    "CHALLENGE": 1.32578e-11,
+    "PASS": 1
+  },
+  "0x24e83bfffc9": {
+    "COUP": 1
+  },
+  "0x20e82bfffc1": {
+    "COUP": 1
+  },
+  "0x20e71bfffc9": {
+    "COUP": 1
+  },
+  "0x24e82bffe81": {
+    "CHALLENGE": 0.253396,
+    "PASS": 0.746604
+  },
+  "0x20e533fffc0": {
+    "ASSASSINATE": 6.79357e-10,
+    "STEAL": 0.125069,
+    "TAX": 0.853271,
+    "INCOME": 0.0216598
+  },
+  "0x20e923fffc7": {
+    "COUP": 1
+  },
+  "0x20e43bfffc1": {
+    "ASSASSINATE": 5.49776e-12,
+    "STEAL": 0.989858,
+    "TAX": 0.0101045,
+    "INCOME": 3.75798e-05
+  },
+  "0x20e62bffe81": {
+    "CHALLENGE": 0.120404,
+    "PASS": 0.879596
+  },
+  "0x20e62bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e533fffc8": {
+    "ASSASSINATE": 2.61853e-12,
+    "STEAL": 0.222807,
+    "TAX": 0.760882,
+    "INCOME": 0.0163113
+  },
+  "0x20e51bffe48": {
+    "CHALLENGE": 0.0788248,
+    "PASS": 0.921175
+  },
+  "0x20e92bffe40": {
+    "CHALLENGE": 5.54779e-06,
+    "PASS": 0.999994
+  },
+  "0x24e643fffc9": {
+    "ASSASSINATE": 0.980142,
+    "STEAL": 0.00601291,
+    "TAX": 0.00601291,
+    "INCOME": 0.00783256
+  },
+  "0x20e813fffc7": {
+    "COUP": 1
+  },
+  "0x20e32bfffc1": {
+    "ASSASSINATE": 4.22174e-13,
+    "STEAL": 0.366343,
+    "TAX": 0.622733,
+    "INCOME": 0.0109244
+  },
+  "0x20e72bfffc0": {
+    "COUP": 1
+  },
+  "0x20e523fffc1": {
+    "ASSASSINATE": 1.4585e-12,
+    "STEAL": 0.128122,
+    "TAX": 0.87171,
+    "INCOME": 0.000168498
+  },
+  "0x22e243fffc1": {
+    "STEAL": 1,
+    "TAX": 1.86861e-14,
+    "INCOME": 1.86834e-14
+  },
+  "0x22e72bfffc7": {
+    "COUP": 1
+  },
+  "0x20e713ffe81": {
+    "CHALLENGE": 0.35274,
+    "PASS": 0.64726
+  },
+  "0x20e42bfffc1": {
+    "ASSASSINATE": 3.18618e-12,
+    "STEAL": 0.340131,
+    "TAX": 0.657858,
+    "INCOME": 0.00201112
+  },
+  "0x20e913fffc7": {
+    "COUP": 1
+  },
+  "0x24e703ffe48": {
+    "CHALLENGE": 0.0459796,
+    "PASS": 0.95402
+  },
+  "0x20e133fffc1": {
+    "STEAL": 0.22993,
+    "TAX": 0.764505,
+    "INCOME": 0.00556523
+  },
+  "0x20e923fffc0": {
+    "COUP": 1
+  },
+  "0x20e71bfffc1": {
+    "COUP": 1
+  },
+  "0x24e433ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x22e923fffc7": {
+    "COUP": 1
+  },
+  "0x22e43bfffc1": {
+    "ASSASSINATE": 2.20316e-13,
+    "STEAL": 0.999957,
+    "TAX": 1.14464e-11,
+    "INCOME": 4.2966e-05
+  },
+  "0x20e90bffe81": {
+    "CHALLENGE": 0.00601796,
+    "PASS": 0.993982
+  },
+  "0x20e223fffc9": {
+    "STEAL": 0.208379,
+    "TAX": 0.791184,
+    "INCOME": 0.00043738
+  },
+  "0x20e70bfffcf": {
+    "COUP": 1
+  },
+  "0x22e51bffe89": {
+    "CHALLENGE": 0.129195,
+    "PASS": 0.870805
+  },
+  "0x20e333ffe40": {
+    "CHALLENGE": 0.868694,
+    "PASS": 0.131306
+  },
+  "0x20e71bfffc8": {
+    "COUP": 1
+  },
+  "0x20e703ffe48": {
+    "CHALLENGE": 0.0390119,
+    "PASS": 0.960988
+  },
+  "0x24e82bfffc9": {
+    "COUP": 1
+  },
+  "0x24e33bfffc0": {
+    "ASSASSINATE": 1,
+    "STEAL": 7.28387e-10,
+    "TAX": 7.28387e-10,
+    "INCOME": 7.28387e-10
+  },
+  "0x20e923fffc1": {
+    "COUP": 1
+  },
+  "0x24e51bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e933fffc0": {
+    "COUP": 1
+  },
+  "0x20e72bfffc1": {
+    "COUP": 1
+  },
+  "0x24e22bfffc8": {
+    "STEAL": 0.878766,
+    "TAX": 0.00773978,
+    "INCOME": 0.113495
+  },
+  "0x20e813fffc9": {
+    "COUP": 1
+  },
+  "0x20e823fffc8": {
+    "COUP": 1
+  },
+  "0x20e80bffe48": {
+    "CHALLENGE": 8.27117e-06,
+    "PASS": 0.999992
+  },
+  "0x20e61bfffc9": {
+    "ASSASSINATE": 2.56349e-13,
+    "STEAL": 0.0404943,
+    "TAX": 0.959473,
+    "INCOME": 3.26859e-05
+  },
+  "0x20e613ffe48": {
+    "CHALLENGE": 0.638593,
+    "PASS": 0.361407
+  },
+  "0x24e73bfffc9": {
+    "COUP": 1
+  },
+  "0x20e533fffc1": {
+    "ASSASSINATE": 2.46833e-12,
+    "STEAL": 0.836175,
+    "TAX": 0.108033,
+    "INCOME": 0.0557919
+  },
+  "0x20e81bfffc1": {
+    "COUP": 1
+  },
+  "0x24e533ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e82bfffc0": {
+    "COUP": 1
+  },
+  "0x20e70bfffc9": {
+    "COUP": 1
+  },
+  "0x20e123fffc9": {
+    "STEAL": 0.0931281,
+    "TAX": 0.906107,
+    "INCOME": 0.000764945
+  },
+  "0x20e60bfffcf": {
+    "ASSASSINATE": 1.24504e-11,
+    "STEAL": 1.41538e-05,
+    "TAX": 0.999984,
+    "INCOME": 1.87316e-06
+  },
+  "0x22e41bffe89": {
+    "CHALLENGE": 0.150513,
+    "PASS": 0.849487
+  },
+  "0x20e233ffe40": {
+    "CHALLENGE": 0.91544,
+    "PASS": 0.0845603
+  },
+  "0x20e813fffc8": {
+    "COUP": 1
+  },
+  "0x20e61bfffc8": {
+    "ASSASSINATE": 2.11157e-10,
+    "STEAL": 0.619779,
+    "TAX": 0.377953,
+    "INCOME": 0.00226838
+  },
+  "0x20e603ffe48": {
+    "CHALLENGE": 0.576416,
+    "PASS": 0.423584
+  },
+  "0x24e72bfffc9": {
+    "COUP": 1
+  },
+  "0x20e913fffc1": {
+    "COUP": 1
+  },
+  "0x24e62bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e423fffc8": {
+    "ASSASSINATE": 5.22468e-11,
+    "STEAL": 0.905952,
+    "TAX": 0.0848987,
+    "INCOME": 0.00914937
+  },
+  "0x20e40bffe48": {
+    "CHALLENGE": 0.871464,
+    "PASS": 0.128536
+  },
+  "0x20e81bffe40": {
+    "CHALLENGE": 3.19415e-12,
+    "PASS": 1
+  },
+  "0x24e533fffc9": {
+    "ASSASSINATE": 0.999386,
+    "STEAL": 2.73235e-08,
+    "TAX": 2.73235e-08,
+    "INCOME": 0.00061413
+  },
+  "0x20e32bffe78": {
+    "CHALLENGE": 0.870941,
+    "PASS": 0.129059
+  },
+  "0x20e343fffc8": {
+    "ASSASSINATE": 1.80273e-11,
+    "STEAL": 0.998483,
+    "TAX": 3.19794e-07,
+    "INCOME": 0.0015162
+  },
+  "0x22e823fffc1": {
+    "COUP": 1
+  },
+  "0x20e13bffff9": {
+    "STEAL": 1,
+    "TAX": 3.07362e-09,
+    "INCOME": 2.02645e-09
+  },
+  "0x20e32bffe48": {
+    "CHALLENGE": 0.511763,
+    "PASS": 0.488237
+  },
+  "0x20e623fffcf": {
+    "ASSASSINATE": 2.00055e-07,
+    "STEAL": 0.000211723,
+    "TAX": 0.999655,
+    "INCOME": 0.000133547
+  },
+  "0x20e13bfffc9": {
+    "STEAL": 0.986987,
+    "TAX": 1.56332e-08,
+    "INCOME": 0.013013
+  },
+  "0x22e523ffe78": {
+    "CHALLENGE": 0.00793228,
+    "PASS": 0.992068
+  },
+  "0x20e32bffe89": {
+    "CHALLENGE": 0.061362,
+    "PASS": 0.938638
+  },
+  "0x22e523ffeb9": {
+    "CHALLENGE": 0.89023,
+    "PASS": 0.10977
+  },
+  "0x20e32bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e32bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x20e823fffc7": {
+    "COUP": 1
+  },
+  "0x20e33bfffc1": {
+    "ASSASSINATE": 4.16734e-09,
+    "STEAL": 0.990789,
+    "TAX": 0.00921119,
+    "INCOME": 4.16734e-09
+  },
+  "0x20e433fffc8": {
+    "ASSASSINATE": 3.26142e-12,
+    "STEAL": 0.152752,
+    "TAX": 0.839452,
+    "INCOME": 0.00779573
+  },
+  "0x20e22bffff9": {
+    "STEAL": 0.0048899,
+    "TAX": 0.995101,
+    "INCOME": 9.31872e-06
+  },
+  "0x22e913fffc1": {
+    "COUP": 1
+  },
+  "0x20e41bffe48": {
+    "CHALLENGE": 0.0572963,
+    "PASS": 0.942704
+  },
+  "0x20e82bffe40": {
+    "CHALLENGE": 4.42885e-12,
+    "PASS": 1
+  },
+  "0x24e543fffc9": {
+    "ASSASSINATE": 0.999998,
+    "STEAL": 1.74129e-07,
+    "TAX": 1.74129e-07,
+    "INCOME": 2.04279e-06
+  },
+  "0x24e143ffff9": {
+    "STEAL": 1,
+    "TAX": 1.63987e-08,
+    "INCOME": 1.63987e-08
+  },
+  "0x24e333ffe48": {
+    "CHALLENGE": 0.000458186,
+    "PASS": 0.999542
+  },
+  "0x20e41bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e213ffe78": {
+    "CHALLENGE": 0.875963,
+    "PASS": 0.124037
+  },
+  "0x24e83bfffc8": {
+    "COUP": 1
+  },
+  "0x22e80bffe40": {
+    "CHALLENGE": 1.3834e-11,
+    "PASS": 1
+  },
+  "0x20e123ffe78": {
+    "CHALLENGE": 0.77745,
+    "PASS": 0.22255
+  },
+  "0x24e74bfffc8": {
+    "COUP": 1
+  },
+  "0x20e24bfffc8": {
+    "STEAL": 2.45224e-07,
+    "TAX": 2.45224e-07,
+    "INCOME": 1
+  },
+  "0x20e52bfffff": {
+    "ASSASSINATE": 1.00451e-10,
+    "STEAL": 9.51257e-06,
+    "TAX": 0.72187,
+    "INCOME": 0.278121
+  },
+  "0x20e043ffff9": {
+    "STEAL": 1,
+    "TAX": 8.01356e-11,
+    "INCOME": 8.01356e-11
+  },
+  "0x22e72bfffc1": {
+    "COUP": 1
+  },
+  "0x20e233ffe48": {
+    "CHALLENGE": 0.845455,
+    "PASS": 0.154545
+  },
+  "0x22e42bffe78": {
+    "CHALLENGE": 0.00138852,
+    "PASS": 0.998611
+  },
+  "0x20e233ffe89": {
+    "CHALLENGE": 1.43243e-05,
+    "PASS": 0.999986
+  },
+  "0x24e933fffc7": {
+    "COUP": 1
+  },
+  "0x22e91bffe81": {
+    "CHALLENGE": 2.43975e-07,
+    "PASS": 1
+  },
+  "0x20e233ffeb9": {
+    "CHALLENGE": 2.40409e-10,
+    "PASS": 1
+  },
+  "0x24e833ffe48": {
+    "CHALLENGE": 0.010983,
+    "PASS": 0.989017
+  },
+  "0x20e44bfffc0": {
+    "ASSASSINATE": 3.8035e-06,
+    "STEAL": 0.606675,
+    "TAX": 0.393317,
+    "INCOME": 3.8035e-06
+  },
+  "0x22e61bffe89": {
+    "CHALLENGE": 0.0320467,
+    "PASS": 0.967953
+  },
+  "0x20e433ffe40": {
+    "CHALLENGE": 0.949648,
+    "PASS": 0.0503525
+  },
+  "0x20e513fffcf": {
+    "ASSASSINATE": 4.19829e-11,
+    "STEAL": 0.780037,
+    "TAX": 0.192176,
+    "INCOME": 0.0277869
+  },
+  "0x20e02bfffc9": {
+    "STEAL": 0.293484,
+    "TAX": 0.0507516,
+    "INCOME": 0.655765
+  },
+  "0x20e72bfffc7": {
+    "COUP": 1
+  },
+  "0x24e813ffe48": {
+    "CHALLENGE": 0.0208412,
+    "PASS": 0.979159
+  },
+  "0x20e243fffc1": {
+    "STEAL": 0.748373,
+    "TAX": 0.251627,
+    "INCOME": 5.86001e-09
+  },
+  "0x22e61bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e433ffe81": {
+    "CHALLENGE": 0.0643922,
+    "PASS": 0.935608
+  },
+  "0x20e433ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e33bfffc8": {
+    "ASSASSINATE": 3.46961e-08,
+    "STEAL": 0.98327,
+    "TAX": 0.0167297,
+    "INCOME": 3.46961e-08
+  },
+  "0x22e81bfffc1": {
+    "COUP": 1
+  },
+  "0x20e133ffff9": {
+    "STEAL": 0.165812,
+    "TAX": 0.818829,
+    "INCOME": 0.0153588
+  },
+  "0x20e323ffe48": {
+    "CHALLENGE": 0.907707,
+    "PASS": 0.0922932
+  },
+  "0x20e61bfffcf": {
+    "ASSASSINATE": 3.77153e-10,
+    "STEAL": 0.593677,
+    "TAX": 0.406185,
+    "INCOME": 0.000138432
+  },
+  "0x20e133fffc9": {
+    "STEAL": 0.23271,
+    "TAX": 0.745533,
+    "INCOME": 0.0217571
+  },
+  "0x24e533fffff": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x20e323ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e813ffe40": {
+    "CHALLENGE": 0.0426661,
+    "PASS": 0.957334
+  },
+  "0x20e12bffe78": {
+    "CHALLENGE": 0.981819,
+    "PASS": 0.0181807
+  },
+  "0x22e81bffe40": {
+    "CHALLENGE": 9.17227e-12,
+    "PASS": 1
+  },
+  "0x20e133ffe78": {
+    "CHALLENGE": 0.96752,
+    "PASS": 0.0324799
+  },
+  "0x22e81bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e133ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e733ffe89": {
+    "CHALLENGE": 0.202875,
+    "PASS": 0.797125
+  },
+  "0x20e34bfffc0": {
+    "ASSASSINATE": 3.95623e-07,
+    "STEAL": 3.95623e-07,
+    "TAX": 0.999137,
+    "INCOME": 0.000862625
+  },
+  "0x22e51bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e333ffe81": {
+    "CHALLENGE": 0.06082,
+    "PASS": 0.93918
+  },
+  "0x20e333ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e23bfffc8": {
+    "STEAL": 0.999979,
+    "TAX": 6.25275e-10,
+    "INCOME": 2.14424e-05
+  },
+  "0x22e71bfffc1": {
+    "COUP": 1
+  },
+  "0x20e033ffff9": {
+    "STEAL": 0.367976,
+    "TAX": 0.567175,
+    "INCOME": 0.0648487
+  },
+  "0x20e223ffe48": {
+    "CHALLENGE": 0.378703,
+    "PASS": 0.621297
+  },
+  "0x22e62bfffc1": {
+    "ASSASSINATE": 1.14084e-12,
+    "STEAL": 0.0758372,
+    "TAX": 0.643889,
+    "INCOME": 0.280274
+  },
+  "0x20e42bfffff": {
+    "ASSASSINATE": 7.77808e-11,
+    "STEAL": 0.00609652,
+    "TAX": 0.989633,
+    "INCOME": 0.00427019
+  },
+  "0x20e133ffe48": {
+    "CHALLENGE": 0.628508,
+    "PASS": 0.371492
+  },
+  "0x22e32bffe78": {
+    "CHALLENGE": 1.4823e-10,
+    "PASS": 1
+  },
+  "0x20e133ffe89": {
+    "CHALLENGE": 0.00353524,
+    "PASS": 0.996465
+  },
+  "0x22e24bffff8": {
+    "STEAL": 0.333333,
+    "TAX": 0.333333,
+    "INCOME": 0.333333
+  },
+  "0x24e933fffc0": {
+    "COUP": 1
+  },
+  "0x22e41bffeb9": {
+    "CHALLENGE": 0.789686,
+    "PASS": 0.210314
+  },
+  "0x20e223ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e82bfffc7": {
+    "COUP": 1
+  },
+  "0x24e343fffc1": {
+    "ASSASSINATE": 0.999956,
+    "STEAL": 3.23872e-06,
+    "TAX": 1.68551e-14,
+    "INCOME": 4.03625e-05
+  },
+  "0x22e813ffe81": {
+    "CHALLENGE": 0.277157,
+    "PASS": 0.722843
+  },
+  "0x20e12bffeb9": {
+    "CHALLENGE": 0.0236499,
+    "PASS": 0.97635
+  },
+  "0x24e72bffe48": {
+    "CHALLENGE": 1.30998e-05,
+    "PASS": 0.999987
+  },
+  "0x20e12bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e72bffe89": {
+    "CHALLENGE": 0.0219388,
+    "PASS": 0.978061
+  },
+  "0x20e81bfffc7": {
+    "COUP": 1
+  },
+  "0x20e333fffc1": {
+    "ASSASSINATE": 8.18076e-12,
+    "STEAL": 0.985928,
+    "TAX": 0.0131079,
+    "INCOME": 0.000963784
+  },
+  "0x20e343fffc0": {
+    "ASSASSINATE": 1.04166e-11,
+    "STEAL": 1,
+    "TAX": 1.04166e-11,
+    "INCOME": 1.04166e-11
+  },
+  "0x24e043fffc9": {
+    "STEAL": 0.999514,
+    "TAX": 1.46279e-09,
+    "INCOME": 0.00048609
+  },
+  "0x22e513ffe89": {
+    "CHALLENGE": 0.0618934,
+    "PASS": 0.938107
+  },
+  "0x20e32bffe40": {
+    "CHALLENGE": 0.584239,
+    "PASS": 0.415761
+  },
+  "0x20e32bffe81": {
+    "CHALLENGE": 0.00940966,
+    "PASS": 0.99059
+  },
+  "0x20e32bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e52bfffc1": {
+    "ASSASSINATE": 9.20933e-12,
+    "STEAL": 0.871905,
+    "TAX": 0.0744922,
+    "INCOME": 0.0536032
+  },
+  "0x20e53bfffc0": {
+    "ASSASSINATE": 7.52329e-12,
+    "STEAL": 0.99999,
+    "TAX": 7.52329e-12,
+    "INCOME": 9.76246e-06
+  },
+  "0x20e523ffe81": {
+    "CHALLENGE": 0.114908,
+    "PASS": 0.885092
+  },
+  "0x20e523ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e723fffc1": {
+    "COUP": 1
+  },
+  "0x20e733fffc0": {
+    "COUP": 1
+  },
+  "0x22e733fffc7": {
+    "COUP": 1
+  },
+  "0x20e71bffe81": {
+    "CHALLENGE": 0.108003,
+    "PASS": 0.891997
+  },
+  "0x24e633ffe40": {
+    "CHALLENGE": 0.000596548,
+    "PASS": 0.999403
+  },
+  "0x20e71bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e91bfffc1": {
+    "COUP": 1
+  },
+  "0x20e92bfffc0": {
+    "COUP": 1
+  },
+  "0x22e443fffc1": {
+    "ASSASSINATE": 1.40219e-13,
+    "STEAL": 0.999885,
+    "TAX": 1.40219e-13,
+    "INCOME": 0.000114685
+  },
+  "0x22e92bfffc7": {
+    "COUP": 1
+  },
+  "0x20e913ffe81": {
+    "CHALLENGE": 5.19799e-12,
+    "PASS": 1
+  },
+  "0x20e80bfffc9": {
+    "COUP": 1
+  },
+  "0x22e233ffeb9": {
+    "CHALLENGE": 1.11892e-06,
+    "PASS": 0.999999
+  },
+  "0x24e91bffe81": {
+    "CHALLENGE": 0.5,
+    "PASS": 0.5
+  },
+  "0x20e81bfffc8": {
+    "COUP": 1
+  },
+  "0x20e803ffe48": {
+    "CHALLENGE": 1.18458e-06,
+    "PASS": 0.999999
+  },
+  "0x20e613fffc9": {
+    "ASSASSINATE": 2.57641e-12,
+    "STEAL": 4.23934e-06,
+    "TAX": 0.999972,
+    "INCOME": 2.42108e-05
+  },
+  "0x24e723ffe81": {
+    "CHALLENGE": 0.137033,
+    "PASS": 0.862967
+  },
+  "0x20e623fffc8": {
+    "ASSASSINATE": 4.36555e-12,
+    "STEAL": 0.576944,
+    "TAX": 0.419803,
+    "INCOME": 0.00325306
+  },
+  "0x20e60bffe48": {
+    "CHALLENGE": 0.142542,
+    "PASS": 0.857458
+  },
+  "0x24e733fffc9": {
+    "COUP": 1
+  },
+  "0x20e42bfffc8": {
+    "ASSASSINATE": 2.02019e-11,
+    "STEAL": 0.572452,
+    "TAX": 0.424275,
+    "INCOME": 0.0032728
+  },
+  "0x20e413ffe48": {
+    "CHALLENGE": 0.618903,
+    "PASS": 0.381097
+  },
+  "0x20e823ffe40": {
+    "CHALLENGE": 1.35802e-12,
+    "PASS": 1
+  },
+  "0x24e53bfffc9": {
+    "ASSASSINATE": 0.999973,
+    "STEAL": 1.59529e-08,
+    "TAX": 6.72481e-11,
+    "INCOME": 2.7364e-05
+  },
+  "0x20e233fffc8": {
+    "STEAL": 0.857037,
+    "TAX": 0.140795,
+    "INCOME": 0.00216822
+  },
+  "0x22e713fffc1": {
+    "COUP": 1
+  },
+  "0x20e02bffff9": {
+    "STEAL": 0.207822,
+    "TAX": 0.242142,
+    "INCOME": 0.550037
+  },
+  "0x20e21bffe48": {
+    "CHALLENGE": 0.259364,
+    "PASS": 0.740636
+  },
+  "0x20e143fffc8": {
+    "STEAL": 0.999741,
+    "TAX": 6.19496e-06,
+    "INCOME": 0.000252611
+  },
+  "0x20e423fffff": {
+    "ASSASSINATE": 5.14387e-11,
+    "STEAL": 5.13751e-05,
+    "TAX": 0.871929,
+    "INCOME": 0.12802
+  },
+  "0x22e623fffc1": {
+    "ASSASSINATE": 9.2503e-13,
+    "STEAL": 0.799298,
+    "TAX": 0.0363537,
+    "INCOME": 0.164349
+  },
+  "0x20e12bffe48": {
+    "CHALLENGE": 0.858085,
+    "PASS": 0.141915
+  },
+  "0x20e12bffe89": {
+    "CHALLENGE": 0.00187368,
+    "PASS": 0.998126
+  },
+  "0x20e12bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e42bfffff": {
+    "ASSASSINATE": 0.703796,
+    "STEAL": 0.103558,
+    "TAX": 0.0806549,
+    "INCOME": 0.111991
+  },
+  "0x24e133ffe48": {
+    "CHALLENGE": 0.447531,
+    "PASS": 0.552469
+  },
+  "0x20e21bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e823fffc7": {
+    "COUP": 1
+  },
+  "0x24e33bfffc1": {
+    "ASSASSINATE": 1,
+    "STEAL": 4.16494e-13,
+    "TAX": 4.16494e-13,
+    "INCOME": 4.16494e-13
+  },
+  "0x22e80bffe81": {
+    "CHALLENGE": 0.877277,
+    "PASS": 0.122723
+  },
+  "0x20e123ffeb9": {
+    "CHALLENGE": 0.0297449,
+    "PASS": 0.970255
+  },
+  "0x24e723ffe48": {
+    "CHALLENGE": 9.38472e-05,
+    "PASS": 0.999906
+  },
+  "0x20e123ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e723ffe89": {
+    "CHALLENGE": 0.922141,
+    "PASS": 0.0778587
+  },
+  "0x20e33bfffc0": {
+    "ASSASSINATE": 3.1244e-08,
+    "STEAL": 1,
+    "TAX": 3.1244e-08,
+    "INCOME": 3.1244e-08
+  },
+  "0x24e03bfffc9": {
+    "STEAL": 0.9933,
+    "TAX": 0.00670015,
+    "INCOME": 1.31913e-13
+  },
+  "0x22e50bffe89": {
+    "CHALLENGE": 0.146369,
+    "PASS": 0.853631
+  },
+  "0x20e323ffe40": {
+    "CHALLENGE": 0.562071,
+    "PASS": 0.437929
+  },
+  "0x20e24bfffc0": {
+    "STEAL": 0.333333,
+    "TAX": 0.333333,
+    "INCOME": 0.333333
+  },
+  "0x22e41bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e233ffe81": {
+    "CHALLENGE": 8.55414e-07,
+    "PASS": 0.999999
+  },
+  "0x20e233ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e823fffcf": {
+    "COUP": 1
+  },
+  "0x22e80bffe89": {
+    "CHALLENGE": 0.369299,
+    "PASS": 0.630701
+  },
+  "0x20e623ffe40": {
+    "CHALLENGE": 0.477315,
+    "PASS": 0.522685
+  },
+  "0x24e33bfffc9": {
+    "ASSASSINATE": 0.99998,
+    "STEAL": 8.56419e-07,
+    "TAX": 1.43995e-13,
+    "INCOME": 1.94116e-05
+  },
+  "0x20e13bfffc8": {
+    "STEAL": 1,
+    "TAX": 3.64027e-12,
+    "INCOME": 3.64027e-12
+  },
+  "0x22e61bfffc1": {
+    "ASSASSINATE": 7.4721e-13,
+    "STEAL": 0.947604,
+    "TAX": 0.0330756,
+    "INCOME": 0.0193208
+  },
+  "0x20e123ffe48": {
+    "CHALLENGE": 0.638151,
+    "PASS": 0.361849
+  },
+  "0x22e31bffeb9": {
+    "CHALLENGE": 0.827731,
+    "PASS": 0.172269
+  },
+  "0x20e123ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e213ffe48": {
+    "CHALLENGE": 0.780033,
+    "PASS": 0.219967
+  },
+  "0x20e023ffff9": {
+    "STEAL": 0.831481,
+    "TAX": 0.134918,
+    "INCOME": 0.0336008
+  },
+  "0x24e913fffc7": {
+    "COUP": 1
+  },
+  "0x24e42bfffc1": {
+    "ASSASSINATE": 1,
+    "STEAL": 3.9619e-12,
+    "TAX": 3.9619e-12,
+    "INCOME": 2.41458e-11
+  },
+  "0x20e213ffeb9": {
+    "CHALLENGE": 0.37117,
+    "PASS": 0.62883
+  },
+  "0x20e52bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e73bfffff": {
+    "COUP": 1
+  },
+  "0x24e733ffe78": {
+    "CHALLENGE": 0.0422961,
+    "PASS": 0.957704
+  },
+  "0x24e213fffff": {
+    "STEAL": 0.0347137,
+    "TAX": 0.320155,
+    "INCOME": 0.645132
+  },
+  "0x24e733ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e81bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e733ffe48": {
+    "CHALLENGE": 4.94891e-07,
+    "PASS": 1
+  },
+  "0x24e543ffff9": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e733ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e94bfffc0": {
+    "COUP": 1
+  },
+  "0x24e933ffe40": {
+    "CHALLENGE": 0.0123056,
+    "PASS": 0.987694
+  },
+  "0x20e813ffe40": {
+    "CHALLENGE": 0.0287736,
+    "PASS": 0.971226
+  },
+  "0x24e52bfffc9": {
+    "ASSASSINATE": 0.999367,
+    "STEAL": 1.72408e-11,
+    "TAX": 8.43272e-11,
+    "INCOME": 0.000632771
+  },
+  "0x20e52bffeb9": {
+    "CHALLENGE": 0.781945,
+    "PASS": 0.218055
+  },
+  "0x24e743fffc1": {
+    "COUP": 1
+  },
+  "0x24e933ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x22e813ffe89": {
+    "CHALLENGE": 0.590131,
+    "PASS": 0.409869
+  },
+  "0x20e62bffe40": {
+    "CHALLENGE": 0.1293,
+    "PASS": 0.8707
+  },
+  "0x24e343fffc9": {
+    "ASSASSINATE": 0.999937,
+    "STEAL": 3.18257e-05,
+    "TAX": 5.14517e-11,
+    "INCOME": 3.14778e-05
+  },
+  "0x24e82bfffcf": {
+    "COUP": 1
+  },
+  "0x24e823ffe48": {
+    "CHALLENGE": 0.041047,
+    "PASS": 0.958953
+  },
+  "0x20e91bffe40": {
+    "CHALLENGE": 0.0074647,
+    "PASS": 0.992535
+  },
+  "0x24e633fffc9": {
+    "ASSASSINATE": 0.999873,
+    "STEAL": 1.70457e-08,
+    "TAX": 1.71353e-08,
+    "INCOME": 0.000126848
+  },
+  "0x24e823ffe89": {
+    "CHALLENGE": 0.867701,
+    "PASS": 0.132299
+  },
+  "0x24e823ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e423ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e633fffff": {
+    "ASSASSINATE": 0.676717,
+    "STEAL": 0.02339,
+    "TAX": 0.02339,
+    "INCOME": 0.276503
+  },
+  "0x24e84bfffc8": {
+    "COUP": 1
+  },
+  "0x24e833ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x22e433ffe89": {
+    "CHALLENGE": 0.00485627,
+    "PASS": 0.995144
+  },
+  "0x24e62bffe78": {
+    "CHALLENGE": 0.0467799,
+    "PASS": 0.95322
+  },
+  "0x24e643fffc8": {
+    "ASSASSINATE": 0.999999,
+    "STEAL": 2.07601e-11,
+    "TAX": 6.16419e-12,
+    "INCOME": 1.36094e-06
+  },
+  "0x20e723ffe40": {
+    "CHALLENGE": 1.31604e-11,
+    "PASS": 1
+  },
+  "0x24e43bfffc9": {
+    "ASSASSINATE": 1,
+    "STEAL": 2.73398e-12,
+    "TAX": 2.77295e-14,
+    "INCOME": 3.75737e-07
+  },
+  "0x24e62bffe89": {
+    "CHALLENGE": 0.00685017,
+    "PASS": 0.99315
+  },
+  "0x24e62bffe48": {
+    "CHALLENGE": 0.00507402,
+    "PASS": 0.994926
+  },
+  "0x24e43bffff9": {
+    "ASSASSINATE": 0.866638,
+    "STEAL": 0.0476415,
+    "TAX": 0.0428604,
+    "INCOME": 0.0428604
+  },
+  "0x22e81bffe81": {
+    "CHALLENGE": 0.0133616,
+    "PASS": 0.986638
+  },
+  "0x20e133ffeb9": {
+    "CHALLENGE": 1.37031e-05,
+    "PASS": 0.999986
+  },
+  "0x24e833fffc7": {
+    "COUP": 1
+  },
+  "0x24e843fffc8": {
+    "COUP": 1
+  },
+  "0x24e82bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e423ffeb9": {
+    "CHALLENGE": 0.877318,
+    "PASS": 0.122682
+  },
+  "0x24e63bfffc1": {
+    "ASSASSINATE": 0.999859,
+    "STEAL": 1.38454e-08,
+    "TAX": 6.91768e-12,
+    "INCOME": 0.000140897
+  },
+  "0x24e82bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e23bfffc9": {
+    "STEAL": 0.996061,
+    "TAX": 0.0038343,
+    "INCOME": 0.000104254
+  },
+  "0x22e70bffe89": {
+    "CHALLENGE": 0.616286,
+    "PASS": 0.383714
+  },
+  "0x20e523ffe40": {
+    "CHALLENGE": 0.301678,
+    "PASS": 0.698322
+  },
+  "0x24e723fffcf": {
+    "COUP": 1
+  },
+  "0x24e733fffc8": {
+    "COUP": 1
+  },
+  "0x24e71bffe48": {
+    "CHALLENGE": 5.41325e-05,
+    "PASS": 0.999946
+  },
+  "0x22e633fffff": {
+    "ASSASSINATE": 0.00303679,
+    "STEAL": 0.604007,
+    "TAX": 0.00303679,
+    "INCOME": 0.38992
+  },
+  "0x24e833fffc1": {
+    "COUP": 1
+  },
+  "0x24e723fffc9": {
+    "COUP": 1
+  },
+  "0x22e533ffe40": {
+    "CHALLENGE": 0.527829,
+    "PASS": 0.472171
+  },
+  "0x24e71bffe89": {
+    "CHALLENGE": 0.108545,
+    "PASS": 0.891455
+  },
+  "0x22e533ffe81": {
+    "CHALLENGE": 0.000351595,
+    "PASS": 0.999648
+  },
+  "0x24e71bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e043ffff9": {
+    "STEAL": 1,
+    "TAX": 1.09343e-07,
+    "INCOME": 1.09343e-07
+  },
+  "0x24e233ffe48": {
+    "CHALLENGE": 0.828544,
+    "PASS": 0.171456
+  },
+  "0x20e31bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e52bfffff": {
+    "ASSASSINATE": 0.950146,
+    "STEAL": 0.00392914,
+    "TAX": 0.00392914,
+    "INCOME": 0.041996
+  },
+  "0x24e743fffc8": {
+    "COUP": 1
+  },
+  "0x24e72bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e44bfffc8": {
+    "ASSASSINATE": 1,
+    "STEAL": 9.62742e-15,
+    "TAX": 9.62742e-15,
+    "INCOME": 8.55069e-08
+  },
+  "0x20e51bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e243ffff9": {
+    "STEAL": 0.333345,
+    "TAX": 0.333327,
+    "INCOME": 0.333327
+  },
+  "0x24e433ffe48": {
+    "CHALLENGE": 0.000243308,
+    "PASS": 0.999757
+  },
+  "0x24e72bfffcf": {
+    "COUP": 1
+  },
+  "0x22e713ffe89": {
+    "CHALLENGE": 0.600496,
+    "PASS": 0.399504
+  },
+  "0x20e52bffe40": {
+    "CHALLENGE": 0.0667782,
+    "PASS": 0.933222
+  },
+  "0x24e243fffc9": {
+    "STEAL": 0.974434,
+    "TAX": 0.0255657,
+    "INCOME": 8.59683e-08
+  },
+  "0x24e64bfffc8": {
+    "ASSASSINATE": 0.999967,
+    "STEAL": 2.38405e-09,
+    "TAX": 2.38405e-09,
+    "INCOME": 3.29179e-05
+  },
+  "0x24e443ffff9": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x20e71bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e633ffe48": {
+    "CHALLENGE": 0.00195545,
+    "PASS": 0.998045
+  },
+  "0x24e633ffe89": {
+    "CHALLENGE": 0.000625562,
+    "PASS": 0.999374
+  },
+  "0x24e633ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e92bfffc7": {
+    "COUP": 1
+  },
+  "0x22e913ffe81": {
+    "CHALLENGE": 3.29481e-12,
+    "PASS": 1
+  },
+  "0x20e22bffeb9": {
+    "CHALLENGE": 0.0429586,
+    "PASS": 0.957041
+  },
+  "0x24e443fffc1": {
+    "ASSASSINATE": 0.999769,
+    "STEAL": 3.82213e-06,
+    "TAX": 3.52762e-12,
+    "INCOME": 0.000226933
+  },
+  "0x24e53bfffc8": {
+    "ASSASSINATE": 0.999977,
+    "STEAL": 3.66084e-09,
+    "TAX": 7.48708e-12,
+    "INCOME": 2.29132e-05
+  },
+  "0x20e61bffe40": {
+    "CHALLENGE": 0.0944583,
+    "PASS": 0.905542
+  },
+  "0x24e81bfffcf": {
+    "COUP": 1
+  },
+  "0x22e803ffe89": {
+    "CHALLENGE": 0.743865,
+    "PASS": 0.256135
+  },
+  "0x24e333fffc9": {
+    "ASSASSINATE": 0.999609,
+    "STEAL": 4.90983e-07,
+    "TAX": 5.83197e-07,
+    "INCOME": 0.000390014
+  },
+  "0x24e523ffe48": {
+    "CHALLENGE": 0.00131233,
+    "PASS": 0.998688
+  },
+  "0x24e333ffff9": {
+    "ASSASSINATE": 1,
+    "STEAL": 2.7445e-10,
+    "TAX": 2.7445e-10,
+    "INCOME": 1.32639e-09
+  },
+  "0x24e833fffc8": {
+    "COUP": 1
+  },
+  "0x24e523ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e243fffc1": {
+    "STEAL": 0.92545,
+    "TAX": 0.0745495,
+    "INCOME": 5.36528e-08
+  },
+  "0x22e713ffe81": {
+    "CHALLENGE": 0.364406,
+    "PASS": 0.635594
+  },
+  "0x24e72bfffc7": {
+    "COUP": 1
+  },
+  "0x24e73bfffc8": {
+    "COUP": 1
+  },
+  "0x24e723ffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e31bffeb9": {
+    "CHALLENGE": 0.952105,
+    "PASS": 0.0478952
+  },
+  "0x24e533fffc1": {
+    "ASSASSINATE": 0.965875,
+    "STEAL": 2.28684e-10,
+    "TAX": 4.50057e-09,
+    "INCOME": 0.0341253
+  },
+  "0x24e723ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e223ffeb9": {
+    "CHALLENGE": 0.02856,
+    "PASS": 0.97144
+  },
+  "0x24e43bfffc1": {
+    "ASSASSINATE": 0.999992,
+    "STEAL": 5.8039e-09,
+    "TAX": 1.95329e-12,
+    "INCOME": 8.15016e-06
+  },
+  "0x22e90bffe81": {
+    "CHALLENGE": 0.00502773,
+    "PASS": 0.994972
+  },
+  "0x24e923fffc7": {
+    "COUP": 1
+  },
+  "0x22e233ffe78": {
+    "CHALLENGE": 1,
+    "PASS": 1.61925e-09
+  },
+  "0x24e91bffe40": {
+    "CHALLENGE": 0.00231006,
+    "PASS": 0.99769
+  },
+  "0x22e043ffff9": {
+    "STEAL": 1,
+    "TAX": 5.39752e-10,
+    "INCOME": 5.39752e-10
+  },
+  "0x22e52bfffff": {
+    "ASSASSINATE": 4.51883e-06,
+    "STEAL": 0.999603,
+    "TAX": 2.05098e-05,
+    "INCOME": 0.000372008
+  },
+  "0x22e233ffe48": {
+    "CHALLENGE": 0.706716,
+    "PASS": 0.293284
+  },
+  "0x24e72bfffc1": {
+    "COUP": 1
+  },
+  "0x22e233ffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e91bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e613ffe40": {
+    "CHALLENGE": 0.429477,
+    "PASS": 0.570523
+  },
+  "0x24e32bfffc9": {
+    "ASSASSINATE": 0.999983,
+    "STEAL": 3.60419e-09,
+    "TAX": 3.18967e-08,
+    "INCOME": 1.65235e-05
+  },
+  "0x24e813fffcf": {
+    "COUP": 1
+  },
+  "0x24e823fffc8": {
+    "COUP": 1
+  },
+  "0x20e23bfffc1": {
+    "STEAL": 0.994998,
+    "TAX": 2.15606e-08,
+    "INCOME": 0.00500176
+  },
+  "0x24e80bffe48": {
+    "CHALLENGE": 0.00230899,
+    "PASS": 0.997691
+  },
+  "0x24e61bfffc9": {
+    "ASSASSINATE": 0.99999,
+    "STEAL": 2.40778e-07,
+    "TAX": 2.40778e-07,
+    "INCOME": 9.4129e-06
+  },
+  "0x22e623ffe40": {
+    "CHALLENGE": 0.099447,
+    "PASS": 0.900553
+  },
+  "0x24e80bffe89": {
+    "CHALLENGE": 0.997093,
+    "PASS": 0.00290684
+  },
+  "0x24e133fffc9": {
+    "STEAL": 0.226899,
+    "TAX": 0.75754,
+    "INCOME": 0.015561
+  },
+  "0x22e603ffe89": {
+    "CHALLENGE": 0.205594,
+    "PASS": 0.794406
+  },
+  "0x24e61bfffcf": {
+    "ASSASSINATE": 0.492414,
+    "STEAL": 0.00758626,
+    "TAX": 0.00758626,
+    "INCOME": 0.492414
+  },
+  "0x24e943fffc0": {
+    "COUP": 1
+  },
+  "0x24e92bffe40": {
+    "CHALLENGE": 3.10241e-05,
+    "PASS": 0.999969
+  },
+  "0x20e523ffeb9": {
+    "CHALLENGE": 0.282566,
+    "PASS": 0.717434
+  },
+  "0x24e73bfffc1": {
+    "COUP": 1
+  },
+  "0x24e92bffec2": {
+    "CHALLENGE": 1
+  },
+  "0x20e733fffc7": {
+    "COUP": 1
+  },
+  "0x24e81bffe48": {
+    "CHALLENGE": 1.43388e-06,
+    "PASS": 0.999999
+  },
+  "0x22e633ffe81": {
+    "CHALLENGE": 0.00118874,
+    "PASS": 0.998811
+  },
+  "0x24e81bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x20e913ffe40": {
+    "CHALLENGE": 3.84514e-12,
+    "PASS": 1
+  },
+  "0x24e62bfffc9": {
+    "ASSASSINATE": 0.999806,
+    "STEAL": 1.66083e-07,
+    "TAX": 1.66083e-07,
+    "INCOME": 0.000193501
+  },
+  "0x22e633ffe40": {
+    "CHALLENGE": 0.163335,
+    "PASS": 0.836665
+  },
+  "0x24e81bffe89": {
+    "CHALLENGE": 0.0068771,
+    "PASS": 0.993123
+  },
+  "0x20e043fffc1": {
+    "STEAL": 0.999999,
+    "TAX": 2.91445e-07,
+    "INCOME": 2.91445e-07
+  },
+  "0x24e613ffe48": {
+    "CHALLENGE": 0.0114642,
+    "PASS": 0.988536
+  },
+  "0x22e42bffe40": {
+    "CHALLENGE": 0.221886,
+    "PASS": 0.778114
+  },
+  "0x24e613ffe89": {
+    "CHALLENGE": 0.0055003,
+    "PASS": 0.9945
+  },
+  "0x24e12bffe48": {
+    "CHALLENGE": 0.0662954,
+    "PASS": 0.933705
+  },
+  "0x24e423fffff": {
+    "ASSASSINATE": 0.886356,
+    "STEAL": 0.00173166,
+    "TAX": 0.00173166,
+    "INCOME": 0.11018
+  },
+  "0x24e54bfffc8": {
+    "ASSASSINATE": 0.999853,
+    "STEAL": 3.50719e-11,
+    "TAX": 3.50719e-11,
+    "INCOME": 0.000146525
+  },
+  "0x20e61bffeca": {
+    "CHALLENGE": 1
+  },
+  "0x24e343ffff9": {
+    "ASSASSINATE": 0.25,
+    "STEAL": 0.25,
+    "TAX": 0.25,
+    "INCOME": 0.25
+  },
+  "0x24e533ffe48": {
+    "CHALLENGE": 0.00355156,
+    "PASS": 0.996448
+  },
+  "0x20e32bffeb9": {
+    "CHALLENGE": 0.996316,
+    "PASS": 0.00368448
+  },
+  "0x24e543fffc1": {
+    "ASSASSINATE": 0.999976,
+    "STEAL": 1.86484e-06,
+    "TAX": 1.86484e-06,
+    "INCOME": 2.05352e-05
+  },
+  "0x24e733ffec2": {
+    "CHALLENGE": 1
+  },
+  "0x24e63bfffc8": {
+    "ASSASSINATE": 0.999965,
+    "STEAL": 1.51842e-07,
+    "TAX": 1.16518e-07,
+    "INCOME": 3.44107e-05
+  },
+  "0x24e32bffe48": {
+    "CHALLENGE": 0.00409166,
+    "PASS": 0.995908
+  },
+  "0x24e13bffff9": {
+    "STEAL": 1,
+    "TAX": 2.5883e-11,
+    "INCOME": 2.5883e-11
+  },
+  "0x20e71bffe40": {
+    "CHALLENGE": 3.38464e-11,
+    "PASS": 1
+  },
+  "0x24e433fffc9": {
+    "ASSASSINATE": 0.986598,
+    "STEAL": 2.10027e-09,
+    "TAX": 8.00151e-11,
+    "INCOME": 0.0134023
+  },
+  "0x24e623ffe89": {
+    "CHALLENGE": 0.00331521,
+    "PASS": 0.996685
+  },
+  "0x24e433ffff8": {
+    "ASSASSINATE": 0.83999,
+    "STEAL": 0.000529616,
+    "TAX": 0.000529616,
+    "INCOME": 0.158951
+  },
+  "0x24e343fffc8": {
+    "ASSASSINATE": 0.999803,
+    "STEAL": 2.95333e-06,
+    "TAX": 1.18255e-14,
+    "INCOME": 0.000194097
+  },
+  "0x24e623fffcf": {
+    "ASSASSINATE": 0.471164,
+    "STEAL": 0.0288356,
+    "TAX": 0.0288356,
+    "INCOME": 0.471164
+  },
+  "0x20e423ffe40": {
+    "CHALLENGE": 0.425485,
+    "PASS": 0.574515
+  },
+  "0x22e60bffe89": {
+    "CHALLENGE": 0.449618,
+    "PASS": 0.550382
+  },
+  "0x24e13bfffc9": {
+    "STEAL": 0.997988,
+    "TAX": 2.06945e-14,
+    "INCOME": 0.00201246
+  },
+  "0x24e32bffefa": {
+    "CHALLENGE": 1
+  },
+  "0x24e543fffc8": {
+    "ASSASSINATE": 0.999922,
+    "STEAL": 2.03072e-07,
+    "TAX": 3.13488e-09,
+    "INCOME": 7.8185e-05
+  }
+}
