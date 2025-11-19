@@ -23,10 +23,11 @@ from game_state import (
 class BotStrategy:
     """Loads and uses CFR strategy from JSON file"""
 
-    def __init__(self, strategy_file: str):
+    def __init__(self, strategy_file: str, bot_player: int = 2):
         self.strategy_file = strategy_file
         self.strategy: Dict[str, Dict[str, float]] = {}
         self.variant = "base"  # default
+        self.bot_player = bot_player
         self.load_strategy()
         self.detect_variant()
 
@@ -66,13 +67,16 @@ class BotStrategy:
 
     def get_action(self, state: SimpleGameState):
         """Get bot's action based on loaded strategy"""
-        # Get info set key (bot is always player 2)
-        info_set_key = state.get_info_set_key(2)
+        # Get info set key for bot player
+        info_set_key = state.get_info_set_key(self.bot_player)
 
         # Look up strategy
         if info_set_key not in self.strategy:
             # Strategy not found, use random legal action
-            print(f"⚠ Warning: Info set {info_set_key} not in strategy, using random action")
+            print(f"\n⚠ WARNING: Info set {info_set_key} not in strategy!")
+            print(f"  Bot is Player {self.bot_player}, current_player={state.current_player}")
+            print(f"  This means the strategy file may not have been trained for this player perspective")
+            print(f"  Using RANDOM action instead")
             legal_actions = state.get_legal_actions(apply_pruning=False)
             return random.choice(legal_actions)
 
@@ -119,24 +123,32 @@ def influence_to_string(influence) -> str:
     return influence.name
 
 
-def display_state(state: SimpleGameState, hide_bot_cards: bool = True):
+def display_state(state: SimpleGameState, human_player: int = 1, hide_bot_cards: bool = True):
     """Display current game state"""
     print("\n" + "="*60)
     print("GAME STATE")
     print("="*60)
 
-    # Player 1 (Human)
-    print("\n👤 YOU (Player 1):")
-    print(f"  Coins: {state.p1_coins}")
-    print(f"  Influences: {', '.join(influence_to_string(i) for i in state.p1_influences)}")
+    bot_player = 3 - human_player  # If human is 1, bot is 2; if human is 2, bot is 1
 
-    # Player 2 (Bot)
-    print("\n🤖 BOT (Player 2):")
-    print(f"  Coins: {state.p2_coins}")
+    # Get player states
+    human_coins = state.p1_coins if human_player == 1 else state.p2_coins
+    human_influences = state.p1_influences if human_player == 1 else state.p2_influences
+    bot_coins = state.p2_coins if human_player == 1 else state.p1_coins
+    bot_influences = state.p2_influences if human_player == 1 else state.p1_influences
+
+    # Display human player
+    print(f"\n👤 YOU (Player {human_player}):")
+    print(f"  Coins: {human_coins}")
+    print(f"  Influences: {', '.join(influence_to_string(i) for i in human_influences)}")
+
+    # Display bot player
+    print(f"\n🤖 BOT (Player {bot_player}):")
+    print(f"  Coins: {bot_coins}")
     if hide_bot_cards:
-        print(f"  Influences: {len(state.p2_influences)} card(s) remaining")
+        print(f"  Influences: {len(bot_influences)} card(s) remaining")
     else:
-        print(f"  Influences: {', '.join(influence_to_string(i) for i in state.p2_influences)}")
+        print(f"  Influences: {', '.join(influence_to_string(i) for i in bot_influences)}")
 
     # Revealed cards
     if state.revealed_cards:
@@ -146,13 +158,13 @@ def display_state(state: SimpleGameState, hide_bot_cards: bool = True):
     print(f"📚 Cards remaining in deck: {len(state.deck)}")
 
     # Current turn
-    current = "YOU" if state.current_player == 1 else "BOT"
+    current = "YOU" if state.current_player == human_player else "BOT"
     print(f"\n🎯 Current turn: {current}")
 
     # Pending action
     if state.pending_action:
         actor, action = state.pending_action
-        actor_name = "YOU" if actor == 1 else "BOT"
+        actor_name = "YOU" if actor == human_player else "BOT"
         print(f"⏳ Pending: {actor_name} used {action.name}")
 
     print("="*60)
@@ -204,9 +216,9 @@ def get_human_action(state: SimpleGameState):
             print("\nInvalid input. Please enter a number.")
 
 
-def display_action(player: int, action, state: SimpleGameState):
+def display_action(player: int, action, state: SimpleGameState, human_player: int = 1):
     """Display an action taken by a player"""
-    player_name = "YOU" if player == 1 else "BOT"
+    player_name = "YOU" if player == human_player else "BOT"
     action_str = action_to_string(action)
     Action = CURRENT_VARIANT.Action
 
@@ -240,14 +252,17 @@ def display_action(player: int, action, state: SimpleGameState):
             print(f"   (Claims to have {claim})")
 
 
-def play_game(strategy_file: str):
+def play_game(strategy_file: str, human_player: int = 1):
     """Main game loop"""
     print("\n" + "="*60)
     print("🎲 COUP - Play Against CFR Bot")
     print("="*60)
 
+    bot_player = 3 - human_player  # If human is 1, bot is 2; if human is 2, bot is 1
+    print(f"\nPlayer assignment: You are Player {human_player}, Bot is Player {bot_player}")
+
     # Load bot strategy
-    bot = BotStrategy(strategy_file)
+    bot = BotStrategy(strategy_file, bot_player)
 
     # Initialize the variant based on detected variant
     initialize_variant(bot.variant)
@@ -262,7 +277,9 @@ def play_game(strategy_file: str):
     state = create_initial_state()
 
     print(f"\n🎴 Initial cards dealt!")
-    print(f"   Your influences: {', '.join(influence_to_string(i) for i in state.p1_influences)}")
+    human_influences = state.p1_influences if human_player == 1 else state.p2_influences
+    print(f"   Your influences: {', '.join(influence_to_string(i) for i in human_influences)}")
+    print(f"   You are Player {human_player}")
 
     input("\nPress Enter to start the game...")
 
@@ -274,18 +291,18 @@ def play_game(strategy_file: str):
         print(f"TURN {turn}")
         print(f"{'='*60}")
 
-        display_state(state)
+        display_state(state, human_player)
 
         # Get action from current player
-        if state.current_player == 1:
+        if state.current_player == human_player:
             # Human's turn
             action = get_human_action(state)
-            display_action(1, action, state)
+            display_action(state.current_player, action, state, human_player)
         else:
             # Bot's turn
             print("\n🤖 Bot is thinking...")
             action = bot.get_action(state)
-            display_action(2, action, state)
+            display_action(state.current_player, action, state, human_player)
 
         # Apply action
         state = apply_action(state, action)
@@ -295,7 +312,7 @@ def play_game(strategy_file: str):
             break
 
         # Short pause for readability
-        if state.current_player == 2:  # After human action
+        if state.current_player == bot_player:  # After human action
             input("\nPress Enter to continue...")
 
     # Game over - show results
@@ -303,10 +320,10 @@ def play_game(strategy_file: str):
     print("🎊 GAME OVER!")
     print("="*60)
 
-    display_state(state, hide_bot_cards=False)
+    display_state(state, human_player, hide_bot_cards=False)
 
-    # Determine winner
-    utility = state.get_utility(1)
+    # Determine winner from human player's perspective
+    utility = state.get_utility(human_player)
     if utility > 0:
         print("\n🎉 YOU WIN! 🎉")
     elif utility < 0:
@@ -314,20 +331,39 @@ def play_game(strategy_file: str):
     else:
         print("\n🤝 IT'S A DRAW!")
 
+    human_influences = state.p1_influences if human_player == 1 else state.p2_influences
+    bot_influences = state.p2_influences if human_player == 1 else state.p1_influences
     print(f"\nGame lasted {turn} turns")
-    print(f"Final score: You {len(state.p1_influences)} influences, Bot {len(state.p2_influences)} influences")
+    print(f"Final score: You {len(human_influences)} influences, Bot {len(bot_influences)} influences")
 
 
 def main():
     """Entry point"""
     if len(sys.argv) < 2:
-        print("Usage: python coup_ui.py <strategy_file.json>")
-        print("\nExample:")
+        print("Usage: python coup_ui.py <strategy_file.json> [player]")
+        print("\nArguments:")
+        print("  strategy_file.json - Path to the CFR strategy file")
+        print("  player - Which player you want to be: 1 or 2 (default: 1)")
+        print("\nExamples:")
         print("  python coup_ui.py base_strategy_14_10_10000.json")
+        print("  python coup_ui.py base_strategy_14_10_10000.json 2")
         sys.exit(1)
 
     strategy_file = sys.argv[1]
-    play_game(strategy_file)
+
+    # Get player selection
+    human_player = 1  # default
+    if len(sys.argv) >= 3:
+        try:
+            human_player = int(sys.argv[2])
+            if human_player not in [1, 2]:
+                print("Error: Player must be 1 or 2")
+                sys.exit(1)
+        except ValueError:
+            print("Error: Player must be a number (1 or 2)")
+            sys.exit(1)
+
+    play_game(strategy_file, human_player)
 
 
 if __name__ == "__main__":

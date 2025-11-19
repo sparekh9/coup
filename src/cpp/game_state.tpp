@@ -326,13 +326,15 @@ GameState<Rules> apply_action(GameState<Rules> state,
                 }
                 actor_count--;
 
-                // Add to deck and shuffle
-                if (state.deck_count < Rules::DECK_SIZE) {
-                    state.deck[state.deck_count++] = required_card;
-                    shuffle_deck(state);
-                    // Draw new card
+                // Draw new card BEFORE adding revealed card back (ensures different card)
+                if (state.deck_count > 0 && state.deck_count < Rules::DECK_SIZE) {
+                    // Draw new card first
                     state.deck_count--;
                     actor_influences[actor_count++] = state.deck[state.deck_count];
+
+                    // Then add revealed card back to deck and shuffle
+                    state.deck[state.deck_count++] = required_card;
+                    shuffle_deck(state);
                 }
 
                 // Action still happens

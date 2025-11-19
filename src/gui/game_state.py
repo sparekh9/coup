@@ -600,12 +600,19 @@ def handle_challenge(state: SimpleGameState, response: ChallengeResponse) -> Sim
         # Challenge! Check if actor has the card
         next_state.pending_action = None
         required_card = get_required_influence(action)
-        actor_influences = (next_state.p1_influences if actor_id == 1 
+        actor_influences = (next_state.p1_influences if actor_id == 1
                            else next_state.p2_influences)
-        
+
+        print(f"\n[DEBUG] Challenge!")
+        print(f"  Actor: Player {actor_id}, Action: {action.name}, Needs: {required_card.name}")
+        print(f"  Actor's cards: {[card.name for card in actor_influences]}")
+        print(f"  Challenger: Player {challenger_id}")
+
         if required_card in actor_influences:
             # Actor has card - challenge fails
             # Challenger loses influence
+            print(f"  Result: Actor HAS {required_card.name} - Challenge FAILS")
+            print(f"  Player {challenger_id} (challenger) loses an influence")
             lose_influence(next_state, challenger_id)
             # Actor exchanges the revealed card
             actor_influences.remove(required_card)
@@ -618,8 +625,10 @@ def handle_challenge(state: SimpleGameState, response: ChallengeResponse) -> Sim
         else:
             # Actor doesn't have card - challenge succeeds
             # Actor loses influence, action fails
+            print(f"  Result: Actor does NOT have {required_card.name} - Challenge SUCCEEDS")
+            print(f"  Player {actor_id} (actor) loses an influence, action fails")
             lose_influence(next_state, actor_id)
-        
+
         next_state.current_player = 3 - actor_id
     
     return next_state
