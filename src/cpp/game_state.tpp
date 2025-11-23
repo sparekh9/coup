@@ -165,7 +165,6 @@ uint64_t GameState<Rules>::get_info_set_key(int player) const {
 
     // Build hash using FIXED-WIDTH bit packing
     // Total: 42 bits (22 unused out of 64)
-    // See FIXED_WIDTH_ENCODING.md for complete layout
     uint64_t hash = 1;
 
     // Pack my influences (ALWAYS 2 slots of 4 bits, even for SimpleCoup)

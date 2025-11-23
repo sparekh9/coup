@@ -5,6 +5,20 @@
 #include <string>
 #include <vector>
 #include <random>
+#include <utility>
+#include <map>
+
+// ============================================================================
+// Deal Enumeration - All possible initial card distributions
+// ============================================================================
+template<typename Rules>
+struct Deal {
+    GameState<Rules> state;
+    double probability;
+};
+
+template<typename Rules>
+std::vector<Deal<Rules>> enumerate_all_deals();
 
 // ============================================================================
 // Custom hash and equality for GameAction variant
@@ -39,7 +53,7 @@ struct GameActionEqual {
 };
 
 // ============================================================================
-// CFRTrainer - Templated CFR trainer
+// CFRTrainer - Discounted CFR (DCFR) Implementation
 // ============================================================================
 template<typename Rules>
 class CFRTrainer {
@@ -49,76 +63,75 @@ public:
     using ActionMap = std::unordered_map<GameAction, double, GameActionHash<Rules>, GameActionEqual<Rules>>;
 
 private:
-    // Storage: info_set_key (uint64_t hash) -> (GameAction -> regret/strategy value)
     std::unordered_map<uint64_t, ActionMap> regret_sum;
-
-    // Running weighted average strategy (updated incrementally)
     std::unordered_map<uint64_t, ActionMap> avg_strategy;
-
-    // Total weight accumulated per info set (for weighted average normalization)
     std::unordered_map<uint64_t, double> total_weight;
 
-    // Track current iteration for linear weighting
     int current_iteration;
-
-    // Number of Monte Carlo rollouts to perform when depth limit is reached
-    int num_rollouts;
-
-    // Maximum depth before switching to Monte Carlo rollouts
     int max_depth;
 
-    // Debug tracking
-    bool debug_enabled;
-    int debug_iteration;
-    std::unordered_map<uint64_t, int> state_visit_count;
-    std::unordered_map<std::string, int> action_count;
-    int max_debug_states;  // Limit how many states to print in detail
-    int debug_state_counter;
+    // DCFR parameters: α=1.5, β=0.0, γ=2.0 (empirically best)
+    double dcfr_alpha;
+    double dcfr_beta;
+    double dcfr_gamma;
+
+    // All possible initial deals (enumerated once at start)
+    std::vector<Deal<Rules>> all_deals;
+
+    // Convergence tracking: (iteration, exploitability, info_set_count)
+    std::vector<std::tuple<int, double, size_t>> convergence_data;
 
 public:
     CFRTrainer();
 
     // Configuration
-    void set_rollout_count(int count) { num_rollouts = count; }
     void set_max_depth(int depth) { max_depth = depth; }
     int get_max_depth() const { return max_depth; }
 
-    // Debug configuration
-    void enable_debug(bool enabled = true) { debug_enabled = enabled; }
-    void set_debug_iteration(int iter) { debug_iteration = iter; }
-    void set_max_debug_states(int max_states) { max_debug_states = max_states; }
-    void print_debug_statistics() const;
-    void reset_debug_counters();
+    void set_dcfr_params(double alpha, double beta, double gamma) {
+        dcfr_alpha = alpha;
+        dcfr_beta = beta;
+        dcfr_gamma = gamma;
+    }
 
-    // Get current strategy using Regret Matching+ (RM+)
-    ActionMap get_strategy(uint64_t info_set_key,
-                          const ActionList<Rules>& actions);
+    // Core methods
+    ActionMap get_strategy(uint64_t info_set_key, const ActionList<Rules>& actions);
+    ActionMap get_average_strategy(uint64_t info_set_key, const ActionList<Rules>& actions);
 
-    // Get average strategy over all training iterations
-    ActionMap get_average_strategy(uint64_t info_set_key,
-                                   const ActionList<Rules>& actions);
+    void train(int iterations, int exploit_interval = 0, int exploit_samples = 100);
 
-    // Train for specified number of iterations
-    void train(int iterations);
-
-    // Core CFR algorithm - recursive traversal
     double cfr(GameState<Rules>& state, int traversing_player,
-              double reach_p1, double reach_p2);
+               double reach_p1, double reach_p2);
 
-    // External Sampling MCCFR
     double cfr_external_sampling(GameState<Rules>& state, int traversing_player,
                                  double reach_p1, double reach_p2, double sample_prob);
-
-    // Monte Carlo rollout from current state to terminal
-    double rollout(GameState<Rules> state);
 
     // Persistence
     void save_strategy(const std::string& filename) const;
     void load_strategy(const std::string& filename);
+    void save_convergence_data(const std::string& filename) const;
 
     // Statistics
     size_t get_info_set_count() const { return avg_strategy.size(); }
+
+    // Exploitability estimation
+    double estimate_exploitability(int num_samples = 1000);
+    double estimate_exploitability_quiet(int num_samples);
+
+    // Two-pass best response computation
+    void compute_br_action_values(GameState<Rules>& state, int br_player,
+                                   double state_prob,
+                                   std::unordered_map<uint64_t, std::unordered_map<GameAction, double,
+                                       GameActionHash<Rules>, GameActionEqual<Rules>>>& action_values,
+                                   std::unordered_map<uint64_t, double>& info_set_reach,
+                                   const std::unordered_map<uint64_t, GameAction>& br_policy);
+
+    double evaluate_br_policy(GameState<Rules>& state, int br_player,
+                              const std::unordered_map<uint64_t, GameAction>& br_policy);
+
+private:
+    void apply_dcfr_discounts();
+    double get_strategy_weight(double reach) const;
 };
 
-// Include template implementations
 #include "cfr_trainer.tpp"

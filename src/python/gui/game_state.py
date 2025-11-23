@@ -292,36 +292,36 @@ class SimpleGameState:
             return True
 
         # Depth limit reached
-        if self.depth >= DEPTH_LIMIT:
-            return True
+        # if self.depth >= DEPTH_LIMIT:
+        #     return True
 
         # Smart Early Termination (MUST MATCH C++ game_state.cpp:30-67)
-        if ENABLE_EARLY_TERMINATION:
-            if self.depth >= EARLY_TERM_MIN_DEPTH:
-                p1_score = calculate_score(len(self.p1_influences), self.p1_coins)
-                p2_score = calculate_score(len(self.p2_influences), self.p2_coins)
-                score_diff = abs(p1_score - p2_score)
+        # if ENABLE_EARLY_TERMINATION:
+        #     if self.depth >= EARLY_TERM_MIN_DEPTH:
+        #         p1_score = calculate_score(len(self.p1_influences), self.p1_coins)
+        #         p2_score = calculate_score(len(self.p2_influences), self.p2_coins)
+        #         score_diff = abs(p1_score - p2_score)
 
-                # Terminate if advantage is overwhelming
-                if score_diff >= EARLY_TERM_SCORE_THRESHOLD:
-                    return True
+        #         # Terminate if advantage is overwhelming
+        #         if score_diff >= EARLY_TERM_SCORE_THRESHOLD:
+        #             return True
 
-                # Additional heuristics for decided games (forced coup at 10+ coins!)
+        #         # Additional heuristics for decided games (forced coup at 10+ coins!)
 
-                # 1. Influence advantage with coup coins
-                if (len(self.p1_influences) == 2 and len(self.p2_influences) == 1 and
-                    self.p1_coins >= 7):
-                    return True
-                if (len(self.p2_influences) == 2 and len(self.p1_influences) == 1 and
-                    self.p2_coins >= 7):
-                    return True
+        #         # 1. Influence advantage with coup coins
+        #         if (len(self.p1_influences) == 2 and len(self.p2_influences) == 1 and
+        #             self.p1_coins >= 7):
+        #             return True
+        #         if (len(self.p2_influences) == 2 and len(self.p1_influences) == 1 and
+        #             self.p2_coins >= 7):
+        #             return True
 
-                # 2. Both at 1 influence, one has must-coup coins (10+), other can't coup back
-                if len(self.p1_influences) == 1 and len(self.p2_influences) == 1:
-                    if self.p1_coins >= 10 and self.p2_coins < 7:
-                        return True
-                    if self.p2_coins >= 10 and self.p1_coins < 7:
-                        return True
+        #         # 2. Both at 1 influence, one has must-coup coins (10+), other can't coup back
+        #         if len(self.p1_influences) == 1 and len(self.p2_influences) == 1:
+        #             if self.p1_coins >= 10 and self.p2_coins < 7:
+        #                 return True
+        #             if self.p2_coins >= 10 and self.p1_coins < 7:
+        #                 return True
 
         return False
 
@@ -335,41 +335,41 @@ class SimpleGameState:
 
         # Check if early termination applies (overwhelming advantage)
         # If so, award FULL utility to the winner!
-        if ENABLE_EARLY_TERMINATION:
-            if self.depth >= EARLY_TERM_MIN_DEPTH:
-                p1_score = calculate_score(len(self.p1_influences), self.p1_coins)
-                p2_score = calculate_score(len(self.p2_influences), self.p2_coins)
-                score_diff = abs(p1_score - p2_score)
+        # if ENABLE_EARLY_TERMINATION:
+        #     if self.depth >= EARLY_TERM_MIN_DEPTH:
+        #         p1_score = calculate_score(len(self.p1_influences), self.p1_coins)
+        #         p2_score = calculate_score(len(self.p2_influences), self.p2_coins)
+        #         score_diff = abs(p1_score - p2_score)
 
-                # Overwhelming score advantage → full utility
-                if score_diff >= EARLY_TERM_SCORE_THRESHOLD:
-                    if p1_score > p2_score:
-                        return 1.0 if player == 1 else -1.0  # P1 wins
-                    else:
-                        return -1.0 if player == 1 else 1.0  # P2 wins
+        #         # Overwhelming score advantage → full utility
+        #         if score_diff >= EARLY_TERM_SCORE_THRESHOLD:
+        #             if p1_score > p2_score:
+        #                 return 1.0 if player == 1 else -1.0  # P1 wins
+        #             else:
+        #                 return -1.0 if player == 1 else 1.0  # P2 wins
 
-                # Influence advantage with coup coins → full utility
-                if (len(self.p1_influences) == 2 and len(self.p2_influences) == 1 and
-                    self.p1_coins >= 7):
-                    return 1.0 if player == 1 else -1.0  # P1 wins
+        #         # Influence advantage with coup coins → full utility
+        #         if (len(self.p1_influences) == 2 and len(self.p2_influences) == 1 and
+        #             self.p1_coins >= 7):
+        #             return 1.0 if player == 1 else -1.0  # P1 wins
 
-                if (len(self.p2_influences) == 2 and len(self.p1_influences) == 1 and
-                    self.p2_coins >= 7):
-                    return -1.0 if player == 1 else 1.0  # P2 wins
+        #         if (len(self.p2_influences) == 2 and len(self.p1_influences) == 1 and
+        #             self.p2_coins >= 7):
+        #             return -1.0 if player == 1 else 1.0  # P2 wins
 
-                # Must-coup advantage (1v1) → full utility
-                if len(self.p1_influences) == 1 and len(self.p2_influences) == 1:
-                    if self.p1_coins >= 10 and self.p2_coins < 7:
-                        return 1.0 if player == 1 else -1.0  # P1 wins (forced coup)
-                    if self.p2_coins >= 10 and self.p1_coins < 7:
-                        return -1.0 if player == 1 else 1.0  # P2 wins (forced coup)
+        #         # Must-coup advantage (1v1) → full utility
+        #         if len(self.p1_influences) == 1 and len(self.p2_influences) == 1:
+        #             if self.p1_coins >= 10 and self.p2_coins < 7:
+        #                 return 1.0 if player == 1 else -1.0  # P1 wins (forced coup)
+        #             if self.p2_coins >= 10 and self.p1_coins < 7:
+        #                 return -1.0 if player == 1 else 1.0  # P2 wins (forced coup)
 
         # Depth limit reached (no early termination) → partial utility based on score
-        if self.depth >= DEPTH_LIMIT:
-            p1_score = len(self.p1_influences) * 20 + self.p1_coins
-            p2_score = len(self.p2_influences) * 20 + self.p2_coins
-            result = (p1_score - p2_score) / 50.0
-            return result if player == 1 else -result
+        # if self.depth >= DEPTH_LIMIT:
+        #     p1_score = len(self.p1_influences) * 20 + self.p1_coins
+        #     p2_score = len(self.p2_influences) * 20 + self.p2_coins
+        #     result = (p1_score - p2_score) / 50.0
+        #     return result if player == 1 else -result
 
         # Not terminal yet
         return 0.0
@@ -603,30 +603,28 @@ def handle_challenge(state: SimpleGameState, response: ChallengeResponse) -> Sim
         actor_influences = (next_state.p1_influences if actor_id == 1
                            else next_state.p2_influences)
 
-        print(f"\n[DEBUG] Challenge!")
-        print(f"  Actor: Player {actor_id}, Action: {action.name}, Needs: {required_card.name}")
-        print(f"  Actor's cards: {[card.name for card in actor_influences]}")
-        print(f"  Challenger: Player {challenger_id}")
+        # print(f"\n[DEBUG] Challenge!")
+        # print(f"  Actor: Player {actor_id}, Action: {action.name}, Needs: {required_card.name}")
+        # print(f"  Actor's cards: {[card.name for card in actor_influences]}")
+        # print(f"  Challenger: Player {challenger_id}")
 
         if required_card in actor_influences:
             # Actor has card - challenge fails
             # Challenger loses influence
-            print(f"  Result: Actor HAS {required_card.name} - Challenge FAILS")
-            print(f"  Player {challenger_id} (challenger) loses an influence")
+            # print(f"  Result: Actor HAS {required_card.name} - Challenge FAILS")
+            # print(f"  Player {challenger_id} (challenger) loses an influence")
             lose_influence(next_state, challenger_id)
             # Actor exchanges the revealed card
             actor_influences.remove(required_card)
             if len(next_state.deck) > 0:
-                next_state.deck.append(required_card)
                 random.shuffle(next_state.deck)
                 actor_influences.append(next_state.deck.pop())
+                next_state.deck.append(required_card)
             # Action still happens
             execute_action(next_state, actor_id, action)
         else:
             # Actor doesn't have card - challenge succeeds
             # Actor loses influence, action fails
-            print(f"  Result: Actor does NOT have {required_card.name} - Challenge SUCCEEDS")
-            print(f"  Player {actor_id} (actor) loses an influence, action fails")
             lose_influence(next_state, actor_id)
 
         next_state.current_player = 3 - actor_id

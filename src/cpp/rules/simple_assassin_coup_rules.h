@@ -45,8 +45,8 @@ struct SimpleAssassinCoupRules {
     static constexpr int STARTING_INFLUENCES = 1;
     static constexpr int NUM_INFLUENCE_TYPES = 3;
     static constexpr int DECK_SIZE = 6;  // 2 of each
-    static constexpr int STARTING_COINS = 2;  // More starting coins for faster games
-    static constexpr int COUP_COST = 7;  // Cheaper coup than standard
+    static constexpr int STARTING_COINS = 2;  
+    static constexpr int COUP_COST = 7;  
     static constexpr int ASSASSINATE_COST = 3;
     static constexpr int MUST_COUP_THRESHOLD = 7;  // Lower threshold
     static constexpr int STEAL_AMOUNT = 2;

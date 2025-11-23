@@ -7,6 +7,7 @@ import json
 import random
 import re
 import sys
+import argparse
 from pathlib import Path
 from typing import Dict, List, Tuple
 
@@ -339,23 +340,18 @@ def play_game(strategy_file: str, human_player: int = 1):
 
 def main():
     """Entry point"""
-    if len(sys.argv) < 2:
-        print("Usage: python coup_ui.py <strategy_file.json> [player]")
-        print("\nArguments:")
-        print("  strategy_file.json - Path to the CFR strategy file")
-        print("  player - Which player you want to be: 1 or 2 (default: 1)")
-        print("\nExamples:")
-        print("  python coup_ui.py base_strategy_14_10_10000.json")
-        print("  python coup_ui.py base_strategy_14_10_10000.json 2")
-        sys.exit(1)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-p", "--player", type=int, default=1, help="The player you are playing as (1 or 2)")
+    parser.add_argument("-s", "--strategy", type=str, default="base_strategy_14_10_10000.json", help="The strategy file to use")
+    args = parser.parse_args()
 
-    strategy_file = sys.argv[1]
+    strategy_file = args.strategy   
 
     # Get player selection
     human_player = 1  # default
     if len(sys.argv) >= 3:
         try:
-            human_player = int(sys.argv[2])
+            human_player = args.player
             if human_player not in [1, 2]:
                 print("Error: Player must be 1 or 2")
                 sys.exit(1)
