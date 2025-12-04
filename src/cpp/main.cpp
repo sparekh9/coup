@@ -13,6 +13,7 @@ void print_usage(const char* program_name) {
     std::cout << "  --gamma N             DCFR gamma parameter (default: 2.0)\n";
     std::cout << "  --decay               Enable quadratic utility decay (encourages shorter games)\n";
     std::cout << "  --decay-alpha N       Decay strength parameter (default: 0.6, range: 0.0-1.0)\n";
+    std::cout << "  --exploit-interval N  Number of iterations between tracking exploitability.\n";
     std::cout << "  -o, --output FILE     Output filename (default: {variant}_strategy_{depth}_{iterations}.json)\n";
     std::cout << "  -h, --help            Show this help message\n\n";
     std::cout << "Variants:\n";
@@ -29,11 +30,11 @@ void print_usage(const char* program_name) {
 
 template<typename Rules>
 void train_variant(int iterations, int max_depth, const std::string& output_file,
-                   double alpha, double beta, double gamma) {
+                   double alpha, double beta, double gamma, int exploit_interval) {
     CFRTrainer<Rules> trainer;
     trainer.set_max_depth(max_depth);
     trainer.set_dcfr_params(alpha, beta, gamma);
-    trainer.train(iterations, 10);
+    trainer.train(iterations, exploit_interval);
     trainer.save_strategy(output_file + ".json");
     trainer.save_convergence_data(output_file + ".csv");
 }
@@ -45,9 +46,7 @@ int main(int argc, char* argv[]) {
     double alpha = 1.5, beta = 0.0, gamma = 2.0;
     bool enable_decay = false;
     double decay_alpha = 0.6;
-    int exploit_final = 0;
-    int exploit_interval = 0;
-    int exploit_samples = 100;
+    int exploit_interval = 100;
     std::string output_file = "";
 
     for (int i = 1; i < argc; i++) {
@@ -104,6 +103,10 @@ int main(int argc, char* argv[]) {
                 return 1;
             }
         }
+        else if (arg == "--exploit-interval") {
+            if (i + 1 < argc) exploit_interval = std::stoi(argv[++i]);
+            else { std::cerr << "Error: " << arg << " requires an argument\n"; return 1; }
+        }
         else if (arg == "-o" || arg == "--output") {
             if (i + 1 < argc) output_file = argv[++i];
             else { std::cerr << "Error: " << arg << " requires an argument\n"; return 1; }
@@ -133,11 +136,11 @@ int main(int argc, char* argv[]) {
     std::cout << "Output: " << output_file << "\n\n";
 
     if (variant == "base") {
-        train_variant<BaseCoupRules>(iterations, max_depth, output_file, alpha, beta, gamma);
+        train_variant<BaseCoupRules>(iterations, max_depth, output_file, alpha, beta, gamma, exploit_interval);
     } else if (variant == "simple") {
-        train_variant<SimpleCoupRules>(iterations, max_depth, output_file, alpha, beta, gamma);
+        train_variant<SimpleCoupRules>(iterations, max_depth, output_file, alpha, beta, gamma, exploit_interval);
     } else if (variant == "full") {
-        train_variant<FullCoupRules>(iterations, max_depth, output_file, alpha, beta, gamma);
+        train_variant<FullCoupRules>(iterations, max_depth, output_file, alpha, beta, gamma, exploit_interval);
     }
 
     return 0;
