@@ -18,7 +18,8 @@ GameState<Rules>::GameState()
       deck_count(0), revealed_count(0),
       has_pending_action(false), pending_action_player(0),
       pending_action_type(static_cast<Action>(0)),
-      p1_last_claim(0xFF), p2_last_claim(0xFF),  // 0xFF = no claim yet
+      p1_claim_history{7, 7, 7}, p2_claim_history{7, 7, 7},  // 7 = empty slot
+      p1_claim_count(0), p2_claim_count(0),
       depth(0) {
 }
 
@@ -71,10 +72,14 @@ bool GameState<Rules>::is_terminal() const {
 template<typename Rules>
 float GameState<Rules>::get_utility(int player) const {
     // True terminal: Someone has no influences
-    if (p1_influence_count == 0)
-        return player == 1 ? -1.0f : 1.0f;
-    if (p2_influence_count == 0)
-        return player == 1 ? 1.0f : -1.0f;
+    if (p1_influence_count == 0) {
+        float util = player == 1 ? -1.0f : 1.0f;
+        return apply_quadratic_decay(util, depth);
+    }
+    if (p2_influence_count == 0) {
+        float util = player == 1 ? 1.0f : -1.0f;
+        return apply_quadratic_decay(util, depth);
+    }
 
     // Check if early termination applies (overwhelming advantage)
     if constexpr (ENABLE_EARLY_TERMINATION) {
@@ -85,28 +90,34 @@ float GameState<Rules>::get_utility(int player) const {
 
             // Overwhelming score advantage → full utility
             if (score_diff >= EARLY_TERM_SCORE_THRESHOLD) {
+                float util;
                 if (p1_score > p2_score) {
-                    return player == 1 ? 1.0f : -1.0f;  // P1 wins
+                    util = player == 1 ? 1.0f : -1.0f;  // P1 wins
                 } else {
-                    return player == 1 ? -1.0f : 1.0f;  // P2 wins
+                    util = player == 1 ? -1.0f : 1.0f;  // P2 wins
                 }
+                return apply_quadratic_decay(util, depth);
             }
 
             // Early termination heuristics (only for 2-influence variants)
             if constexpr (Rules::MAX_INFLUENCES_PER_PLAYER == 2) {
                 if (p1_influence_count == 2 && p2_influence_count == 1 && p1_coins >= Rules::COUP_COST) {
-                    return player == 1 ? 1.0f : -1.0f;  // P1 wins
+                    float util = player == 1 ? 1.0f : -1.0f;  // P1 wins
+                    return apply_quadratic_decay(util, depth);
                 }
                 if (p2_influence_count == 2 && p1_influence_count == 1 && p2_coins >= Rules::COUP_COST) {
-                    return player == 1 ? -1.0f : 1.0f;  // P2 wins
+                    float util = player == 1 ? -1.0f : 1.0f;  // P2 wins
+                    return apply_quadratic_decay(util, depth);
                 }
 
                 if (p1_influence_count == 1 && p2_influence_count == 1) {
                     if (p1_coins >= Rules::MUST_COUP_THRESHOLD && p2_coins < Rules::COUP_COST) {
-                        return player == 1 ? 1.0f : -1.0f;
+                        float util = player == 1 ? 1.0f : -1.0f;
+                        return apply_quadratic_decay(util, depth);
                     }
                     if (p2_coins >= Rules::MUST_COUP_THRESHOLD && p1_coins < Rules::COUP_COST) {
-                        return player == 1 ? -1.0f : 1.0f;
+                        float util = player == 1 ? -1.0f : 1.0f;
+                        return apply_quadratic_decay(util, depth);
                     }
                 }
             }
@@ -118,7 +129,8 @@ float GameState<Rules>::get_utility(int player) const {
         int p1_score = p1_influence_count * 20 + p1_coins;
         int p2_score = p2_influence_count * 20 + p2_coins;
         float result = (p1_score - p2_score) / 50.0f;
-        return player == 1 ? result : -result;
+        float util = player == 1 ? result : -result;
+        return apply_quadratic_decay(util, depth);
     }
 
     return 0.0f;
@@ -129,7 +141,9 @@ uint64_t GameState<Rules>::get_info_set_key(int player) const {
     const Influence* my_inf;
     uint8_t my_inf_count;
     uint8_t my_coins, opp_inf_count, opp_coins;
-    uint8_t my_last_claim, opp_last_claim;
+    const uint8_t* my_claims;
+    const uint8_t* opp_claims;
+    uint8_t my_claim_cnt, opp_claim_cnt;
 
     if (player == 1) {
         my_inf = p1_influences.data();
@@ -137,16 +151,20 @@ uint64_t GameState<Rules>::get_info_set_key(int player) const {
         my_coins = p1_coins;
         opp_inf_count = p2_influence_count;
         opp_coins = p2_coins;
-        my_last_claim = p1_last_claim;
-        opp_last_claim = p2_last_claim;
+        my_claims = p1_claim_history.data();
+        opp_claims = p2_claim_history.data();
+        my_claim_cnt = p1_claim_count;
+        opp_claim_cnt = p2_claim_count;
     } else {
         my_inf = p2_influences.data();
         my_inf_count = p2_influence_count;
         my_coins = p2_coins;
         opp_inf_count = p1_influence_count;
         opp_coins = p1_coins;
-        my_last_claim = p2_last_claim;
-        opp_last_claim = p1_last_claim;
+        my_claims = p2_claim_history.data();
+        opp_claims = p1_claim_history.data();
+        my_claim_cnt = p2_claim_count;
+        opp_claim_cnt = p1_claim_count;
     }
 
     // Sort influences for canonical representation
@@ -164,25 +182,25 @@ uint64_t GameState<Rules>::get_info_set_key(int player) const {
     std::sort(revealed_sorted.begin(), revealed_sorted.begin() + revealed_count);
 
     // Build hash using FIXED-WIDTH bit packing
-    // Total: 42 bits (22 unused out of 64)
+    // Total: 53 bits (11 unused out of 64)
     uint64_t hash = 1;
 
-    // Pack my influences (ALWAYS 2 slots of 4 bits, even for SimpleCoup)
+    // Pack my influences (ALWAYS 2 slots of 3 bits, even for SimpleCoup)
     // Slots beyond MAX_INFLUENCES_PER_PLAYER are padded with 7
     for (int i = 0; i < 2; i++) {
         if (i < Rules::MAX_INFLUENCES_PER_PLAYER && i < my_inf_count) {
-            hash = (hash << 4) | static_cast<uint64_t>(my_inf_sorted[i]);
+            hash = (hash << 3) | static_cast<uint64_t>(my_inf_sorted[i]);
         } else {
-            hash = (hash << 4) | 7;  // Empty slot
+            hash = (hash << 3) | 7;  // Empty slot
         }
     }
 
-    // Pack coins with abstraction (ALWAYS 5 bits for both players)
-    // Store exact coins (0-12) or abstracted bucket value (0-3)
+    // Pack coins with abstraction (ALWAYS 4 bits for both players)
+    // Store exact coins (0-10) or abstracted bucket value (0-3)
     uint8_t my_coins_hash = abstract_my_coins(my_coins);
     uint8_t opp_coins_hash = abstract_opp_coins(opp_coins);
-    hash = (hash << 5) | static_cast<uint64_t>(my_coins_hash);
-    hash = (hash << 5) | static_cast<uint64_t>(opp_coins_hash);
+    hash = (hash << 4) | static_cast<uint64_t>(my_coins_hash);
+    hash = (hash << 4) | static_cast<uint64_t>(opp_coins_hash);
 
     // Pack opponent influence count (2 bits)
     hash = (hash << 2) | static_cast<uint64_t>(opp_inf_count);
@@ -202,11 +220,21 @@ uint64_t GameState<Rules>::get_info_set_key(int player) const {
         static_cast<uint64_t>(pending_action_type) : 7ULL;
     hash = (hash << 3) | pending_bits;
 
-    // Pack both players' last claims (3 bits each, 7 = no claim)
-    uint64_t my_claim_bits = (my_last_claim == 0xFF) ? 7ULL : static_cast<uint64_t>(my_last_claim);
-    uint64_t opp_claim_bits = (opp_last_claim == 0xFF) ? 7ULL : static_cast<uint64_t>(opp_last_claim);
-    hash = (hash << 3) | my_claim_bits;
-    hash = (hash << 3) | opp_claim_bits;
+    // Pack my claim history (3 slots of 3 bits each, 7 = empty)
+    for (int i = 0; i < 3; i++) {
+        hash = (hash << 3) | static_cast<uint64_t>(my_claims[i]);
+    }
+
+    // Pack opponent claim history (3 slots of 3 bits each, 7 = empty)
+    for (int i = 0; i < 3; i++) {
+        hash = (hash << 3) | static_cast<uint64_t>(opp_claims[i]);
+    }
+
+    // Pack my claim count (2 bits)
+    hash = (hash << 2) | static_cast<uint64_t>(my_claim_cnt);
+
+    // Pack opponent claim count (2 bits)
+    hash = (hash << 2) | static_cast<uint64_t>(opp_claim_cnt);
 
     return hash;
 }
@@ -377,12 +405,28 @@ GameState<Rules> apply_action(GameState<Rules> state,
             state.pending_action_player = state.current_player;
             state.pending_action_type = act;
 
-            // Record the claim
+            // Record the claim in circular buffer
             Influence claimed = Rules::get_required_influence(act);
             if (state.current_player == 1) {
-                state.p1_last_claim = static_cast<uint8_t>(claimed);
+                // Add to P1's claim history (circular buffer)
+                uint8_t insert_pos = state.p1_claim_count % 3;
+                state.p1_claim_history[insert_pos] = static_cast<uint8_t>(claimed);
+                if (state.p1_claim_count < 3) {
+                    state.p1_claim_count++;
+                } else {
+                    // Wrap around: we've filled all 3 slots, just update count
+                    state.p1_claim_count++;
+                }
             } else {
-                state.p2_last_claim = static_cast<uint8_t>(claimed);
+                // Add to P2's claim history (circular buffer)
+                uint8_t insert_pos = state.p2_claim_count % 3;
+                state.p2_claim_history[insert_pos] = static_cast<uint8_t>(claimed);
+                if (state.p2_claim_count < 3) {
+                    state.p2_claim_count++;
+                } else {
+                    // Wrap around: we've filled all 3 slots, just update count
+                    state.p2_claim_count++;
+                }
             }
 
             state.current_player = 3 - state.current_player;

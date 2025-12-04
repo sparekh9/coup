@@ -67,10 +67,13 @@ struct GameState {
     int pending_action_player;  // Only valid if has_pending_action is true
     Action pending_action_type; // Only valid if has_pending_action is true
 
-    // Track opponent's claimed roles (for information sets)
-    // 0xFF means no claim yet, otherwise stores Influence value
-    uint8_t p1_last_claim;  // Last influence claimed by P1 (0xFF = none)
-    uint8_t p2_last_claim;  // Last influence claimed by P2 (0xFF = none)
+    // Track claim history (for information sets)
+    // Circular buffer: stores last 3 claims per player
+    // Value 7 (0b111) means empty slot
+    std::array<uint8_t, 3> p1_claim_history;  // Last 3 claims by P1
+    std::array<uint8_t, 3> p2_claim_history;  // Last 3 claims by P2
+    uint8_t p1_claim_count;  // Number of claims by P1 (0-3, wraps for circular buffer)
+    uint8_t p2_claim_count;  // Number of claims by P2 (0-3, wraps for circular buffer)
 
     int depth;
 
@@ -145,6 +148,33 @@ constexpr int EARLY_TERM_SCORE_THRESHOLD = 14;  // Score difference required for
 // Scoring weights for early termination
 constexpr int INFLUENCE_VALUE = 10;  // Each influence worth 10 points
 constexpr int COIN_VALUE = 1;        // Each coin worth 1 point
+
+// ============================================================================
+// Utility Decay Configuration
+// ============================================================================
+
+// Global runtime configuration for utility decay
+// These can be modified at runtime before training
+struct UtilityDecayConfig {
+    bool enabled = false;           // Enable/disable decay
+    double alpha = 0.6;             // Decay strength (0-1)
+
+    static UtilityDecayConfig& instance() {
+        static UtilityDecayConfig config;
+        return config;
+    }
+};
+
+// Quadratic decay formula: utility × (1 - (α × depth / DEPTH_LIMIT)²)
+inline double apply_quadratic_decay(double base_utility, int depth) {
+    auto& config = UtilityDecayConfig::instance();
+    if (!config.enabled) {
+        return base_utility;
+    }
+    double normalized_depth = static_cast<double>(depth) / DEPTH_LIMIT;
+    double decay_factor = 1.0 - std::pow(config.alpha * normalized_depth, 2.0);
+    return base_utility * decay_factor;
+}
 
 // Helper function to calculate game score (for early termination)
 inline int calculate_score(uint8_t influence_count, uint8_t coins) {

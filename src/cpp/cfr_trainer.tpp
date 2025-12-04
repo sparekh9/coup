@@ -227,8 +227,6 @@ std::vector<Deal<Rules>> enumerate_all_deals() {
             deal.state.current_player = 1;
             deal.state.revealed_count = 0;
             deal.state.has_pending_action = false;
-            deal.state.p1_last_claim = 0xFF;
-            deal.state.p2_last_claim = 0xFF;
             deal.state.depth = 0;
 
             deals.push_back(deal);
@@ -266,6 +264,30 @@ CFRTrainer<Rules>::CFRTrainer()
     // Enumerate all possible deals at construction time
     all_deals = enumerate_all_deals<Rules>();
     std::cout << "Enumerated " << all_deals.size() << " possible initial deals\n";
+
+    // Print all deals with their probabilities
+    std::cout << "\n=== Deal Enumeration ===\n";
+    for (size_t i = 0; i < all_deals.size(); i++) {
+        const auto& deal = all_deals[i];
+        std::cout << "Deal " << (i + 1) << "/" << all_deals.size()
+                  << " (prob=" << std::fixed << std::setprecision(6) << deal.probability << "): ";
+
+        // P1 influences
+        std::cout << "P1[";
+        for (uint8_t j = 0; j < deal.state.p1_influence_count; j++) {
+            if (j > 0) std::cout << ", ";
+            std::cout << Rules::influence_to_string(deal.state.p1_influences[j]);
+        }
+        std::cout << "] vs P2[";
+
+        // P2 influences
+        for (uint8_t j = 0; j < deal.state.p2_influence_count; j++) {
+            if (j > 0) std::cout << ", ";
+            std::cout << Rules::influence_to_string(deal.state.p2_influences[j]);
+        }
+        std::cout << "]\n";
+    }
+    std::cout << "========================\n\n";
 }
 
 template<typename Rules>
@@ -296,7 +318,8 @@ typename CFRTrainer<Rules>::ActionMap CFRTrainer<Rules>::get_strategy(
                 prob = 1.0 / num_actions;
             }
         }
-    } else {
+    } 
+    else {
         for (const auto& action : actions) {
             strategy[action] = 1.0 / num_actions;
         }
@@ -312,9 +335,42 @@ typename CFRTrainer<Rules>::ActionMap CFRTrainer<Rules>::get_average_strategy(
 
     auto it = avg_strategy.find(info_set_key);
     if (it != avg_strategy.end() && !it->second.empty()) {
-        return it->second;
+        // Verify the stored strategy contains all legal actions
+        bool has_all_actions = true;
+        for (const auto& action : actions) {
+            if (it->second.find(action) == it->second.end()) {
+                has_all_actions = false;
+                break;
+            }
+        }
+
+        if (has_all_actions) {
+            // Return stored strategy, but normalize it to be safe
+            ActionMap normalized;
+            double sum = 0.0;
+            for (const auto& action : actions) {
+                double prob = it->second.at(action);
+                normalized[action] = prob;
+                sum += prob;
+            }
+
+            // Normalize if sum is not 1 (shouldn't happen, but safety check)
+            if (sum > 1e-10) {
+                for (auto& [action, prob] : normalized) {
+                    prob /= sum;
+                }
+            } else {
+                // If sum is too small, fall through to uniform
+                has_all_actions = false;
+            }
+
+            if (has_all_actions) {
+                return normalized;
+            }
+        }
     }
 
+    // Fallback to uniform strategy
     ActionMap uniform;
     double uniform_prob = 1.0 / actions.count;
     for (const auto& action : actions) {
@@ -330,36 +386,30 @@ double CFRTrainer<Rules>::get_strategy_weight(double reach) const {
 
 template<typename Rules>
 void CFRTrainer<Rules>::apply_dcfr_discounts() {
+
     double t = static_cast<double>(current_iteration);
     double t_alpha = std::pow(t, dcfr_alpha);
     double t_beta = std::pow(t, dcfr_beta);
     double pos_discount = t_alpha / (t_alpha + 1.0);
     double neg_discount = t_beta / (t_beta + 1.0);
 
+    // Discount REGRETS only (positive and negative separately)
     for (auto& [info_set_key, action_map] : regret_sum) {
         for (auto& [action, regret] : action_map) {
             regret *= (regret > 0) ? pos_discount : neg_discount;
         }
     }
 
-    double t_gamma = std::pow(t, dcfr_gamma);
-    double weight_discount = t_gamma / (t_gamma + 1.0);
-    for (auto& [info_set_key, weight] : total_weight) {
-        weight *= weight_discount;
-    }
+    // NOTE: Do NOT discount total_weight for average strategy!
+    // The t^γ weighting is already applied in get_strategy_weight().
+    // Discounting here would double-apply the weighting and break convergence.
 }
 
 template<typename Rules>
-void CFRTrainer<Rules>::train(int iterations, int exploit_interval, int exploit_samples) {
+void CFRTrainer<Rules>::train(int iterations, int exploitability_interval) {
     std::cout << "Training DCFR for " << iterations << " iterations "
               << "(alpha=" << dcfr_alpha << ", beta=" << dcfr_beta << ", gamma=" << dcfr_gamma << ")\n";
     std::cout << "Enumerating over " << all_deals.size() << " possible deals per iteration\n";
-
-    if (exploit_interval > 0) {
-        std::cout << "Tracking exploitability every " << exploit_interval << " iterations "
-                  << "(" << exploit_samples << " samples each)\n";
-        convergence_data.clear();
-    }
 
     auto start_time = std::chrono::steady_clock::now();
 
@@ -367,7 +417,10 @@ void CFRTrainer<Rules>::train(int iterations, int exploit_interval, int exploit_
         current_iteration++;
 
         // Iterate over ALL possible initial deals, weighted by probability
+        size_t deal_idx = 0;
         for (const auto& deal : all_deals) {
+            deal_idx++;
+
             // The deal probability is incorporated into the reach probabilities
             // This ensures regrets are properly weighted by chance probability
             double chance_prob = deal.probability;
@@ -378,17 +431,23 @@ void CFRTrainer<Rules>::train(int iterations, int exploit_interval, int exploit_
 
             GameState<Rules> state2 = deal.state;
             cfr(state2, 2, chance_prob, chance_prob);
+
         }
 
         // Apply DCFR discounts
         apply_dcfr_discounts();
 
-        // Exploitability tracking
-        if (exploit_interval > 0 && current_iteration % exploit_interval == 0) {
-            double exploit = estimate_exploitability_quiet(exploit_samples);
-            convergence_data.push_back({current_iteration, exploit, get_info_set_count()});
-            std::cout << "\n  [iter " << current_iteration << "] exploitability: "
-                      << std::fixed << std::setprecision(4) << exploit << "\n";
+        // Compute exploitability at specified intervals
+        if (exploitability_interval > 0 && current_iteration % exploitability_interval == 0) {
+            double expl = compute_exploitability();
+            
+            auto now = std::chrono::steady_clock::now();
+            double elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(now - start_time).count() / 1000.0;
+            
+            std::cout << "\n[Iter " << current_iteration << "] "
+                      << "Exploitability: " << std::fixed << std::setprecision(6) << expl
+                      << " | Info sets: " << get_info_set_count()
+                      << " | Time: " << format_time(elapsed) << "\n";
         }
 
         // Progress update
@@ -560,6 +619,9 @@ double CFRTrainer<Rules>::cfr_external_sampling(GameState<Rules>& state, int tra
     }
 }
 
+
+
+
 template<typename Rules>
 void CFRTrainer<Rules>::save_strategy(const std::string& filename) const {
     std::ofstream file(filename);
@@ -597,344 +659,204 @@ void CFRTrainer<Rules>::save_strategy(const std::string& filename) const {
 }
 
 template<typename Rules>
-void CFRTrainer<Rules>::load_strategy(const std::string& filename) {
-    (void)filename;
-}
-
-// ============================================================================
-// Exploitability Estimation
-// ============================================================================
-
-// ============================================================================
-// Two-Pass Best Response Algorithm
-// ============================================================================
-// Pass 1: Traverse all states, collecting expected action values for each info set
-// Pass 2: Evaluate the game value using the computed optimal policy
-
-template<typename Rules>
-void CFRTrainer<Rules>::compute_br_action_values(
-    GameState<Rules>& state,
-    int br_player,
-    double state_prob,
-    std::unordered_map<uint64_t, std::unordered_map<GameAction, double,
-        GameActionHash<Rules>, GameActionEqual<Rules>>>& action_values,
-    std::unordered_map<uint64_t, double>& info_set_reach,
-    const std::unordered_map<uint64_t, GameAction>& br_policy) {
-
-    if (state.is_terminal() || state_prob < 1e-12) {
-        return;
-    }
-
-    int current_player = state.current_player;
-    uint64_t info_set_key = state.get_info_set_key(current_player);
-    ActionList<Rules> actions = state.get_legal_actions();
-
-    if (current_player == br_player) {
-        // BR player's info set - collect action values
-        info_set_reach[info_set_key] += state_prob;
-
-        for (const auto& action : actions) {
-            GameState<Rules> next_state = apply_action(state, action);
-
-            // Compute value of this action from this state
-            double action_value = evaluate_br_policy(next_state, br_player, br_policy);
-
-            // Accumulate weighted action value for this info set
-            action_values[info_set_key][action] += state_prob * action_value;
-
-            // Continue collecting for deeper info sets
-            compute_br_action_values(next_state, br_player, state_prob,
-                                     action_values, info_set_reach, br_policy);
-        }
-    } else {
-        // Opponent follows average strategy
-        auto strategy = get_average_strategy(info_set_key, actions);
-
-        for (const auto& action : actions) {
-            double action_prob = strategy[action];
-            if (action_prob > 1e-12) {
-                GameState<Rules> next_state = apply_action(state, action);
-                compute_br_action_values(next_state, br_player, state_prob * action_prob,
-                                         action_values, info_set_reach, br_policy);
-            }
-        }
-    }
-}
-
-template<typename Rules>
-double CFRTrainer<Rules>::evaluate_br_policy(
-    GameState<Rules>& state,
-    int br_player,
-    const std::unordered_map<uint64_t, GameAction>& br_policy) {
-
-    if (state.is_terminal()) {
-        return state.get_utility(1);
-    }
-
-    int current_player = state.current_player;
-    uint64_t info_set_key = state.get_info_set_key(current_player);
-    ActionList<Rules> actions = state.get_legal_actions();
-
-    if (current_player == br_player) {
-        // BR player follows the computed policy
-        auto policy_it = br_policy.find(info_set_key);
-        if (policy_it != br_policy.end()) {
-            GameState<Rules> next_state = apply_action(state, policy_it->second);
-            return evaluate_br_policy(next_state, br_player, br_policy);
-        } else {
-            // Info set not in policy yet - use first action (shouldn't happen in pass 2)
-            GameState<Rules> next_state = apply_action(state, actions.actions[0]);
-            return evaluate_br_policy(next_state, br_player, br_policy);
-        }
-    } else {
-        // Opponent follows average strategy
-        auto strategy = get_average_strategy(info_set_key, actions);
-        double expected_value = 0.0;
-
-        for (const auto& action : actions) {
-            GameState<Rules> next_state = apply_action(state, action);
-            double value = evaluate_br_policy(next_state, br_player, br_policy);
-            expected_value += strategy[action] * value;
-        }
-
-        return expected_value;
-    }
-}
-
-template<typename Rules>
-double CFRTrainer<Rules>::estimate_exploitability_quiet(int num_samples) {
-    // Compute exact exploitability using iterative best response
-    // num_samples parameter is ignored - we use exact computation
-    (void)num_samples;
-
-    // Compute BR for player 1
-    std::unordered_map<uint64_t, GameAction> br_policy1;
-    constexpr int MAX_BR_ITERATIONS = 100;
-
-    for (int iter = 0; iter < MAX_BR_ITERATIONS; iter++) {
-        std::unordered_map<uint64_t, std::unordered_map<GameAction, double,
-            GameActionHash<Rules>, GameActionEqual<Rules>>> action_values;
-        std::unordered_map<uint64_t, double> info_set_reach;
-
-        // Pass 1: Collect action values across all deals
-        for (const auto& deal : all_deals) {
-            GameState<Rules> state = deal.state;
-            compute_br_action_values(state, 1, deal.probability,
-                                     action_values, info_set_reach, br_policy1);
-        }
-
-        // Update BR policy: pick best action for each info set
-        bool policy_changed = false;
-        for (auto& [info_set_key, av_map] : action_values) {
-            double reach = info_set_reach[info_set_key];
-            if (reach < 1e-12) continue;
-
-            // Find action with highest expected value (P1 maximizes)
-            GameAction best_action = av_map.begin()->first;
-            double best_value = -1e9;
-
-            for (auto& [action, total_value] : av_map) {
-                double expected_value = total_value / reach;
-                if (expected_value > best_value) {
-                    best_value = expected_value;
-                    best_action = action;
-                }
-            }
-
-            auto old_it = br_policy1.find(info_set_key);
-            if (old_it == br_policy1.end() || !(old_it->second == best_action)) {
-                br_policy1[info_set_key] = best_action;
-                policy_changed = true;
-            }
-        }
-
-        if (!policy_changed) break;
-    }
-
-    // Compute BR for player 2
-    std::unordered_map<uint64_t, GameAction> br_policy2;
-
-    for (int iter = 0; iter < MAX_BR_ITERATIONS; iter++) {
-        std::unordered_map<uint64_t, std::unordered_map<GameAction, double,
-            GameActionHash<Rules>, GameActionEqual<Rules>>> action_values;
-        std::unordered_map<uint64_t, double> info_set_reach;
-
-        // Pass 1: Collect action values across all deals
-        for (const auto& deal : all_deals) {
-            GameState<Rules> state = deal.state;
-            compute_br_action_values(state, 2, deal.probability,
-                                     action_values, info_set_reach, br_policy2);
-        }
-
-        // Update BR policy: pick best action for each info set
-        bool policy_changed = false;
-        for (auto& [info_set_key, av_map] : action_values) {
-            double reach = info_set_reach[info_set_key];
-            if (reach < 1e-12) continue;
-
-            // Find action with lowest expected value (P2 minimizes P1's utility)
-            GameAction best_action = av_map.begin()->first;
-            double best_value = 1e9;
-
-            for (auto& [action, total_value] : av_map) {
-                double expected_value = total_value / reach;
-                if (expected_value < best_value) {
-                    best_value = expected_value;
-                    best_action = action;
-                }
-            }
-
-            auto old_it = br_policy2.find(info_set_key);
-            if (old_it == br_policy2.end() || !(old_it->second == best_action)) {
-                br_policy2[info_set_key] = best_action;
-                policy_changed = true;
-            }
-        }
-
-        if (!policy_changed) break;
-    }
-
-    // Pass 2: Evaluate the game value with optimal policies
-    double total_br1 = 0.0;
-    double total_br2 = 0.0;
-
-    for (const auto& deal : all_deals) {
-        GameState<Rules> state1 = deal.state;
-        double br1 = evaluate_br_policy(state1, 1, br_policy1);
-
-        GameState<Rules> state2 = deal.state;
-        double br2 = evaluate_br_policy(state2, 2, br_policy2);
-
-        total_br1 += deal.probability * br1;
-        total_br2 += deal.probability * br2;
-    }
-
-    return (total_br1 - total_br2) / 2.0;
-}
-
-template<typename Rules>
-double CFRTrainer<Rules>::estimate_exploitability(int num_samples) {
-    // Exploitability = (BR_p1 - BR_p2) / 2
-    // where BR_p1 is P1's value when playing best response against P2's strategy
-    // and BR_p2 is P1's value when P2 plays best response against P1's strategy
-    //
-    // At Nash equilibrium: BR_p1 = BR_p2 = game_value, so exploitability = 0
-    //
-    // Note: num_samples is ignored - we compute exact exploitability
-    (void)num_samples;
-
-    std::cout << "Computing exact exploitability using iterative best response...\n";
-    std::cout << "Processing " << all_deals.size() << " deals\n";
-
-    // Compute BR for player 1
-    std::unordered_map<uint64_t, GameAction> br_policy1;
-    constexpr int MAX_BR_ITERATIONS = 100;
-    int p1_iters = 0;
-
-    for (int iter = 0; iter < MAX_BR_ITERATIONS; iter++) {
-        std::unordered_map<uint64_t, std::unordered_map<GameAction, double,
-            GameActionHash<Rules>, GameActionEqual<Rules>>> action_values;
-        std::unordered_map<uint64_t, double> info_set_reach;
-
-        for (const auto& deal : all_deals) {
-            GameState<Rules> state = deal.state;
-            compute_br_action_values(state, 1, deal.probability,
-                                     action_values, info_set_reach, br_policy1);
-        }
-
-        bool policy_changed = false;
-        for (auto& [info_set_key, av_map] : action_values) {
-            double reach = info_set_reach[info_set_key];
-            if (reach < 1e-12) continue;
-
-            GameAction best_action = av_map.begin()->first;
-            double best_value = -1e9;
-
-            for (auto& [action, total_value] : av_map) {
-                double expected_value = total_value / reach;
-                if (expected_value > best_value) {
-                    best_value = expected_value;
-                    best_action = action;
-                }
-            }
-
-            auto old_it = br_policy1.find(info_set_key);
-            if (old_it == br_policy1.end() || !(old_it->second == best_action)) {
-                br_policy1[info_set_key] = best_action;
-                policy_changed = true;
-            }
-        }
-
-        p1_iters = iter + 1;
-        if (!policy_changed) break;
-    }
-    std::cout << "P1 BR converged in " << p1_iters << " iterations (" << br_policy1.size() << " info sets)\n";
-
-    // Compute BR for player 2
-    std::unordered_map<uint64_t, GameAction> br_policy2;
-    int p2_iters = 0;
-
-    for (int iter = 0; iter < MAX_BR_ITERATIONS; iter++) {
-        std::unordered_map<uint64_t, std::unordered_map<GameAction, double,
-            GameActionHash<Rules>, GameActionEqual<Rules>>> action_values;
-        std::unordered_map<uint64_t, double> info_set_reach;
-
-        for (const auto& deal : all_deals) {
-            GameState<Rules> state = deal.state;
-            compute_br_action_values(state, 2, deal.probability,
-                                     action_values, info_set_reach, br_policy2);
-        }
-
-        bool policy_changed = false;
-        for (auto& [info_set_key, av_map] : action_values) {
-            double reach = info_set_reach[info_set_key];
-            if (reach < 1e-12) continue;
-
-            GameAction best_action = av_map.begin()->first;
-            double best_value = 1e9;
-
-            for (auto& [action, total_value] : av_map) {
-                double expected_value = total_value / reach;
-                if (expected_value < best_value) {
-                    best_value = expected_value;
-                    best_action = action;
-                }
-            }
-
-            auto old_it = br_policy2.find(info_set_key);
-            if (old_it == br_policy2.end() || !(old_it->second == best_action)) {
-                br_policy2[info_set_key] = best_action;
-                policy_changed = true;
-            }
-        }
-
-        p2_iters = iter + 1;
-        if (!policy_changed) break;
-    }
-    std::cout << "P2 BR converged in " << p2_iters << " iterations (" << br_policy2.size() << " info sets)\n";
-
-    // Evaluate game value with optimal policies
-    double total_br1 = 0.0;
-    double total_br2 = 0.0;
-
-    for (const auto& deal : all_deals) {
-        GameState<Rules> state1 = deal.state;
-        double br1 = evaluate_br_policy(state1, 1, br_policy1);
-
-        GameState<Rules> state2 = deal.state;
-        double br2 = evaluate_br_policy(state2, 2, br_policy2);
-
-        total_br1 += deal.probability * br1;
-        total_br2 += deal.probability * br2;
-    }
-
-    double exploitability = (total_br1 - total_br2) / 2.0;
-
-    std::cout << "BR value (P1 optimal): " << std::fixed << std::setprecision(4) << total_br1
-              << "\nBR value (P2 optimal): " << total_br2
-              << "\nExploitability: " << exploitability << "\n";
-
+double CFRTrainer<Rules>::compute_exploitability() {
+    // Compute best response value for each player
+    double br1_value = compute_best_response_value(1);  // P1's BR vs P2's strategy
+    double br2_value = compute_best_response_value(2);  // P2's BR vs P1's strategy
+    
+    // In zero-sum game:
+    // - At Nash: br1_value = v*, br2_value = -v*, so (br1 + br2)/2 = 0
+    // - If exploitable: players can do better, so (br1 + br2)/2 > 0
+    double exploitability = (br1_value + br2_value) / 2.0;
+    
+    // Track convergence
+    exploitability_history.push_back({current_iteration, exploitability});
+    
     return exploitability;
+}
+
+// ============================================================================
+// Best Response Value Computation (Information-Set Consistent)
+// ============================================================================
+
+template<typename Rules>
+double CFRTrainer<Rules>::compute_best_response_value(int br_player) {
+    // Data structure to accumulate counterfactual action values per info set
+    // Using nested struct to avoid forward declaration issues
+    struct BRData {
+        ActionMap action_cf_values;
+        double total_cf_reach = 0.0;
+        int node_count = 0;
+    };
+    
+    using InfoSetMap = std::unordered_map<uint64_t, BRData>;
+    
+    // ========================================================================
+    // PHASE 1: Collect counterfactual action values at each info set
+    // ========================================================================
+    InfoSetMap info_set_data;
+    
+    // Lambda for recursive traversal
+    std::function<double(GameState<Rules>&, double)> collect_values;
+    
+    collect_values = [&](GameState<Rules>& state, double opponent_reach) -> double {
+        // Terminal state
+        if (state.is_terminal()) {
+            return opponent_reach * state.get_utility(br_player);
+        }
+        
+        // Depth limit
+        if (state.depth >= max_depth) {
+            return opponent_reach * state.get_utility(br_player);
+        }
+        
+        int current_player = state.current_player;
+        ActionList<Rules> actions = state.get_legal_actions();
+        
+        if (current_player == br_player) {
+            // BR PLAYER'S NODE
+            // Collect counterfactual value of each action at this info set
+            uint64_t info_set_key = state.get_info_set_key(current_player);
+            auto& data = info_set_data[info_set_key];
+            data.total_cf_reach += opponent_reach;
+            data.node_count++;
+            
+            double best_continuation = -std::numeric_limits<double>::infinity();
+            
+            for (const auto& action : actions) {
+                GameState<Rules> next_state = apply_action(state, action);
+                
+                // Recurse: opponent_reach unchanged since this is BR's action
+                double continuation = collect_values(next_state, opponent_reach);
+                
+                // Accumulate this action's counterfactual value
+                data.action_cf_values[action] += continuation;
+                
+                best_continuation = std::max(best_continuation, continuation);
+            }
+            
+            return best_continuation;
+        }
+        else {
+            // OPPONENT'S NODE (Fixed Strategy Player)
+            // Follow opponent's average strategy, multiply into opponent_reach
+            uint64_t info_set_key = state.get_info_set_key(current_player);
+            auto strategy = get_average_strategy(info_set_key, actions);
+            
+            double total_continuation = 0.0;
+            
+            for (const auto& action : actions) {
+                double action_prob = strategy[action];
+                
+                // Skip zero-probability actions
+                if (action_prob < 1e-10) continue;
+                
+                GameState<Rules> next_state = apply_action(state, action);
+                
+                // Recurse: multiply opponent_reach by this action's probability
+                double continuation = collect_values(next_state, opponent_reach * action_prob);
+                
+                total_continuation += continuation;
+            }
+            
+            return total_continuation;
+        }
+    };
+    
+    // Run Phase 1 over all deals
+    for (const auto& deal : all_deals) {
+        GameState<Rules> state = deal.state;
+        collect_values(state, deal.probability);
+    }
+    
+    // ========================================================================
+    // PHASE 2: Determine best action at each information set
+    // ========================================================================
+    std::unordered_map<uint64_t, GameAction> best_actions;
+    
+    for (const auto& [info_set_key, data] : info_set_data) {
+        GameAction best_action;
+        double best_cf_value = -std::numeric_limits<double>::infinity();
+        
+        for (const auto& [action, cf_value] : data.action_cf_values) {
+            if (cf_value > best_cf_value) {
+                best_cf_value = cf_value;
+                best_action = action;
+            }
+        }
+        
+        best_actions[info_set_key] = best_action;
+    }
+    
+    // ========================================================================
+    // PHASE 3: Compute BR value using consistent action choices
+    // ========================================================================
+    
+    // Lambda for evaluation traversal
+    std::function<double(GameState<Rules>&)> evaluate;
+    
+    evaluate = [&](GameState<Rules>& state) -> double {
+        if (state.is_terminal()) {
+            return state.get_utility(br_player);
+        }
+        
+        if (state.depth >= max_depth) {
+            return state.get_utility(br_player);
+        }
+        
+        int current_player = state.current_player;
+        ActionList<Rules> actions = state.get_legal_actions();
+        
+        if (current_player == br_player) {
+            // BR PLAYER: Use the pre-computed best action for this info set
+            uint64_t info_set_key = state.get_info_set_key(current_player);
+            
+            auto it = best_actions.find(info_set_key);
+            if (it != best_actions.end()) {
+                GameState<Rules> next_state = apply_action(state, it->second);
+                return evaluate(next_state);
+            }
+            else {
+                // Info set not seen in Phase 1 (shouldn't happen)
+                double best_value = -std::numeric_limits<double>::infinity();
+                for (const auto& action : actions) {
+                    GameState<Rules> next_state = apply_action(state, action);
+                    double value = evaluate(next_state);
+                    best_value = std::max(best_value, value);
+                }
+                return best_value;
+            }
+        }
+        else {
+            // OPPONENT: Follow their average strategy
+            uint64_t info_set_key = state.get_info_set_key(current_player);
+            auto strategy = get_average_strategy(info_set_key, actions);
+            
+            double expected_value = 0.0;
+            
+            for (const auto& action : actions) {
+                double action_prob = strategy[action];
+                if (action_prob < 1e-10) continue;
+                
+                GameState<Rules> next_state = apply_action(state, action);
+                double value = evaluate(next_state);
+                expected_value += action_prob * value;
+            }
+            
+            return expected_value;
+        }
+    };
+    
+    // Run Phase 3 over all deals
+    double total_br_value = 0.0;
+    
+    for (const auto& deal : all_deals) {
+        GameState<Rules> state = deal.state;
+        double value = evaluate(state);
+        total_br_value += deal.probability * value;
+    }
+    
+    return total_br_value;
 }
 
 template<typename Rules>
@@ -944,11 +866,11 @@ void CFRTrainer<Rules>::save_convergence_data(const std::string& filename) const
         std::cerr << "Error: Could not open " << filename << "\n";
         return;
     }
-
-    file << "iteration,exploitability,info_sets\n";
-    for (const auto& [iter, exploit, info_sets] : convergence_data) {
-        file << iter << "," << std::fixed << std::setprecision(6) << exploit << "," << info_sets << "\n";
+    
+    file << "iteration,exploitability\n";
+    for (const auto& [iter, expl] : exploitability_history) {
+        file << iter << "," << std::scientific << std::setprecision(10) << expl << "\n";
     }
-
-    std::cout << "Saved convergence data (" << convergence_data.size() << " points) to " << filename << "\n";
+    
+    std::cout << "Saved " << exploitability_history.size() << " data points to " << filename << "\n";
 }

@@ -6,7 +6,9 @@
 #include <vector>
 #include <random>
 #include <utility>
+#include <functional>  
 #include <map>
+#include <limits>
 
 // ============================================================================
 // Deal Enumeration - All possible initial card distributions
@@ -53,6 +55,12 @@ struct GameActionEqual {
 };
 
 // ============================================================================
+// Forward declaration for Best Response data structure
+// ============================================================================
+template<typename Rules>
+struct BRInfoSetData;
+
+// ============================================================================
 // CFRTrainer - Discounted CFR (DCFR) Implementation
 // ============================================================================
 template<typename Rules>
@@ -78,9 +86,6 @@ private:
     // All possible initial deals (enumerated once at start)
     std::vector<Deal<Rules>> all_deals;
 
-    // Convergence tracking: (iteration, exploitability, info_set_count)
-    std::vector<std::tuple<int, double, size_t>> convergence_data;
-
 public:
     CFRTrainer();
 
@@ -98,7 +103,7 @@ public:
     ActionMap get_strategy(uint64_t info_set_key, const ActionList<Rules>& actions);
     ActionMap get_average_strategy(uint64_t info_set_key, const ActionList<Rules>& actions);
 
-    void train(int iterations, int exploit_interval = 0, int exploit_samples = 100);
+    void train(int iterations, int exploitability_interval);
 
     double cfr(GameState<Rules>& state, int traversing_player,
                double reach_p1, double reach_p2);
@@ -108,30 +113,32 @@ public:
 
     // Persistence
     void save_strategy(const std::string& filename) const;
-    void load_strategy(const std::string& filename);
-    void save_convergence_data(const std::string& filename) const;
 
     // Statistics
     size_t get_info_set_count() const { return avg_strategy.size(); }
+    int get_current_iteration() const { return current_iteration; }
 
-    // Exploitability estimation
-    double estimate_exploitability(int num_samples = 1000);
-    double estimate_exploitability_quiet(int num_samples);
-
-    // Two-pass best response computation
-    void compute_br_action_values(GameState<Rules>& state, int br_player,
-                                   double state_prob,
-                                   std::unordered_map<uint64_t, std::unordered_map<GameAction, double,
-                                       GameActionHash<Rules>, GameActionEqual<Rules>>>& action_values,
-                                   std::unordered_map<uint64_t, double>& info_set_reach,
-                                   const std::unordered_map<uint64_t, GameAction>& br_policy);
-
-    double evaluate_br_policy(GameState<Rules>& state, int br_player,
-                              const std::unordered_map<uint64_t, GameAction>& br_policy);
-
+    // ========================================================================
+    // Exploitability Computation (Information-Set Consistent Best Response)
+    // ========================================================================
+    double compute_exploitability();
+    void save_convergence_data(const std::string& filename) const;
+    
+    // Convergence tracking
+    std::vector<std::pair<int, double>> exploitability_history;
+    
 private:
+    // Helper for DCFR discounts
     void apply_dcfr_discounts();
     double get_strategy_weight(double reach) const;
+
+    // ========================================================================
+    // Best Response Computation Helpers
+    // ========================================================================
+    double compute_best_response_value(int br_player);
 };
 
+// ============================================================================
+// Include template implementations
+// ============================================================================
 #include "cfr_trainer.tpp"

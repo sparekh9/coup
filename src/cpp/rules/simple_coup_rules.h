@@ -10,11 +10,11 @@ template<typename Rules> struct ActionList;
 template<typename Rules> void lose_influence(GameState<Rules>& state, int player_id);
 
 // ============================================================================
-// SIMPLE COUP RULES (Quick 1v1 variant)
+// SIMPLE COUP RULES (Quick 1v1 variant with Assassinate)
 // ============================================================================
 // 1 influence per player (quick games!)
 // 3 card types: Duke, Captain, Assassin
-// 4 actions: Income, Tax, Steal, Coup
+// 5 actions: Income, Tax, Steal, Assassinate, Coup
 // Faster gameplay with cheaper coup and more starting coins
 // ============================================================================
 
@@ -33,20 +33,21 @@ struct SimpleCoupRules {
         INCOME = 0,
         TAX = 1,
         STEAL = 2,
-        COUP = 3  // No assassinate
+        ASSASSINATE = 3,
+        COUP = 4
     };
 
     // ========================================================================
     // Game Configuration Constants
     // ========================================================================
 
-    static constexpr int MAX_INFLUENCES_PER_PLAYER = 1;  // Key difference!
+    static constexpr int MAX_INFLUENCES_PER_PLAYER = 1;  // Key difference from BaseCoup!
     static constexpr int STARTING_INFLUENCES = 1;
     static constexpr int NUM_INFLUENCE_TYPES = 3;
     static constexpr int DECK_SIZE = 6;  // 2 of each
-    static constexpr int STARTING_COINS = 2;  // More starting coins for faster games
-    static constexpr int COUP_COST = 7;  // Cheaper coup
-    static constexpr int ASSASSINATE_COST = 3;  // Not used
+    static constexpr int STARTING_COINS = 2;
+    static constexpr int COUP_COST = 7;
+    static constexpr int ASSASSINATE_COST = 3;
     static constexpr int MUST_COUP_THRESHOLD = 7;  // Lower threshold
     static constexpr int STEAL_AMOUNT = 2;
     static constexpr int TAX_AMOUNT = 3;
@@ -70,6 +71,7 @@ struct SimpleCoupRules {
             case Action::INCOME: return "INCOME";
             case Action::TAX: return "TAX";
             case Action::STEAL: return "STEAL";
+            case Action::ASSASSINATE: return "ASSASSINATE";
             case Action::COUP: return "COUP";
             default: return "";
         }
@@ -83,16 +85,23 @@ struct SimpleCoupRules {
         switch (action) {
             case Action::TAX: return Influence::DUKE;
             case Action::STEAL: return Influence::CAPTAIN;
+            case Action::ASSASSINATE: return Influence::ASSASSIN;
             default: return Influence::DUKE;
         }
     }
 
     static int get_action_cost(Action action) {
-        return (action == Action::COUP) ? COUP_COST : 0;
+        switch (action) {
+            case Action::COUP: return COUP_COST;
+            case Action::ASSASSINATE: return ASSASSINATE_COST;
+            default: return 0;
+        }
     }
 
     static bool is_challengeable(Action action) {
-        return action == Action::TAX || action == Action::STEAL;
+        return action == Action::TAX ||
+               action == Action::STEAL ||
+               action == Action::ASSASSINATE;
     }
 
     static const char* get_variant_name() {
@@ -120,7 +129,11 @@ struct SimpleCoupRules {
         result.actions[result.count++] = Action::TAX;
         result.actions[result.count++] = Action::STEAL;
 
-        // Coup available if we have enough coins
+        // Conditional actions based on coins
+        if (coins >= ASSASSINATE_COST) {
+            result.actions[result.count++] = Action::ASSASSINATE;
+        }
+
         if (coins >= COUP_COST) {
             result.actions[result.count++] = Action::COUP;
         }
@@ -158,6 +171,16 @@ struct SimpleCoupRules {
                 break;
             }
 
+            case Action::ASSASSINATE:
+                if (player_id == 1) {
+                    state.p1_coins -= ASSASSINATE_COST;
+                    lose_influence(state, 2);
+                } else {
+                    state.p2_coins -= ASSASSINATE_COST;
+                    lose_influence(state, 1);
+                }
+                break;
+
             case Action::COUP:
                 // Already handled in apply_action
                 break;
@@ -193,13 +216,20 @@ struct SimpleCoupRules {
             }
         }
 
-        // With only 1 influence, challenge logic is simpler
-        // Rule 1: All required cards revealed → only CHALLENGE
+        // Force challenge rules for 1-influence variant
+
+        // Rule 1: One influence + Assassination → ALWAYS challenge
+        // (With only 1 influence, getting assassinated means instant loss)
+        if (pending_action == Action::ASSASSINATE && my_inf_count == 1) {
+            return true;
+        }
+
+        // Rule 2: All required cards revealed → only CHALLENGE
         if (revealed_count_of_card >= 2) {
             return true;
         }
 
-        // Rule 2: I hold the card and one is revealed → only CHALLENGE
+        // Rule 3: I hold the card and one is revealed → only CHALLENGE
         if (my_count_of_card > 0 && revealed_count_of_card >= 1) {
             return true;
         }
