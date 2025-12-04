@@ -5,7 +5,7 @@
 void print_usage(const char* program_name) {
     std::cout << "Usage: " << program_name << " [options]\n\n";
     std::cout << "Options:\n";
-    std::cout << "  -v, --variant NAME    Game variant (base|simple|full, default: base)\n";
+    std::cout << "  -v, --variant NAME    Game variant (base|simple|simpleblocking|full, default: base)\n";
     std::cout << "  -i, --iterations N    Number of training iterations (default: 10000)\n";
     std::cout << "  -d, --depth N         Maximum depth before external sampling (default: 20)\n";
     std::cout << "  --alpha N             DCFR alpha parameter (default: 1.5)\n";
@@ -17,9 +17,10 @@ void print_usage(const char* program_name) {
     std::cout << "  -o, --output FILE     Output filename (default: {variant}_strategy_{depth}_{iterations}.json)\n";
     std::cout << "  -h, --help            Show this help message\n\n";
     std::cout << "Variants:\n";
-    std::cout << "  base          - Base Coup (2 influences, 3 card types)\n";
-    std::cout << "  simple        - Simple Coup (1 influence, with Assassinate)\n";
-    std::cout << "  full          - Full Coup (2 influences, 5 card types)\n\n";
+    std::cout << "  base             - Base Coup (2 influences, 3 card types)\n";
+    std::cout << "  simple           - Simple Coup (1 influence, with Assassinate)\n";
+    std::cout << "  simpleblocking   - Simple Coup with Blocking (1 influence, 4 card types, blocking)\n";
+    std::cout << "  full             - Full Coup (2 influences, 5 card types)\n\n";
     std::cout << "Utility Decay:\n";
     std::cout << "  Quadratic decay formula: utility × (1 - (α × depth/DEPTH_LIMIT)²)\n";
     std::cout << "  Higher alpha = more aggressive penalty for long games\n\n";
@@ -59,7 +60,7 @@ int main(int argc, char* argv[]) {
         else if (arg == "-v" || arg == "--variant") {
             if (i + 1 < argc) {
                 variant = argv[++i];
-                if (variant != "base" && variant != "simple" && variant != "full") {
+                if (variant != "base" && variant != "simple" && variant != "simpleblocking" && variant != "full") {
                     std::cerr << "Error: Unknown variant '" << variant << "'\n";
                     return 1;
                 }
@@ -139,6 +140,8 @@ int main(int argc, char* argv[]) {
         train_variant<BaseCoupRules>(iterations, max_depth, output_file, alpha, beta, gamma, exploit_interval);
     } else if (variant == "simple") {
         train_variant<SimpleCoupRules>(iterations, max_depth, output_file, alpha, beta, gamma, exploit_interval);
+    } else if (variant == "simpleblocking") {
+        train_variant<SimpleCoupBlockingRules>(iterations, max_depth, output_file, alpha, beta, gamma, exploit_interval);
     } else if (variant == "full") {
         train_variant<FullCoupRules>(iterations, max_depth, output_file, alpha, beta, gamma, exploit_interval);
     }

@@ -16,6 +16,7 @@
 
 #include "base_coup_rules.h"
 #include "simple_coup_rules.h"
+#include "simple_coup_blocking_rules.h"
 #include "full_coup_rules.h"
 
 // Add new game variants here as they are created:

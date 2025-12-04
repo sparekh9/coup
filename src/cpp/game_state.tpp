@@ -18,6 +18,9 @@ GameState<Rules>::GameState()
       deck_count(0), revealed_count(0),
       has_pending_action(false), pending_action_player(0),
       pending_action_type(static_cast<Action>(0)),
+      has_pending_block_challenge(false), pending_block_challenger(0),
+      pending_block_claim(static_cast<Influence>(0)),
+      pending_block_action(static_cast<Action>(0)),
       p1_claim_history{7, 7, 7}, p2_claim_history{7, 7, 7},  // 7 = empty slot
       p1_claim_count(0), p2_claim_count(0),
       depth(0) {
@@ -215,10 +218,23 @@ uint64_t GameState<Rules>::get_info_set_key(int player) const {
         }
     }
 
-    // Pack pending action (ALWAYS 3 bits, 7 = no pending action)
-    uint64_t pending_bits = has_pending_action ?
-        static_cast<uint64_t>(pending_action_type) : 7ULL;
-    hash = (hash << 3) | pending_bits;
+    // Pack pending state (4 bits: 1 bit state type + 3 bits action/claim)
+    // State types: 0 = no pending/pending action, 1 = pending block challenge
+    // This is optimized: BLOCK is now part of ChallengeResponse, not a separate state
+    uint64_t pending_state_bits = 0;
+    if (has_pending_block_challenge) {
+        pending_state_bits = 1; // 1
+        pending_state_bits = (pending_state_bits << 3) |
+            static_cast<uint64_t>(pending_block_claim);
+    } else if (has_pending_action) {
+        pending_state_bits = 1; // 1
+        pending_state_bits = (pending_state_bits << 3) |
+            static_cast<uint64_t>(pending_action_type);
+    } else {
+        pending_state_bits = 0; // 0
+        pending_state_bits = (pending_state_bits << 3) | 7;
+    }
+    hash = (hash << 4) | pending_state_bits;
 
     // Pack my claim history (3 slots of 3 bits each, 7 = empty)
     for (int i = 0; i < 3; i++) {
@@ -244,13 +260,51 @@ ActionList<Rules> GameState<Rules>::get_legal_actions() const {
     ActionList<Rules> result;
     result.count = 0;
 
-    if (has_pending_action) {
-        // Delegate challenge logic to Rules class
-        bool must_challenge = Rules::should_force_challenge(*this, pending_action_type);
+    if (has_pending_block_challenge) {
+        // Waiting for challenge-block decision
+        bool must_challenge = Rules::should_force_challenge_block(*this, pending_block_claim);
 
         if (must_challenge) {
             result.actions[result.count++] = ChallengeResponse::CHALLENGE;
         } else {
+            result.actions[result.count++] = ChallengeResponse::PASS;
+            result.actions[result.count++] = ChallengeResponse::CHALLENGE;
+        }
+    }
+    else if (has_pending_action) {
+        // Merged challenge/block decision (optimization!)
+        bool is_challengeable = Rules::is_challengeable(pending_action_type);
+        bool is_blockable = Rules::is_blockable(pending_action_type);
+        bool must_challenge = false;
+        bool must_block = false;
+
+        if (is_challengeable) {
+            must_challenge = Rules::should_force_challenge(*this, pending_action_type);
+        }
+
+        if (is_blockable) {
+            must_block = Rules::should_force_block(*this, pending_action_type);
+        }
+
+        if (must_challenge) {
+            // Must challenge (all cards revealed)
+            // NOTE: Challenge has priority over block - resolves game state faster
+            result.actions[result.count++] = ChallengeResponse::CHALLENGE;
+        } else if (must_block) {
+            // Must block (we have the blocking card - Contessa for Assassinate, Captain for Steal)
+            // NOTE: Only reached if must_challenge is false (challenge takes priority)
+            result.actions[result.count++] = ChallengeResponse::BLOCK;
+        } else if (is_blockable && !is_challengeable) {
+            // Blockable but not challengeable (unused in current variants)
+            result.actions[result.count++] = ChallengeResponse::PASS;
+            result.actions[result.count++] = ChallengeResponse::BLOCK;
+        } else if (is_blockable && is_challengeable) {
+            // Both blockable and challengeable (e.g., STEAL, ASSASSINATE)
+            result.actions[result.count++] = ChallengeResponse::PASS;
+            result.actions[result.count++] = ChallengeResponse::CHALLENGE;
+            result.actions[result.count++] = ChallengeResponse::BLOCK;
+        } else {
+            // Only challengeable (e.g., TAX)
             result.actions[result.count++] = ChallengeResponse::PASS;
             result.actions[result.count++] = ChallengeResponse::CHALLENGE;
         }
@@ -318,15 +372,78 @@ GameState<Rules> apply_action(GameState<Rules> state,
     // Handle challenge response
     if (std::holds_alternative<ChallengeResponse>(action)) {
         ChallengeResponse resp = std::get<ChallengeResponse>(action);
-        int actor_id = state.pending_action_player;
-        Action pending_act = state.pending_action_type;
-        int challenger_id = state.current_player;
 
-        if (resp == ChallengeResponse::PASS) {
-            state.has_pending_action = false;
-            execute_action(state, actor_id, pending_act);
-            state.current_player = 3 - actor_id;
+        // Check if this is a block challenge or action challenge
+        if (state.has_pending_block_challenge) {
+            // Challenge-block logic
+            int blocker_id = 3 - state.pending_block_challenger;
+            Influence claimed_card = state.pending_block_claim;
+
+            if (resp == ChallengeResponse::PASS) {
+                state.has_pending_block_challenge = false;
+                // Block succeeds, action doesn't happen
+                state.current_player = 3 - state.pending_block_challenger;
+            }
+            else if (resp == ChallengeResponse::CHALLENGE) {
+                state.has_pending_block_challenge = false;
+
+                Influence* blocker_influences = (blocker_id == 1) ?
+                    state.p1_influences.data() : state.p2_influences.data();
+                uint8_t& blocker_count = (blocker_id == 1) ?
+                    state.p1_influence_count : state.p2_influence_count;
+
+                // Check if blocker has the claimed card
+                int card_idx = -1;
+                for (uint8_t i = 0; i < blocker_count; i++) {
+                    if (blocker_influences[i] == claimed_card) {
+                        card_idx = i;
+                        break;
+                    }
+                }
+
+                if (card_idx >= 0) {
+                    // Blocker has card - challenger loses influence
+                    lose_influence(state, state.pending_block_challenger);
+
+                    // Blocker exchanges card (same logic as action challenge)
+                    for (uint8_t i = card_idx; i < blocker_count - 1; i++) {
+                        blocker_influences[i] = blocker_influences[i + 1];
+                    }
+                    blocker_count--;
+
+                    // Draw new card BEFORE adding revealed card back
+                    if (state.deck_count > 0 && state.deck_count < Rules::DECK_SIZE) {
+                        state.deck_count--;
+                        blocker_influences[blocker_count++] = state.deck[state.deck_count];
+                        state.deck[state.deck_count++] = claimed_card;
+                        shuffle_deck(state);
+                    }
+
+                    // Block succeeds - action doesn't happen
+                } else {
+                    // Blocker doesn't have card - blocker loses influence
+                    lose_influence(state, blocker_id);
+
+                    // Action happens (if game not over)
+                    if (!state.is_terminal()) {
+                        execute_action(state, state.pending_block_challenger, state.pending_block_action);
+                    }
+                }
+
+                state.current_player = 3 - state.pending_block_challenger;
+            }
         }
+        else if (state.has_pending_action) {
+            int actor_id = state.pending_action_player;
+            Action pending_act = state.pending_action_type;
+            int challenger_id = state.current_player;
+
+            if (resp == ChallengeResponse::PASS) {
+                // PASS - let the action happen (optimization: no longer transition to block state)
+                state.has_pending_action = false;
+                execute_action(state, actor_id, pending_act);
+                state.current_player = 3 - actor_id;
+            }
         else if (resp == ChallengeResponse::CHALLENGE) {
             state.has_pending_action = false;
             Influence required_card = Rules::get_required_influence(pending_act);
@@ -372,6 +489,39 @@ GameState<Rules> apply_action(GameState<Rules> state,
             }
 
             state.current_player = 3 - actor_id;
+        }
+        else if (resp == ChallengeResponse::BLOCK) {
+            // BLOCK - claim to block the action (new optimization!)
+            state.has_pending_action = false;
+
+            if (!Rules::is_blockable(pending_act)) {
+                // Error: tried to block unblockable action
+                // This shouldn't happen if legal actions are correct
+                // Just execute the action anyway
+                execute_action(state, actor_id, pending_act);
+                state.current_player = 3 - actor_id;
+            } else {
+                // Enter block challenge state
+                state.has_pending_block_challenge = true;
+                state.pending_block_challenger = actor_id;
+                state.pending_block_claim = Rules::get_blocking_influence(pending_act);
+                state.pending_block_action = pending_act;  // Save for potential execution if block fails
+
+                // Record claim in history (blocker is current_player)
+                Influence claimed = state.pending_block_claim;
+                if (state.current_player == 1) {
+                    uint8_t insert_pos = state.p1_claim_count % 3;
+                    state.p1_claim_history[insert_pos] = static_cast<uint8_t>(claimed);
+                    state.p1_claim_count++;
+                } else {
+                    uint8_t insert_pos = state.p2_claim_count % 3;
+                    state.p2_claim_history[insert_pos] = static_cast<uint8_t>(claimed);
+                    state.p2_claim_count++;
+                }
+
+                state.current_player = actor_id;  // Actor can challenge the block
+            }
+        }
         }
     }
     // Handle normal action
@@ -443,6 +593,7 @@ inline std::string challenge_response_to_string(ChallengeResponse resp) {
     switch (resp) {
         case ChallengeResponse::PASS: return "PASS";
         case ChallengeResponse::CHALLENGE: return "CHALLENGE";
+        case ChallengeResponse::BLOCK: return "BLOCK";
         default: return "";
     }
 }

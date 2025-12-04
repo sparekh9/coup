@@ -108,6 +108,28 @@ struct BaseCoupRules {
     }
 
     // ========================================================================
+    // Blocking Properties (not supported in BaseCoup)
+    // ========================================================================
+
+    static bool is_blockable(Action action) {
+        return false;  // No blocking in BaseCoup
+    }
+
+    static Influence get_blocking_influence(Action action) {
+        return Influence::DUKE;  // Unused
+    }
+
+    template<typename GameStateType>
+    static bool should_force_block(const GameStateType& state, Action pending_action) {
+        return false;  // No blocking
+    }
+
+    template<typename GameStateType>
+    static bool should_force_challenge_block(const GameStateType& state, Influence claimed_blocker) {
+        return false;  // No blocking
+    }
+
+    // ========================================================================
     // Custom Game Logic - Legal Actions
     // ========================================================================
 

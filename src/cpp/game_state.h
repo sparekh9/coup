@@ -10,10 +10,12 @@
 
 // ============================================================================
 // Challenge Response (shared across all variants)
+// Now also handles blocking to reduce game tree depth
 // ============================================================================
 enum class ChallengeResponse : uint8_t {
     PASS = 0,
-    CHALLENGE = 1
+    CHALLENGE = 1,
+    BLOCK = 2  // Block the action (for blockable actions like STEAL, ASSASSINATE)
 };
 
 // ============================================================================
@@ -66,6 +68,12 @@ struct GameState {
     bool has_pending_action;
     int pending_action_player;  // Only valid if has_pending_action is true
     Action pending_action_type; // Only valid if has_pending_action is true
+
+    // Block challenge state (when someone blocks and gets challenged)
+    bool has_pending_block_challenge;
+    int pending_block_challenger;  // Who initiated the original action (can challenge the block)
+    Influence pending_block_claim;  // What card the blocker claimed
+    Action pending_block_action;    // What action was blocked (needed for execute_action if block fails)
 
     // Track claim history (for information sets)
     // Circular buffer: stores last 3 claims per player
