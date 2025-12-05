@@ -131,7 +131,7 @@ void execute_action(GameState<Rules>& state, int player_id,
 
 // Configuration: Choose abstraction strategy at compile time
 
-constexpr int DEPTH_LIMIT = 20;
+constexpr int DEPTH_LIMIT = 24;
 
 enum class AbstractionMode {
     NONE,          // No abstraction - use exact coins (7hr runtime)
