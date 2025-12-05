@@ -38,7 +38,6 @@ class CoupRules:
 
     AVAILABLE_ACTIONS: Set[Action] = {
         Action.INCOME,
-        Action.FOREIGN_AID,
         Action.TAX,
         Action.STEAL,
         Action.ASSASSINATE,
@@ -91,7 +90,6 @@ class CoupRules:
 
         # Always available
         actions.append(Action.INCOME)
-        actions.append(Action.FOREIGN_AID)
         actions.append(Action.TAX)
         actions.append(Action.STEAL)
 
@@ -215,6 +213,38 @@ class SimpleCoupBlockingRules(SimpleCoupRules):
     SUPPORTS_BLOCKING = True
 
     AVAILABLE_INFLUENCES = SimpleCoupRules.AVAILABLE_INFLUENCES | {Influence.CONTESSA}
+
+    # Remove Foreign Aid from available actions
+    AVAILABLE_ACTIONS = {
+        Action.INCOME,
+        Action.TAX,
+        Action.STEAL,
+        Action.ASSASSINATE,
+        Action.COUP
+    }
+
+    @classmethod
+    def get_legal_actions(cls, state: GameState) -> List[Action]:
+        """Get list of legal actions for current player (no Foreign Aid)."""
+        coins = state.get_player_coins(state.current_player)
+        actions = []
+
+        # Force COUP at threshold
+        if coins >= cls.MUST_COUP_THRESHOLD:
+            return [Action.COUP]
+
+        # Always available (no Foreign Aid)
+        actions.append(Action.INCOME)
+        actions.append(Action.TAX)
+        actions.append(Action.STEAL)
+
+        # Conditional on coins
+        if coins >= cls.ASSASSINATE_COST:
+            actions.append(Action.ASSASSINATE)
+        if coins >= cls.COUP_COST:
+            actions.append(Action.COUP)
+
+        return actions
 
     @classmethod
     def is_blockable(cls, action: Action) -> bool:

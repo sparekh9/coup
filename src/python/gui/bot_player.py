@@ -55,13 +55,23 @@ class BotPlayer:
         info_set_key = self._compute_info_set_key(state)
         info_set_hex = f"0x{info_set_key:x}"
 
+        print(f"\n=== Player {self.player_id} Decision ===")
+        print(f"Info Set: {info_set_hex}")
+
         # Look up strategy
         if info_set_hex not in self.strategy:
             # If info set not in strategy, use uniform random
-            print(f"Warning: Info set {info_set_hex} not found in strategy, using uniform random")
-            return self._get_uniform_action(state)
+            print(f"WARNING: Info set not found in strategy, using uniform random")
+            action = self._get_uniform_action(state)
+            print(f"Chosen Action: {action.name}")
+            return action
 
         action_probs = self.strategy[info_set_hex]
+
+        # Print strategy
+        print("Strategy:")
+        for action_str, prob in sorted(action_probs.items(), key=lambda x: -x[1]):
+            print(f"  {action_str}: {prob:.4f} ({prob*100:.1f}%)")
 
         # Sample action according to probabilities
         actions = list(action_probs.keys())
@@ -77,7 +87,10 @@ class BotPlayer:
         chosen_action_str = random.choices(actions, weights=probs)[0]
 
         # Convert string to appropriate enum
-        return self._parse_action(chosen_action_str)
+        chosen_action = self._parse_action(chosen_action_str)
+        print(f"Chosen Action: {chosen_action.name}")
+
+        return chosen_action
 
     def _get_uniform_action(self, state: GameState) -> Union[Action, ChallengeResponse]:
         """Get uniform random action when info set not found."""
@@ -109,15 +122,19 @@ class BotPlayer:
             my_coins = state.p1_coins
             opp_inf_count = len(state.p2_influences)
             opp_coins = state.p2_coins
-            my_claims = self._get_claim_history(state, 1)
-            opp_claims = self._get_claim_history(state, 2)
+            my_claims = state.p1_claim_history
+            opp_claims = state.p2_claim_history
+            my_claim_cnt = state.p1_claim_count
+            opp_claim_cnt = state.p2_claim_count
         else:
             my_influences = state.p2_influences[:]
             my_coins = state.p2_coins
             opp_inf_count = len(state.p1_influences)
             opp_coins = state.p1_coins
-            my_claims = self._get_claim_history(state, 2)
-            opp_claims = self._get_claim_history(state, 1)
+            my_claims = state.p2_claim_history
+            opp_claims = state.p1_claim_history
+            my_claim_cnt = state.p2_claim_count
+            opp_claim_cnt = state.p1_claim_count
 
         my_inf_count = len(my_influences)
 
@@ -155,12 +172,12 @@ class BotPlayer:
                 hash_val = (hash_val << 3) | 7  # Empty slot
 
         # Pack pending state (4 bits: 1 bit state type + 3 bits action/claim)
-        # Optimization: merged block and challenge decision, so no has_pending_block state
+        # State types: 0 = no pending/pending action, 1 = pending block challenge
         if state.has_pending_block_challenge:
             pending_state_bits = 1  # 1
             pending_state_bits = (pending_state_bits << 3) | state.pending_block_claim.value
         elif state.has_pending_action:
-            pending_state_bits = 0  # 0
+            pending_state_bits = 1  # 1 (FIXED: was 0, but should be 1 to match C++)
             pending_state_bits = (pending_state_bits << 3) | state.pending_action_type.value
         else:
             pending_state_bits = 0  # 0
@@ -176,28 +193,9 @@ class BotPlayer:
             hash_val = (hash_val << 3) | opp_claims[i]
 
         # Pack my claim count (2 bits)
-        my_claim_cnt = min(len([c for c in my_claims if c != 7]), 3)
         hash_val = (hash_val << 2) | my_claim_cnt
 
         # Pack opponent claim count (2 bits)
-        opp_claim_cnt = min(len([c for c in opp_claims if c != 7]), 3)
         hash_val = (hash_val << 2) | opp_claim_cnt
 
         return hash_val
-
-    def _get_claim_history(self, state: GameState, player_id: int) -> List[int]:
-        """
-        Extract claim history for a player from state.claim_history.
-
-        Returns array of 3 values (last 3 claims), with 7 for empty slots.
-        """
-        claims = [7, 7, 7]  # Initialize with empty
-        claim_count = 0
-
-        # Extract claims for this player from state.claim_history
-        for pid, influence in state.claim_history:
-            if pid == player_id and claim_count < 3:
-                claims[claim_count] = influence.value
-                claim_count += 1
-
-        return claims

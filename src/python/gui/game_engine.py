@@ -90,23 +90,11 @@ class GameEngine:
         """Handle a primary game action."""
         actor_id = state.current_player
 
-        # Record action in history
-        state.action_history.append(action.name)
-
         # Handle INCOME immediately (no challenge possible)
         if action == Action.INCOME:
             coins = state.get_player_coins(actor_id)
             state.set_player_coins(actor_id, coins + self.rules.INCOME_AMOUNT)
             state.current_player = 3 - actor_id
-            return
-
-        # Handle FOREIGN_AID (blockable but not challengeable)
-        if action == Action.FOREIGN_AID:
-            if self.rules.is_blockable(action):
-                state.has_pending_action = True
-                state.pending_action_actor = actor_id
-                state.pending_action_type = action
-                state.current_player = 3 - actor_id
             return
 
         # Handle COUP immediately (no challenge possible)
@@ -121,15 +109,20 @@ class GameEngine:
 
         # Challengeable actions - enter pending state
         if self.rules.is_challengeable(action):
+            # ASSASSINATE costs 3 coins upfront (even if blocked or challenged)
+            if action == Action.ASSASSINATE:
+                coins = state.get_player_coins(actor_id)
+                state.set_player_coins(actor_id, coins - self.rules.ASSASSINATE_COST)
+
             state.has_pending_action = True
             state.pending_action_actor = actor_id
             state.pending_action_type = action
             state.current_player = 3 - actor_id  # Opponent decides to challenge
 
-            # Record claim in history
+            # Record claim in circular buffer
             required_influence = self.rules.get_required_influence(action)
             if required_influence:
-                state.claim_history.append((actor_id, required_influence))
+                self._record_claim(state, actor_id, required_influence)
 
     def _handle_challenge_response(self, state: GameState, response: ChallengeResponse):
         """Handle challenge or pass response."""
@@ -194,8 +187,8 @@ class GameEngine:
                 state.pending_block_claim = self.rules.get_blocking_influence(action)
                 state.pending_block_action = action  # Save for potential execution if block fails
 
-                # Record claim in history
-                state.claim_history.append((state.current_player, state.pending_block_claim))
+                # Record claim in circular buffer (blocker is current_player)
+                self._record_claim(state, state.current_player, state.pending_block_claim)
 
                 state.current_player = actor_id  # Actor can challenge the block
 
@@ -248,13 +241,9 @@ class GameEngine:
             state.set_player_coins(target_id, target_coins - steal_amt)
 
         elif action == Action.ASSASSINATE:
-            coins = state.get_player_coins(actor_id)
-            state.set_player_coins(actor_id, coins - self.rules.ASSASSINATE_COST)
+            # Cost already deducted when action was declared (in _handle_action)
+            # Just handle the influence loss
             self._lose_influence(state, target_id)
-
-        elif action == Action.FOREIGN_AID:
-            coins = state.get_player_coins(actor_id)
-            state.set_player_coins(actor_id, coins + self.rules.FOREIGN_AID_AMOUNT)
 
         elif action == Action.INCOME:
             # Already handled in _handle_action
@@ -263,6 +252,24 @@ class GameEngine:
         elif action == Action.COUP:
             # Already handled in _handle_action
             pass
+
+    def _record_claim(self, state: GameState, player_id: int, claimed_influence: Influence):
+        """
+        Record a claim in the circular buffer (matching C++ implementation).
+
+        Args:
+            state: Game state
+            player_id: Player making the claim (1 or 2)
+            claimed_influence: The influence being claimed
+        """
+        if player_id == 1:
+            insert_pos = state.p1_claim_count % 3
+            state.p1_claim_history[insert_pos] = claimed_influence.value
+            state.p1_claim_count += 1
+        else:
+            insert_pos = state.p2_claim_count % 3
+            state.p2_claim_history[insert_pos] = claimed_influence.value
+            state.p2_claim_count += 1
 
     def _lose_influence(self, state: GameState, player_id: int):
         """Make a player lose an influence."""
@@ -278,20 +285,25 @@ class GameEngine:
         lost_card = influences.pop(0)
         state.revealed_cards.append(lost_card)
 
-    def get_legal_actions(self, state: GameState) -> List[Union[Action, ChallengeResponse]]:
+    def get_legal_actions(self, state: GameState, apply_pruning: bool = True) -> List[Union[Action, ChallengeResponse]]:
         """
         Get list of legal actions for current player.
+
+        Args:
+            state: Current game state
+            apply_pruning: If True, apply perfect information pruning rules.
+                          If False, return all legal options (for human players).
 
         Returns:
             List of legal actions
         """
         if state.has_pending_block_challenge:
             # Challenge-block decision
-            must_challenge = self.rules.should_force_challenge_block(state, state.pending_block_claim)
-            if must_challenge:
-                return [ChallengeResponse.CHALLENGE]
-            else:
-                return [ChallengeResponse.PASS, ChallengeResponse.CHALLENGE]
+            if apply_pruning:
+                must_challenge = self.rules.should_force_challenge_block(state, state.pending_block_claim)
+                if must_challenge:
+                    return [ChallengeResponse.CHALLENGE]
+            return [ChallengeResponse.PASS, ChallengeResponse.CHALLENGE]
 
         elif state.has_pending_action:
             # Merged challenge/block decision (optimization!)
@@ -300,21 +312,24 @@ class GameEngine:
             must_challenge = False
             must_block = False
 
-            if is_challengeable:
-                must_challenge = self.rules.should_force_challenge(state, state.pending_action_type)
+            if apply_pruning:
+                if is_challengeable:
+                    must_challenge = self.rules.should_force_challenge(state, state.pending_action_type)
 
-            if is_blockable:
-                must_block = self.rules.should_force_block(state, state.pending_action_type)
+                if is_blockable:
+                    must_block = self.rules.should_force_block(state, state.pending_action_type)
 
-            if must_challenge:
-                # Must challenge (all cards revealed)
-                # NOTE: Challenge has priority over block - resolves game state faster
-                return [ChallengeResponse.CHALLENGE]
-            elif must_block:
-                # Must block (we have the blocking card - Contessa for Assassinate, Captain for Steal)
-                # NOTE: Only reached if must_challenge is False (challenge takes priority)
-                return [ChallengeResponse.BLOCK]
-            elif is_blockable and not is_challengeable:
+                if must_challenge:
+                    # Must challenge (all cards revealed)
+                    # NOTE: Challenge has priority over block - resolves game state faster
+                    return [ChallengeResponse.CHALLENGE]
+                elif must_block:
+                    # Must block (we have the blocking card - Contessa for Assassinate, Captain for Steal)
+                    # NOTE: Only reached if must_challenge is False (challenge takes priority)
+                    return [ChallengeResponse.BLOCK]
+
+            # Return all legal options (either pruning didn't apply, or pruning is disabled)
+            if is_blockable and not is_challengeable:
                 # Blockable but not challengeable (unused in current variants)
                 return [ChallengeResponse.PASS, ChallengeResponse.BLOCK]
             elif is_blockable and is_challengeable:

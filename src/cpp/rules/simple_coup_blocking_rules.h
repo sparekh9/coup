@@ -191,11 +191,11 @@ struct SimpleCoupBlockingRules {
             }
 
             case Action::ASSASSINATE:
+                // Cost already deducted when action was declared (in game_state.tpp)
+                // Just handle the influence loss
                 if (player_id == 1) {
-                    state.p1_coins -= ASSASSINATE_COST;
                     lose_influence(state, 2);
                 } else {
-                    state.p2_coins -= ASSASSINATE_COST;
                     lose_influence(state, 1);
                 }
                 break;

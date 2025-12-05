@@ -21,11 +21,12 @@ class Influence(Enum):
 class Action(Enum):
     """Player actions - varies by variant."""
     INCOME = 0
-    FOREIGN_AID = 1
-    TAX = 2
-    STEAL = 3
-    ASSASSINATE = 4
-    COUP = 5
+    TAX = 1
+    STEAL = 2
+    ASSASSINATE = 3
+    COUP = 4
+    # Note: FOREIGN_AID was removed to match C++ simpleblocking enum values
+    # This ensures info set encoding compatibility
 
 
 class ChallengeResponse(Enum):
@@ -73,11 +74,12 @@ class GameState:
     pending_block_claim: Optional[Influence] = None  # What card the blocker claimed
     pending_block_action: Optional[Action] = None  # Needed for execute_action if block fails
 
-    # Action history (for info set calculation)
-    action_history: List[str] = field(default_factory=list)
-
-    # Claim history (pairs of player_id, claimed_influence)
-    claim_history: List[Tuple[int, Influence]] = field(default_factory=list)
+    # Claim history (circular buffer: stores last 3 claims per player)
+    # Value 7 means empty slot (matching C++ implementation)
+    p1_claim_history: List[int] = field(default_factory=lambda: [7, 7, 7])  # Last 3 claims by P1
+    p2_claim_history: List[int] = field(default_factory=lambda: [7, 7, 7])  # Last 3 claims by P2
+    p1_claim_count: int = 0  # Number of claims by P1 (0-3, wraps for circular buffer)
+    p2_claim_count: int = 0  # Number of claims by P2 (0-3, wraps for circular buffer)
 
     def __post_init__(self):
         """Validate state after initialization."""

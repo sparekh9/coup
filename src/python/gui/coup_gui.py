@@ -253,8 +253,8 @@ class CoupGUI:
             ttk.Label(self.actions_frame, text="(Bot is thinking...)", font=("Arial", 10, "italic")).pack()
             return
 
-        # Get legal actions
-        legal_actions = self.engine.get_legal_actions(self.state)
+        # Get legal actions (no pruning for human player)
+        legal_actions = self.engine.get_legal_actions(self.state, apply_pruning=False)
 
         # Create buttons
         for i, action in enumerate(legal_actions):
@@ -299,6 +299,9 @@ class CoupGUI:
         if not self.state or self.engine.is_game_over(self.state):
             return
 
+        # Log bot's information set (what the bot can see)
+        self._log_bot_info_set()
+
         # Get bot action
         action = self.bot.get_action(self.state)
 
@@ -311,6 +314,66 @@ class CoupGUI:
 
         # Update display
         self._update_display()
+
+    def _log_bot_info_set(self):
+        """Log detailed information set that the bot sees."""
+        # Get bot's perspective on the game state
+        bot_id = self.bot_player_id
+        human_id = self.human_player_id
+
+        # Bot's visible information
+        bot_influences = sorted([inf.name for inf in self.state.get_player_influences(bot_id)])
+        bot_coins = self.state.get_player_coins(bot_id)
+
+        # Opponent information (what bot knows about human)
+        human_inf_count = len(self.state.get_player_influences(human_id))
+        human_coins = self.state.get_player_coins(human_id)
+
+        # Revealed cards
+        revealed = sorted([card.name for card in self.state.revealed_cards])
+
+        # Pending state
+        pending_info = "None"
+        if self.state.has_pending_action:
+            pending_info = f"Action: {self.state.pending_action_type.name} by Player {self.state.pending_action_actor}"
+        elif self.state.has_pending_block_challenge:
+            pending_info = f"Block Challenge: {self.state.pending_block_claim.name} claim"
+
+        # Claim histories (circular buffers)
+        bot_claims = [self._influence_value_to_name(val) for val in
+                      (self.state.p2_claim_history if bot_id == 2 else self.state.p1_claim_history)]
+        human_claims = [self._influence_value_to_name(val) for val in
+                        (self.state.p1_claim_history if bot_id == 2 else self.state.p2_claim_history)]
+
+        bot_claim_count = self.state.p2_claim_count if bot_id == 2 else self.state.p1_claim_count
+        human_claim_count = self.state.p1_claim_count if bot_id == 2 else self.state.p2_claim_count
+
+        # Log the information set
+        self._log("--- Bot's Information Set ---")
+        self._log(f"  Bot's Cards: {bot_influences}")
+        self._log(f"  Bot's Coins: {bot_coins}")
+        self._log(f"  Opponent Influence Count: {human_inf_count}")
+        self._log(f"  Opponent Coins: {human_coins}")
+        self._log(f"  Revealed Cards: {revealed}")
+        self._log(f"  Pending State: {pending_info}")
+        self._log(f"  Bot's Claim History: {bot_claims} (count: {bot_claim_count})")
+        self._log(f"  Opponent Claim History: {human_claims} (count: {human_claim_count})")
+        self._log("-----------------------------")
+
+    def _influence_value_to_name(self, value: int) -> str:
+        """Convert influence value to name (7 = empty slot)."""
+        if value == 7:
+            return "EMPTY"
+        elif value == 0:
+            return "DUKE"
+        elif value == 1:
+            return "CAPTAIN"
+        elif value == 2:
+            return "ASSASSIN"
+        elif value == 3:
+            return "CONTESSA"
+        else:
+            return f"UNKNOWN({value})"
 
     def _log(self, message: str):
         """Add message to game log."""

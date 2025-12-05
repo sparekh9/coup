@@ -551,6 +551,15 @@ GameState<Rules> apply_action(GameState<Rules> state,
         }
         // Challengeable actions
         else if (Rules::is_challengeable(act)) {
+            // ASSASSINATE costs 3 coins upfront (even if blocked or challenged)
+            if (Rules::get_action_cost(act) == Rules::ASSASSINATE_COST) {
+                if (state.current_player == 1) {
+                    state.p1_coins -= Rules::ASSASSINATE_COST;
+                } else {
+                    state.p2_coins -= Rules::ASSASSINATE_COST;
+                }
+            }
+
             state.has_pending_action = true;
             state.pending_action_player = state.current_player;
             state.pending_action_type = act;
