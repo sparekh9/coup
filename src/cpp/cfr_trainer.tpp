@@ -394,9 +394,20 @@ void CFRTrainer<Rules>::apply_dcfr_discounts() {
     double neg_discount = t_beta / (t_beta + 1.0);
 
     // Discount REGRETS only (positive and negative separately)
+    // DCFR paper: R^{t+1} = R^t * discount_factor
     for (auto& [info_set_key, action_map] : regret_sum) {
         for (auto& [action, regret] : action_map) {
-            regret *= (regret > 0) ? pos_discount : neg_discount;
+            double discount = (regret > 0) ? pos_discount : neg_discount;
+            regret *= discount;
+
+            // Validate: ensure no NaN or infinite values
+            if (std::isnan(regret) || std::isinf(regret)) {
+                std::cerr << "Warning: Invalid regret value detected at info set 0x"
+                          << std::hex << info_set_key << std::dec
+                          << ", action " << game_action_to_string<Rules>(action)
+                          << ". Resetting to 0.\n";
+                regret = 0.0;
+            }
         }
     }
 
@@ -515,9 +526,20 @@ double CFRTrainer<Rules>::cfr(GameState<Rules>& state, int traversing_player,
 
         if (total_weight[info_set_key] > 1e-10) {
             for (const auto& action : actions) {
-                avg_strategy[info_set_key][action] =
-                    (avg_strategy[info_set_key][action] * old_weight +
-                     strategy[action] * new_weight) / total_weight[info_set_key];
+                double old_avg = avg_strategy[info_set_key][action];
+                double new_avg = (old_avg * old_weight + strategy[action] * new_weight) /
+                                 total_weight[info_set_key];
+
+                // Validate: ensure probability is in [0, 1]
+                if (std::isnan(new_avg) || new_avg < -1e-10 || new_avg > 1.0 + 1e-10) {
+                    std::cerr << "Warning: Invalid average strategy detected at info set 0x"
+                              << std::hex << info_set_key << std::dec
+                              << ", action " << game_action_to_string<Rules>(action)
+                              << " (value=" << new_avg << "). Resetting to uniform.\n";
+                    new_avg = 1.0 / actions.count;
+                }
+
+                avg_strategy[info_set_key][action] = new_avg;
             }
         }
     }
@@ -579,9 +601,20 @@ double CFRTrainer<Rules>::cfr_external_sampling(GameState<Rules>& state, int tra
 
         if (total_weight[info_set_key] > 1e-10) {
             for (const auto& action : actions) {
-                avg_strategy[info_set_key][action] =
-                    (avg_strategy[info_set_key][action] * old_weight +
-                     strategy[action] * new_weight) / total_weight[info_set_key];
+                double old_avg = avg_strategy[info_set_key][action];
+                double new_avg = (old_avg * old_weight + strategy[action] * new_weight) /
+                                 total_weight[info_set_key];
+
+                // Validate: ensure probability is in [0, 1]
+                if (std::isnan(new_avg) || new_avg < -1e-10 || new_avg > 1.0 + 1e-10) {
+                    std::cerr << "Warning: Invalid average strategy detected at info set 0x"
+                              << std::hex << info_set_key << std::dec
+                              << ", action " << game_action_to_string<Rules>(action)
+                              << " (value=" << new_avg << "). Resetting to uniform.\n";
+                    new_avg = 1.0 / actions.count;
+                }
+
+                avg_strategy[info_set_key][action] = new_avg;
             }
         }
 
@@ -632,13 +665,35 @@ void CFRTrainer<Rules>::save_strategy(const std::string& filename) const {
 
     file << "{\n";
     bool first_infoset = true;
+    int skipped_count = 0;
+    int saved_count = 0;
 
     for (const auto& [info_set_key, action_map] : avg_strategy) {
+        // Check for NaN values
         bool has_nan = false;
         for (const auto& [action, prob] : action_map) {
             if (std::isnan(prob)) { has_nan = true; break; }
         }
-        if (has_nan) continue;
+        if (has_nan) {
+            skipped_count++;
+            std::cerr << "Warning: Skipping info set 0x" << std::hex << info_set_key << std::dec
+                      << " due to NaN probability\n";
+            continue;
+        }
+
+        // Normalize probabilities (in case of floating-point errors)
+        double sum = 0.0;
+        for (const auto& [action, prob] : action_map) {
+            sum += prob;
+        }
+
+        // Skip if probabilities sum to near-zero (invalid strategy)
+        if (sum < 1e-10) {
+            skipped_count++;
+            std::cerr << "Warning: Skipping info set 0x" << std::hex << info_set_key << std::dec
+                      << " due to zero probability sum\n";
+            continue;
+        }
 
         if (!first_infoset) file << ",\n";
         first_infoset = false;
@@ -649,13 +704,49 @@ void CFRTrainer<Rules>::save_strategy(const std::string& filename) const {
         for (const auto& [action, prob] : action_map) {
             if (!first_action) file << ", ";
             first_action = false;
-            file << "\"" << game_action_to_string<Rules>(action) << "\": " << prob;
+
+            // Normalize and save with high precision
+            double normalized_prob = prob / sum;
+            file << "\"" << game_action_to_string<Rules>(action) << "\": "
+                 << std::fixed << std::setprecision(10) << normalized_prob;
         }
         file << "}";
+        saved_count++;
     }
 
     file << "\n}\n";
-    std::cout << "Saved " << avg_strategy.size() << " info sets to " << filename << "\n";
+
+    std::cout << "\n=== Strategy Save Summary ===\n";
+    std::cout << "Saved " << saved_count << " info sets to " << filename << "\n";
+    if (skipped_count > 0) {
+        std::cout << "Skipped " << skipped_count << " invalid info sets\n";
+    }
+
+    // Sample a few strategies to verify they look reasonable
+    std::cout << "\nSample strategies (first 5):\n";
+    int sample_count = 0;
+    for (const auto& [info_set_key, action_map] : avg_strategy) {
+        if (sample_count >= 5) break;
+
+        // Check if valid
+        double sum = 0.0;
+        bool has_nan = false;
+        for (const auto& [action, prob] : action_map) {
+            if (std::isnan(prob)) { has_nan = true; break; }
+            sum += prob;
+        }
+        if (has_nan || sum < 1e-10) continue;
+
+        std::cout << "  Info Set 0x" << std::hex << info_set_key << std::dec << ": ";
+        for (const auto& [action, prob] : action_map) {
+            double normalized_prob = prob / sum;
+            std::cout << game_action_to_string<Rules>(action) << "="
+                      << std::fixed << std::setprecision(3) << (normalized_prob * 100) << "% ";
+        }
+        std::cout << "\n";
+        sample_count++;
+    }
+    std::cout << "============================\n\n";
 }
 
 template<typename Rules>
