@@ -9,6 +9,7 @@ import json
 from typing import Dict, List, Tuple
 from game_engine import GameEngine
 from bot_player import BotPlayer
+from tqdm import tqdm
 
 
 class BotVsBotSimulator:
@@ -93,9 +94,9 @@ class BotVsBotSimulator:
 
         print(f"Simulating {num_games} games of {self.variant}...")
 
-        for i in range(num_games):
-            if verbose or (i + 1) % 10 == 0:
-                print(f"Game {i + 1}/{num_games}")
+        for i in tqdm(range(num_games)):
+            # if verbose or (i + 1) % 10 == 0:
+            #     print(f"Game {i + 1}/{num_games}")
 
             winner = self.simulate_game(verbose=verbose)
 

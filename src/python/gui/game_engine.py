@@ -175,9 +175,9 @@ class GameEngine:
             # BLOCK - claim to block the action
             state.has_pending_action = False
 
-            if not self.rules.is_blockable(action):
-                # Error: tried to block unblockable action
-                # Just execute the action anyway
+            if not self.rules.SUPPORTS_BLOCKING or not self.rules.is_blockable(action):
+                # Error: tried to block in a non-blocking variant or unblockable action
+                # Treat as PASS and execute the action anyway
                 self._execute_action(state, actor_id, action)
                 state.current_player = 3 - actor_id
             else:
@@ -329,14 +329,15 @@ class GameEngine:
                     return [ChallengeResponse.BLOCK]
 
             # Return all legal options (either pruning didn't apply, or pruning is disabled)
-            if is_blockable and not is_challengeable:
+            # Only include BLOCK if the variant supports blocking
+            if is_blockable and self.rules.SUPPORTS_BLOCKING and not is_challengeable:
                 # Blockable but not challengeable (unused in current variants)
                 return [ChallengeResponse.PASS, ChallengeResponse.BLOCK]
-            elif is_blockable and is_challengeable:
-                # Both blockable and challengeable (e.g., STEAL, ASSASSINATE)
+            elif is_blockable and self.rules.SUPPORTS_BLOCKING and is_challengeable:
+                # Both blockable and challengeable (e.g., STEAL, ASSASSINATE in simpleblocking)
                 return [ChallengeResponse.PASS, ChallengeResponse.CHALLENGE, ChallengeResponse.BLOCK]
             else:
-                # Only challengeable (e.g., TAX)
+                # Only challengeable, or blocking not supported in this variant
                 return [ChallengeResponse.PASS, ChallengeResponse.CHALLENGE]
 
         else:

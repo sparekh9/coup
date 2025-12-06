@@ -55,23 +55,23 @@ class BotPlayer:
         info_set_key = self._compute_info_set_key(state)
         info_set_hex = f"0x{info_set_key:x}"
 
-        print(f"\n=== Player {self.player_id} Decision ===")
-        print(f"Info Set: {info_set_hex}")
+        # print(f"\n=== Player {self.player_id} Decision ===")
+        # print(f"Info Set: {info_set_hex}")
 
         # Look up strategy
         if info_set_hex not in self.strategy:
             # If info set not in strategy, use uniform random
-            print(f"WARNING: Info set not found in strategy, using uniform random")
+            # print(f"WARNING: Info set not found in strategy, using uniform random")
             action = self._get_uniform_action(state)
-            print(f"Chosen Action: {action.name}")
+            # print(f"Chosen Action: {action.name}")
             return action
 
         action_probs = self.strategy[info_set_hex]
 
         # Print strategy
-        print("Strategy:")
-        for action_str, prob in sorted(action_probs.items(), key=lambda x: -x[1]):
-            print(f"  {action_str}: {prob:.4f} ({prob*100:.1f}%)")
+        # print("Strategy:")
+        # for action_str, prob in sorted(action_probs.items(), key=lambda x: -x[1]):
+        #     print(f"  {action_str}: {prob:.4f} ({prob*100:.1f}%)")
 
         # Sample action according to probabilities
         actions = list(action_probs.keys())
@@ -88,15 +88,22 @@ class BotPlayer:
 
         # Convert string to appropriate enum
         chosen_action = self._parse_action(chosen_action_str)
-        print(f"Chosen Action: {chosen_action.name}")
+        # print(f"Chosen Action: {chosen_action.name}")
 
         return chosen_action
 
     def _get_uniform_action(self, state: GameState) -> Union[Action, ChallengeResponse]:
         """Get uniform random action when info set not found."""
-        if state.has_pending_block_challenge or state.has_pending_action:
-            # Could be PASS, CHALLENGE, or BLOCK depending on what's legal
-            return random.choice([ChallengeResponse.PASS, ChallengeResponse.CHALLENGE, ChallengeResponse.BLOCK])
+        if state.has_pending_block_challenge:
+            # Only PASS or CHALLENGE for block challenges
+            return random.choice([ChallengeResponse.PASS, ChallengeResponse.CHALLENGE])
+        elif state.has_pending_action:
+            # For pending actions, check if blocking is supported
+            is_blockable = self.rules.is_blockable(state.pending_action_type)
+            if is_blockable:
+                return random.choice([ChallengeResponse.PASS, ChallengeResponse.CHALLENGE, ChallengeResponse.BLOCK])
+            else:
+                return random.choice([ChallengeResponse.PASS, ChallengeResponse.CHALLENGE])
         else:
             legal_actions = self.rules.get_legal_actions(state)
             return random.choice(legal_actions)

@@ -1,5 +1,4 @@
 // Template implementations for GameState
-// This file is included by game_state.h - DO NOT include directly
 
 #include <algorithm>
 #include <sstream>
@@ -76,12 +75,10 @@ template<typename Rules>
 float GameState<Rules>::get_utility(int player) const {
     // True terminal: Someone has no influences
     if (p1_influence_count == 0) {
-        float util = player == 1 ? -1.0f : 1.0f;
-        return apply_quadratic_decay(util, depth);
+        return player == 1 ? -1.0f : 1.0f;
     }
     if (p2_influence_count == 0) {
-        float util = player == 1 ? 1.0f : -1.0f;
-        return apply_quadratic_decay(util, depth);
+        return player == 1 ? 1.0f : -1.0f;
     }
 
     // Check if early termination applies (overwhelming advantage)
@@ -93,34 +90,28 @@ float GameState<Rules>::get_utility(int player) const {
 
             // Overwhelming score advantage → full utility
             if (score_diff >= EARLY_TERM_SCORE_THRESHOLD) {
-                float util;
                 if (p1_score > p2_score) {
-                    util = player == 1 ? 1.0f : -1.0f;  // P1 wins
+                    return player == 1 ? 1.0f : -1.0f;  // P1 wins
                 } else {
-                    util = player == 1 ? -1.0f : 1.0f;  // P2 wins
+                    return player == 1 ? -1.0f : 1.0f;  // P2 wins
                 }
-                return apply_quadratic_decay(util, depth);
             }
 
             // Early termination heuristics (only for 2-influence variants)
             if constexpr (Rules::MAX_INFLUENCES_PER_PLAYER == 2) {
                 if (p1_influence_count == 2 && p2_influence_count == 1 && p1_coins >= Rules::COUP_COST) {
-                    float util = player == 1 ? 1.0f : -1.0f;  // P1 wins
-                    return apply_quadratic_decay(util, depth);
+                    return player == 1 ? 1.0f : -1.0f;  // P1 wins
                 }
                 if (p2_influence_count == 2 && p1_influence_count == 1 && p2_coins >= Rules::COUP_COST) {
-                    float util = player == 1 ? -1.0f : 1.0f;  // P2 wins
-                    return apply_quadratic_decay(util, depth);
+                    return player == 1 ? -1.0f : 1.0f;  // P2 wins
                 }
 
                 if (p1_influence_count == 1 && p2_influence_count == 1) {
                     if (p1_coins >= Rules::MUST_COUP_THRESHOLD && p2_coins < Rules::COUP_COST) {
-                        float util = player == 1 ? 1.0f : -1.0f;
-                        return apply_quadratic_decay(util, depth);
+                        return player == 1 ? 1.0f : -1.0f;
                     }
                     if (p2_coins >= Rules::MUST_COUP_THRESHOLD && p1_coins < Rules::COUP_COST) {
-                        float util = player == 1 ? -1.0f : 1.0f;
-                        return apply_quadratic_decay(util, depth);
+                        return player == 1 ? -1.0f : 1.0f;
                     }
                 }
             }
@@ -129,11 +120,10 @@ float GameState<Rules>::get_utility(int player) const {
 
     // Depth limit reached → partial utility based on score
     if (depth >= DEPTH_LIMIT) {
-        int p1_score = p1_influence_count * 20 + p1_coins;
-        int p2_score = p2_influence_count * 20 + p2_coins;
-        float result = (p1_score - p2_score) / 50.0f;
-        float util = player == 1 ? result : -result;
-        return apply_quadratic_decay(util, depth);
+        int p1_score = p1_influence_count * 10 + p1_coins;
+        int p2_score = p2_influence_count * 10 + p2_coins;
+        float result = (p1_score - p2_score) / 30.0f;
+        return player == 1 ? result : -result;
     }
 
     return 0.0f;
@@ -198,8 +188,7 @@ uint64_t GameState<Rules>::get_info_set_key(int player) const {
         }
     }
 
-    // Pack coins with abstraction (ALWAYS 4 bits for both players)
-    // Store exact coins (0-10) or abstracted bucket value (0-3)
+    // Pack coins (4 bits for both players, no abstraction - exact coins)
     uint8_t my_coins_hash = abstract_my_coins(my_coins);
     uint8_t opp_coins_hash = abstract_opp_coins(opp_coins);
     hash = (hash << 4) | static_cast<uint64_t>(my_coins_hash);

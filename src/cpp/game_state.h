@@ -131,16 +131,9 @@ void execute_action(GameState<Rules>& state, int player_id,
 
 // Configuration: Choose abstraction strategy at compile time
 
-constexpr int DEPTH_LIMIT = 24;
+constexpr int DEPTH_LIMIT = 26;
 
-enum class AbstractionMode {
-    NONE,          // No abstraction - use exact coins (7hr runtime)
-    ASYMMETRIC,    // RECOMMENDED: Exact my coins, abstract opponent (best balance)
-    SYMMETRIC,     // Abstract both players (most aggressive, may hurt quality)
-    FINE_GRAINED   // 5 buckets instead of 4 (slightly less reduction)
-};
-
-constexpr AbstractionMode ABSTRACTION_MODE = AbstractionMode::NONE;
+// Coin abstraction: Using exact coins (no abstraction)
 
 // ============================================================================
 // Smart Early Termination Configuration
@@ -157,101 +150,18 @@ constexpr int EARLY_TERM_SCORE_THRESHOLD = 14;  // Score difference required for
 constexpr int INFLUENCE_VALUE = 10;  // Each influence worth 10 points
 constexpr int COIN_VALUE = 1;        // Each coin worth 1 point
 
-// ============================================================================
-// Utility Decay Configuration
-// ============================================================================
-
-// Global runtime configuration for utility decay
-// These can be modified at runtime before training
-struct UtilityDecayConfig {
-    bool enabled = false;           // Enable/disable decay
-    double alpha = 0.6;             // Decay strength (0-1)
-
-    static UtilityDecayConfig& instance() {
-        static UtilityDecayConfig config;
-        return config;
-    }
-};
-
-// Quadratic decay formula: utility × (1 - (α × depth / DEPTH_LIMIT)²)
-inline double apply_quadratic_decay(double base_utility, int depth) {
-    auto& config = UtilityDecayConfig::instance();
-    if (!config.enabled) {
-        return base_utility;
-    }
-    double normalized_depth = static_cast<double>(depth) / DEPTH_LIMIT;
-    double decay_factor = 1.0 - std::pow(config.alpha * normalized_depth, 2.0);
-    return base_utility * decay_factor;
-}
-
 // Helper function to calculate game score (for early termination)
 inline int calculate_score(uint8_t influence_count, uint8_t coins) {
     return influence_count * INFLUENCE_VALUE + coins * COIN_VALUE;
 }
 
-// Inline abstraction functions - ZERO overhead!
-// Uses lookup tables instead of branches for maximum speed
-
-inline uint8_t abstract_coins_symmetric(uint8_t coins) {
-    // 4 buckets based on available actions
-    static constexpr uint8_t TABLE[32] = {
-        0, 0, 0,                    // 0-2: Can't assassinate
-        1, 1, 1, 1,                 // 3-6: Can assassinate, can't coup
-        2, 2, 2,                    // 7-9: Can coup (optional)
-        3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,  // 10-21: Must coup
-        3, 3, 3, 3, 3, 3, 3, 3, 3, 3         // 22-31: Must coup
-    };
-    return TABLE[coins];
-}
-
-inline uint8_t abstract_coins_opponent(uint8_t coins) {
-    // Coarser abstraction for opponent (3 buckets)
-    // We care less about opponent's exact coins
-    static constexpr uint8_t TABLE[32] = {
-        0, 0, 0, 0, 0, 0, 0,        // 0-6: Can't coup me
-        1, 1, 1,                    // 7-9: Can coup me (optional)
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,  // 10-21: Must coup me
-        2, 2, 2, 2, 2, 2, 2, 2, 2, 2         // 22-31: Must coup me
-    };
-    return TABLE[coins];
-}
-
-inline uint8_t abstract_coins_fine(uint8_t coins) {
-    // 5 buckets for finer-grained abstraction
-    static constexpr uint8_t TABLE[32] = {
-        0, 0, 0,                    // 0-2: Can't assassinate
-        1, 1, 1, 1,                 // 3-6: Can assassinate
-        2, 2, 2,                    // 7-9: Can coup (optional)
-        3, 3, 3, 3, 3,              // 10-14: Must coup (low)
-        4, 4, 4, 4, 4, 4, 4, 4, 4, 4,  // 15-24: Must coup (high)
-        4, 4, 4, 4, 4, 4, 4         // 25-31: Must coup (high)
-    };
-    return TABLE[coins];
-}
-
-// Wrapper functions that dispatch based on compile-time mode
+// Coin abstraction functions - just return exact coins
 inline uint8_t abstract_my_coins(uint8_t coins) {
-    if constexpr (ABSTRACTION_MODE == AbstractionMode::NONE) {
-        return coins;  // No abstraction
-    } else if constexpr (ABSTRACTION_MODE == AbstractionMode::ASYMMETRIC) {
-        return coins;  // Keep my coins exact!
-    } else if constexpr (ABSTRACTION_MODE == AbstractionMode::SYMMETRIC) {
-        return abstract_coins_symmetric(coins);
-    } else {  // FINE_GRAINED
-        return abstract_coins_fine(coins);
-    }
+    return coins;  // No abstraction - use exact coins
 }
 
 inline uint8_t abstract_opp_coins(uint8_t coins) {
-    if constexpr (ABSTRACTION_MODE == AbstractionMode::NONE) {
-        return coins;  // No abstraction
-    } else if constexpr (ABSTRACTION_MODE == AbstractionMode::ASYMMETRIC) {
-        return abstract_coins_opponent(coins);  // Coarse abstraction for opponent
-    } else if constexpr (ABSTRACTION_MODE == AbstractionMode::SYMMETRIC) {
-        return abstract_coins_symmetric(coins);
-    } else {  // FINE_GRAINED
-        return abstract_coins_fine(coins);
-    }
+    return coins;  // No abstraction - use exact coins
 }
 
 // Include template implementations

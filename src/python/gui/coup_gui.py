@@ -30,8 +30,12 @@ class CoupGUI:
         self.state: Optional[GameState] = None
         self.bot: Optional[BotPlayer] = None
         self.variant: Optional[str] = None
-        self.human_player_id = 1  # Human is always player 1
+        self.strategy_file: Optional[str] = None
+        self.human_player_id = 1  # Will alternate between 1 and 2
         self.bot_player_id = 2
+
+        # UI settings
+        self.show_bot_info = tk.BooleanVar(value=True)  # Toggle for bot info set display
 
         # Game log
         self.game_log = []
@@ -124,6 +128,9 @@ class CoupGUI:
         try:
             # Initialize game
             self.variant = variant
+            self.strategy_file = strategy_file
+            self.human_player_id = 1  # Reset to player 1 for first game
+            self.bot_player_id = 2
             self.engine = GameEngine(variant)
             self.state = self.engine.create_initial_state()
             self.bot = BotPlayer(strategy_file, variant, self.bot_player_id)
@@ -134,8 +141,9 @@ class CoupGUI:
 
             # Log game start
             self._log(f"=== Starting {variant.upper()} Coup Game ===")
-            self._log(f"You are Player 1, Bot is Player 2")
-            self._log(f"Your cards: {[inf.name for inf in self.state.p1_influences]}")
+            self._log(f"You are Player {self.human_player_id}, Bot is Player {self.bot_player_id}")
+            human_influences = self.state.p1_influences if self.human_player_id == 1 else self.state.p2_influences
+            self._log(f"Your cards: {[inf.name for inf in human_influences]}")
             self._log("")
 
             # Update display
@@ -145,6 +153,80 @@ class CoupGUI:
             messagebox.showerror("Error", f"Failed to start game: {e}")
             import traceback
             traceback.print_exc()
+
+    def _restart_game(self):
+        """Restart game with same settings but swapped players."""
+        if not self.variant or not self.strategy_file:
+            messagebox.showerror("Error", "No active game to restart")
+            return
+
+        try:
+            # Swap player IDs
+            self.human_player_id, self.bot_player_id = self.bot_player_id, self.human_player_id
+
+            # Initialize new game
+            self.engine = GameEngine(self.variant)
+            self.state = self.engine.create_initial_state()
+            self.bot = BotPlayer(self.strategy_file, self.variant, self.bot_player_id)
+            self.game_log = []
+
+            # Clear and recreate game screen
+            self._show_game_screen()
+
+            # Log game start
+            self._log(f"=== Starting {self.variant.upper()} Coup Game ===")
+            self._log(f"You are Player {self.human_player_id}, Bot is Player {self.bot_player_id}")
+            human_influences = self.state.p1_influences if self.human_player_id == 1 else self.state.p2_influences
+            self._log(f"Your cards: {[inf.name for inf in human_influences]}")
+            self._log("")
+
+            # Update display
+            self._update_display()
+
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to restart game: {e}")
+            import traceback
+            traceback.print_exc()
+
+    def _show_game_over_dialog(self, message: str):
+        """Show game over dialog with options to play again or change settings."""
+        # Create custom dialog
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Game Over")
+        dialog.geometry("400x200")
+        dialog.transient(self.root)
+        dialog.grab_set()
+
+        # Center the dialog
+        dialog.update_idletasks()
+        x = (dialog.winfo_screenwidth() // 2) - (dialog.winfo_width() // 2)
+        y = (dialog.winfo_screenheight() // 2) - (dialog.winfo_height() // 2)
+        dialog.geometry(f"+{x}+{y}")
+
+        # Message
+        msg_frame = ttk.Frame(dialog, padding="20")
+        msg_frame.pack(fill=tk.BOTH, expand=True)
+
+        ttk.Label(msg_frame, text=message, font=("Arial", 14, "bold")).pack(pady=(10, 20))
+        ttk.Label(msg_frame, text="What would you like to do?", font=("Arial", 11)).pack(pady=(0, 20))
+
+        # Buttons
+        button_frame = ttk.Frame(msg_frame)
+        button_frame.pack()
+
+        def new_game():
+            dialog.destroy()
+            self._restart_game()
+
+        def change_settings():
+            dialog.destroy()
+            self._show_setup_screen()
+
+        ttk.Button(button_frame, text="New Game (Swap Players)", command=new_game, width=25).pack(side=tk.LEFT, padx=5)
+        ttk.Button(button_frame, text="Change Settings", command=change_settings, width=25).pack(side=tk.LEFT, padx=5)
+
+        # Make dialog modal
+        self.root.wait_window(dialog)
 
     def _show_game_screen(self):
         """Show main game screen."""
@@ -159,7 +241,7 @@ class CoupGUI:
         self.content_frame.rowconfigure(0, weight=1)
 
         # Top: Bot info
-        bot_frame = ttk.LabelFrame(game_frame, text="Bot (Player 2)", padding="10")
+        bot_frame = ttk.LabelFrame(game_frame, text=f"Bot (Player {self.bot_player_id})", padding="10")
         bot_frame.grid(row=0, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=5)
         self.bot_info_label = ttk.Label(bot_frame, text="", font=("Arial", 11))
         self.bot_info_label.pack()
@@ -171,7 +253,7 @@ class CoupGUI:
         self.state_label.pack()
 
         # Player info
-        player_frame = ttk.LabelFrame(game_frame, text="You (Player 1)", padding="10")
+        player_frame = ttk.LabelFrame(game_frame, text=f"You (Player {self.human_player_id})", padding="10")
         player_frame.grid(row=2, column=0, columnspan=2, sticky=(tk.W, tk.E), pady=5)
         self.player_info_label = ttk.Label(player_frame, text="", font=("Arial", 11))
         self.player_info_label.pack()
@@ -186,12 +268,26 @@ class CoupGUI:
         log_frame = ttk.LabelFrame(game_frame, text="Game Log", padding="5")
         log_frame.grid(row=3, column=1, sticky=(tk.W, tk.E, tk.N, tk.S), pady=5, padx=(5, 0))
 
+        # Toggle for bot info
+        log_toggle_frame = ttk.Frame(log_frame)
+        log_toggle_frame.pack(fill=tk.X, pady=(0, 5))
+        ttk.Checkbutton(
+            log_toggle_frame,
+            text="Show Bot's Information Set",
+            variable=self.show_bot_info
+        ).pack(anchor=tk.W)
+
         # Scrollable text widget
         log_scroll = ttk.Scrollbar(log_frame)
         log_scroll.pack(side=tk.RIGHT, fill=tk.Y)
         self.log_text = tk.Text(log_frame, width=40, height=20, yscrollcommand=log_scroll.set, state=tk.DISABLED)
         self.log_text.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
         log_scroll.config(command=self.log_text.yview)
+
+        # New Game button
+        button_frame = ttk.Frame(game_frame)
+        button_frame.grid(row=4, column=0, columnspan=2, pady=10)
+        ttk.Button(button_frame, text="New Game (Swap Players)", command=self._restart_game).pack()
 
         # Configure grid weights
         game_frame.columnconfigure(0, weight=1)
@@ -203,14 +299,22 @@ class CoupGUI:
         if not self.state:
             return
 
-        # Update bot info
-        bot_coins = self.state.p2_coins
-        bot_influences = len(self.state.p2_influences)
+        # Update bot info based on bot_player_id
+        if self.bot_player_id == 1:
+            bot_coins = self.state.p1_coins
+            bot_influences = len(self.state.p1_influences)
+        else:
+            bot_coins = self.state.p2_coins
+            bot_influences = len(self.state.p2_influences)
         self.bot_info_label.config(text=f"Coins: {bot_coins} | Influences: {bot_influences}")
 
-        # Update player info
-        player_coins = self.state.p1_coins
-        player_influences = [inf.name for inf in self.state.p1_influences]
+        # Update player info based on human_player_id
+        if self.human_player_id == 1:
+            player_coins = self.state.p1_coins
+            player_influences = [inf.name for inf in self.state.p1_influences]
+        else:
+            player_coins = self.state.p2_coins
+            player_influences = [inf.name for inf in self.state.p2_influences]
         self.player_info_label.config(text=f"Coins: {player_coins} | Your Cards: {player_influences}")
 
         # Update state info
@@ -231,11 +335,11 @@ class CoupGUI:
             winner = self.engine.get_winner(self.state)
             if winner == self.human_player_id:
                 self._log("\n=== YOU WIN! ===")
-                messagebox.showinfo("Game Over", "Congratulations! You won!")
+                win_message = "Congratulations! You won!"
             else:
                 self._log("\n=== BOT WINS! ===")
-                messagebox.showinfo("Game Over", "Bot wins! Better luck next time.")
-            self._show_setup_screen()
+                win_message = "Bot wins! Better luck next time."
+            self._show_game_over_dialog(win_message)
             return
 
         # If bot's turn, make bot move
@@ -299,8 +403,9 @@ class CoupGUI:
         if not self.state or self.engine.is_game_over(self.state):
             return
 
-        # Log bot's information set (what the bot can see)
-        self._log_bot_info_set()
+        # Log bot's information set (what the bot can see) if enabled
+        if self.show_bot_info.get():
+            self._log_bot_info_set()
 
         # Get bot action
         action = self.bot.get_action(self.state)

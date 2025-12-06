@@ -11,8 +11,6 @@ void print_usage(const char* program_name) {
     std::cout << "  --alpha N             DCFR alpha parameter (default: 1.5)\n";
     std::cout << "  --beta N              DCFR beta parameter (default: 0.0)\n";
     std::cout << "  --gamma N             DCFR gamma parameter (default: 2.0)\n";
-    std::cout << "  --decay               Enable quadratic utility decay (encourages shorter games)\n";
-    std::cout << "  --decay-alpha N       Decay strength parameter (default: 0.6, range: 0.0-1.0)\n";
     std::cout << "  --exploit-interval N  Number of iterations between tracking exploitability.\n";
     std::cout << "  -o, --output FILE     Output filename (default: {variant}_strategy_{depth}_{iterations}.json)\n";
     std::cout << "  -h, --help            Show this help message\n\n";
@@ -21,12 +19,9 @@ void print_usage(const char* program_name) {
     std::cout << "  simple           - Simple Coup (1 influence, with Assassinate)\n";
     std::cout << "  simpleblocking   - Simple Coup with Blocking (1 influence, 4 card types, blocking)\n";
     std::cout << "  full             - Full Coup (2 influences, 5 card types)\n\n";
-    std::cout << "Utility Decay:\n";
-    std::cout << "  Quadratic decay formula: utility × (1 - (α × depth/DEPTH_LIMIT)²)\n";
-    std::cout << "  Higher alpha = more aggressive penalty for long games\n\n";
     std::cout << "Examples:\n";
     std::cout << "  " << program_name << " --variant base --iterations 50000 --depth 18\n";
-    std::cout << "  " << program_name << " --variant simple -i 10000 -d 20 --decay --decay-alpha 0.7\n";
+    std::cout << "  " << program_name << " --variant simple -i 10000 -d 20\n";
 }
 
 template<typename Rules>
@@ -45,8 +40,6 @@ int main(int argc, char* argv[]) {
     int iterations = 10000;
     int max_depth = 20;
     double alpha = 1.5, beta = 0.0, gamma = 2.0;
-    bool enable_decay = false;
-    double decay_alpha = 0.6;
     int exploit_interval = 100;
     std::string output_file = "";
 
@@ -89,21 +82,6 @@ int main(int argc, char* argv[]) {
             if (i + 1 < argc) gamma = std::stod(argv[++i]);
             else { std::cerr << "Error: " << arg << " requires an argument\n"; return 1; }
         }
-        else if (arg == "--decay") {
-            enable_decay = true;
-        }
-        else if (arg == "--decay-alpha") {
-            if (i + 1 < argc) {
-                decay_alpha = std::stod(argv[++i]);
-                if (decay_alpha < 0.0 || decay_alpha > 1.0) {
-                    std::cerr << "Error: --decay-alpha must be in range [0.0, 1.0]\n";
-                    return 1;
-                }
-            } else {
-                std::cerr << "Error: " << arg << " requires an argument\n";
-                return 1;
-            }
-        }
         else if (arg == "--exploit-interval") {
             if (i + 1 < argc) exploit_interval = std::stoi(argv[++i]);
             else { std::cerr << "Error: " << arg << " requires an argument\n"; return 1; }
@@ -122,18 +100,8 @@ int main(int argc, char* argv[]) {
         output_file = variant + "_strategy_" + std::to_string(max_depth) + "_" + std::to_string(iterations);
     }
 
-    // Configure utility decay
-    auto& decay_config = UtilityDecayConfig::instance();
-    decay_config.enabled = enable_decay;
-    decay_config.alpha = decay_alpha;
-
     std::cout << "Variant: " << variant << " | Depth: " << max_depth << " | Iterations: " << iterations << "\n";
     std::cout << "DCFR Params: alpha=" << alpha << ", beta=" << beta << ", gamma=" << gamma << "\n";
-    if (enable_decay) {
-        std::cout << "Utility Decay: ENABLED (alpha=" << decay_alpha << ")\n";
-    } else {
-        std::cout << "Utility Decay: DISABLED\n";
-    }
     std::cout << "Output: " << output_file << "\n\n";
 
     if (variant == "base") {
